@@ -1,0 +1,45 @@
+
+body{
+  margin-top: 450px;
+  background-color: #38453a;
+}
+
+h2{
+  text-align: center;
+  color:#fff;
+  letter-spacing: 2px;
+  top: 50%;
+}
+
+/* carousel  */
+.carousel-control-prev, .carousel-control-next {
+  top: 50%; 
+  transform: translateY(-70%);
+  position: absolute;
+}
+
+.carousel-control-prev {
+  left: 100px; 
+}
+
+.carousel-control-next {
+  right: 100px;
+}
+
+.carousel-inner img {
+  height: 500px;
+  position: relative;
+}
+
+ .texte{
+  color:#fff;
+} 
+
+.texte P{
+  width: 60%;
+  font-family: "Roboto Serif" ;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
