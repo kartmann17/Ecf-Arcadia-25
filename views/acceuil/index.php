@@ -1,3 +1,12 @@
+<?php
+
+// use App\Controllers\AvisController;
+
+// $avisController = new AvisController();
+
+// $Avis = $avisController->afficheAvis();
+// var_dump($Avis)
+?>
 
 <link rel="stylesheet" href="../Asset/css/mainaccueil.css">
 <video id="videoAC" src="../Asset/Images/Vidéos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
@@ -38,7 +47,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="../asset/Images/Fellins/lion_paysage.jpg" class="img-fluid" alt="lion"></a>
+      <a href=""><img src="../asset/Images/lion_paysage.jpg" class="img-fluid" alt="lion"></a>
     </div>
     <!-- 2ème block image -->
     <div class="buttonA">
@@ -47,7 +56,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="../asset/Images/Volatilles/perroquet paysage 2.jpg" class="img-fluid" alt="perroquet"></a>
+      <a href=""><img src="../asset/Images/perroquet paysage 2.jpg" class="img-fluid" alt="perroquet"></a>
     </div>
 
     <!-- 3ème block image -->
@@ -57,74 +66,61 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="../asset/Images/reptiles/croco paysge .jpg" class="img-fluid" alt="croco"></a>
+      <a href=""><img src="../asset/Images/croco paysge .jpg" class="img-fluid" alt="croco"></a>
     </div>
   </div>
 </section>
 <!-- fin section block univers-->
 
 <!-- Début section 3 horaires -->
-<section class="horaires">
-  <h2>Nos Horaires</h2>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        Lundi
-      </div>
-      <div class="col">
-        08h30 - 18h30
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        Mardi
-      </div>
-      <div class="col">
-        08h30 - 18h30
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        Mercredi
-      </div>
-      <div class="col">
-        08h30 - 18h30
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        Jeudi
-      </div>
-      <div class="col">
-        08h30 - 18h30
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        Vendredi
-      </div>
-      <div class="col">
-        08h30 - 18h30
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        Samedi
-      </div>
-      <div class="col">
-        08h30 - 18h30
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        Dimanche
-      </div>
-      <div class="col">
-        Fermé
-      </div>
-    </div>
+<section class="container-fluid horaires py-5">
+  <h2 class="text-center mb-5">Nos Horaires</h2>
+  <div class="table-responsive">
+    <table class=" mx-auto text-center w-75"> 
+      <tbody>
+        <tr>
+          <td><h4>Lundi</h4></td>
+          <td><h4>08h30</h4></td>
+          <td><h4>-</h4></td>
+          <td><h4>18h30</h4></td>
+        </tr>
+        <tr>
+          <td><h4>Mardi</h4></td>
+          <td><h4>08h30</h4></td>
+          <td><h4>-</h4></td>
+          <td><h4>18h30</h4></td>
+        </tr>
+        <tr>
+          <td><h4>Mercredi</h4></td>
+          <td><h4>08h30</h4></td>
+          <td><h4>-</h4></td>
+          <td><h4>18h30</h4></td>
+        </tr>
+        <tr>
+          <td><h4>Jeudi</h4></td>
+          <td><h4>08h30</h4></td>
+          <td><h4>-</h4></td>
+          <td><h4>18h30</h4></td>
+        </tr>
+        <tr>
+          <td><h4>Vendredi</h4></td>
+          <td><h4>08h30</h4></td>
+          <td><h4>-</h4></td>
+          <td><h4>18h30</h4></td>
+        </tr>
+        <tr>
+          <td><h4>Samedi</h4></td>
+          <td><h4>08h30</h4></td>
+          <td><h4>-</h4></td>
+          <td><h4>20h00</h4></td>
+        </tr>
+        <tr>
+          <td><h4>Dimanche</h4></td>
+          <td colspan="3"><h4>Fermé</h4></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
 </section>
 <!-- fin secion 3 horaires -->
 
@@ -135,32 +131,45 @@
       <h3>Avis</h3>
     </button>
 </div>
-<div class="grid d-flex column-gap-4 justify-content-center flex-wrap">
-    <?php if (isset($Avis) && !empty($Avis)) : ?>
-        <?php foreach ($Avis as $avis) : ?>
-            <div class="g-col-4">
-                <div class="card text-bg-light mb-3" style="max-width: 20rem; height: 22rem;">
-                    <div class="grid card-header d-flex justify-content-center column-gap-4">
-                        <?php
-                        for ($i = 1; $i <= 5; $i++) {
-                            if ($i <= $avis['etoiles']) {
-                                echo '<span class="star filled">&#9733;</span>';
-                            } else {
-                                echo '<span class="star">&#9734;</span>';
-                            }
+
+<!-- caroussel avis-->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <?php if (isset($Avis) && !empty($Avis)): ?>
+        <?php 
+        // spération de la table avis par lot de 3 avec array_chunk par pages
+        $avisChunks = array_chunk($Avis, 3);
+        $activeClass = 'active'; // activation de la premiere feuille
+        foreach ($avisChunks as $avisGroup): ?>
+          <div class="carousel-item <?= $activeClass; ?>">
+            <div class="row justify-content-center m-auto w-75">
+              <?php foreach ($avisGroup as $avis): ?>
+                <div class="col-12 col-md-4 mb-3"> 
+                  <div class="card text-bg-light mb-3">
+                    <div class="card-header d-flex justify-content-center column-gap-4">
+                      <?php
+                      for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $avis->etoiles) {
+                          echo '<span class="star-filled">&#9733;</span>';
                         }
-                        ?>
+                      }
+                      ?>
                     </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title text-center"><?= htmlspecialchars($avis['nom'], ENT_QUOTES, 'UTF-8'); ?></h5>
-                        <p class="card-text"><?= htmlspecialchars($avis['commentaire'], ENT_QUOTES, 'UTF-8'); ?></p>
+                    <div class="card-body text-center overflow-auto"> 
+                      <h5 class="card-title"><?= htmlspecialchars($avis->nom, ENT_QUOTES, 'UTF-8'); ?></h5>
+                      <p class="card-text"><?= htmlspecialchars($avis->commentaire, ENT_QUOTES, 'UTF-8'); ?></p>
                     </div>
+                  </div>
                 </div>
+              <?php endforeach; ?>
             </div>
+          </div>
+          <?php $activeClass = '';?>
         <?php endforeach; ?>
-    <?php else : ?>
-        <p>Aucun avis pour le moment.</p>
+    <?php else: ?>
+      <p>Aucun avis pour le moment.</p>
     <?php endif; ?>
+  </div>
 </div>
 
   <!-- partie bouton avis avec modal avis -->
@@ -179,6 +188,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          
           <!-- Formulaire d'avis -->
           <form action="/Avis/ajoutAvis" method="POST">
             <!-- Etoiles -->
@@ -225,3 +235,4 @@
     </div>
   </div>
 </section>
+

@@ -10,6 +10,7 @@ class AvisModel extends Model
     protected $etoiles;
     protected $nom;
     protected $commentaire;
+    protected $date;
 
 
     public function __construct()
@@ -20,20 +21,22 @@ class AvisModel extends Model
     {
         // Requête SQL pour récupérer tous les avis
         $sql= "SELECT * FROM  {$this->table}";
-        return $this->req($sql )->fetchAll();
+        $result = $this->req($sql)->fetchAll();
+        return $result;
     }
 
     // Enregistrer un avis
-    public function saveAvis($etoiles, $nom, $commentaire)
+    public function saveAvis($etoiles, $nom, $commentaire, $date)
     {
 
         // Préparation et exécution de la requête
         return $this->req(
-            "INSERT INTO {$this->table}  (etoiles, nom, commentaire) VALUES (:etoiles, :nom, :commentaire)",
+            "INSERT INTO {$this->table} (etoiles, nom, commentaire, date) VALUES (:etoiles, :nom, :commentaire, :date)",
             attributs: [
                 'etoiles' => $etoiles,
                 'nom' => $nom,
-                'commentaire' => $commentaire
+                'commentaire' => $commentaire,
+                'date' => $date 
             ]
         );
 
