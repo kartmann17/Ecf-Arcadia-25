@@ -7,9 +7,12 @@ use App\Controllers\MainController;
  * Routeur principal
  */
 class main
-{
+{ 
     public function start()
-    {
+    {   
+        session_start();
+
+        
         //on retire le "trailing slash de l'url
         // on récupére l'url
         $uri = $_SERVER['REQUEST_URI'];

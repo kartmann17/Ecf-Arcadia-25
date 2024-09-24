@@ -1,14 +1,14 @@
-*{
-    margin: 0;
-    text-decoration: none;
-    font-family: "Pacifico", cursive;
-    font-weight: 300;
-    font-style: normal;
+.vide{
+  height: 50vh;
 }
-img{
-height: 300px;
-    width: 300px;
+
+body{
+  background : url(/Asset/Images/jaguar.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 .formContainer {
     padding:24px;
     width:100%;
@@ -16,24 +16,28 @@ height: 300px;
     margin:0 auto;
     color: #fff;
   }
+
+  form{
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 50px;
+    border-radius: 15px;
+  } 
+
   .formContainer input {
     height:48px;
     background: #38453a;
     border:none;
   }
+
   .btn-accent:active {
     box-shadow: 0px 0px 2px #f78f2e;
   }
+  
   .formContainer input:focus {
     box-shadow: 0px 0px 2px #f78f2e;
     background-color: #38453a;
   }
 
-  /* form{
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 50px;
-    border-radius: 15px;
-  } */
   .inputLogo {
     position:absolute;
     margin-top:12px;
@@ -41,11 +45,7 @@ height: 300px;
     color : #fff
   }
  
-  #mainBgn {
-    background : url(../asset/Images/Fellins/jaguar.jpg) no-repeat;
-    background-size: cover;
-    background-position: center bottom
-  }
+  
   .btn-accent {
     background-color: #f78f2e;
     height:48px;
@@ -56,3 +56,4 @@ height: 300px;
   ::placeholder {
     color:#fff !important
   }
+  

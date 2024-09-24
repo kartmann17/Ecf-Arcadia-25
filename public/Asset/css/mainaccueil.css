@@ -90,20 +90,15 @@ iframe{
   /* fin block univers */
 
 /* 3 eme section horaires*/
-.horaires{
-    margin: 70px auto;
-    height: auto;
-    width: 50vw;
-}
 .horaires h2{
     color: white;
-    text-align: center;
 }
-.container{
-    margin-top: 50px;
-    font-size: 30px;
-    text-align: center;
+
+tbody{
     color: white;
+}
+tbody h4{
+    font-size: 30px;
 }
 
   /* fin 3 eme section horaire */
@@ -113,6 +108,9 @@ iframe{
     margin: 70px auto;
     height: auto;
     width: 90vw;
+}
+.card{
+    height: 23rem;
 }
 .card-body h5,p {
     font-family: roboto, serif;
@@ -135,6 +133,10 @@ iframe{
     height: 60px;
     width: auto;
     
+}
+/* couleur etoite card avis */
+.star-filled{
+    color: #38453a;
 }
 /* avis modal */
 .rating {

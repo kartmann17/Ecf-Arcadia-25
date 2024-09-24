@@ -3,7 +3,7 @@ namespace App\Models;
 
 class UserModel extends Model
 {
-    protected $id_utilisateur;
+    protected $id;
     protected $nom;
     protected $prenom;
     protected $email;
@@ -15,26 +15,46 @@ class UserModel extends Model
     $this->table = "User";
     }
 
-   
-
-    /**
-     * Get the value of id_utilisateur
-     */ 
-    public function getId_utilisateur()
+    public function selectionRole($role)
     {
-        return $this->id_utilisateur;
+        return $this->req("SELECT id FROM Role WHERE role = :role", ['role' => $role])->fetch();
+    }
+   
+    public function getRoles()
+    {
+        return $this->req('SELECT * FROM Role')->fetchAll(); 
     }
 
-    /**
-     * Set the value of id_utilisateur
-     *
-     * @return  self
-     */ 
-    public function setId_utilisateur($id_utilisateur)
+    public function selectAllRole()
     {
-        $this->id_utilisateur = $id_utilisateur;
+        $sql = "
+        SELECT 
+            u.id, 
+            u.nom, 
+            u.prenom, 
+            u.email, 
+            u.mot_de_passe, 
+            r.role AS role
+        FROM 
+            {$this->table} u 
+         JOIN 
+            Role r ON u.id_role = r.id";
+        return $this->req($sql)->fetchAll();
+    }
 
-        return $this;
+    public function createUser($nom, $prenom, $email, $mot_de_passe, $id_role)
+    {
+        return $this->req(
+            "INSERT INTO " . $this->table . " (nom, prenom, email, mot_de_passe, id_role)
+            VALUES (:nom, :prenom, :email, mot_de_passe, :id_role)",
+            [
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'email' => $email,
+                'mot_de_passe' => $mot_de_passe,
+                'id_role'=> $id_role
+            ]
+            );
     }
 
     /**
@@ -120,9 +140,10 @@ class UserModel extends Model
     /**
      * Get the value of id_role
      */ 
-    public function getId_role()
+    public function getId_role():array
     {
         return $this->id_role;
+        
     }
 
     /**
@@ -133,6 +154,26 @@ class UserModel extends Model
     public function setId_role($id_role)
     {
         $this->id_role = $id_role;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

@@ -4,19 +4,31 @@ namespace App\Models;
 
 class AnimauxModel extends Model
 {
-    protected $id_animal;
+    protected $id;
     protected $nom;
     protected $age;
+    protected $img;
+    protected $visite;
+    protected $id_race;
     protected $id_habitat;
     public function __construct() 
     {
         $this->table = "Animal";
 
     }
-    public function img()
+    public function addAnimaux($name, $age, $img, $id_race, $id_habitat)
     {
-        $sql= "SELECT i.url, a.nom, a.age FROM $this->table a JOIN Image_Animal i ON i.id_animal = a.id_animal";
-        return $this->req($sql);
+        return $this->req(
+            "INSERT INTO " . $this->table . " (name, age, img, id_race, id_habitat) 
+             VALUES (:name, :age, :img, :id_race, :id_habitat)", 
+            [
+                'name' => $name,
+                'age' => $age,
+                'img' => $img,
+                'id_race' => $id_race,
+                'id_habitat' => $id_habitat
+            ]
+        );  
     }
 }
 

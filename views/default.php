@@ -25,7 +25,9 @@
     <div id="mainNavigation">
       <nav role="navigation">
         <div class="py-1 text-center border-bottom">
+          <a href="/">
           <img class="logoA" src="Asset/Icones/sansfond2.svg" alt="logo principal">
+          </a>
         </div>
       </nav>
       <div class="navbar-expand-md">
@@ -39,7 +41,7 @@
         <div class="text-center mt-3 collapse navbar-collapse " id="navbarNavDropdown">
           <ul class="navbar-nav mx-auto ">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="main">ARCADIA</a>
+              <a class="nav-link" aria-current="page" href="/">ARCADIA</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="services">Nos Services</a>
@@ -51,15 +53,16 @@
               <a class="nav-link" href="univers">Nos Univers</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact">Contact</a>
+              <a class="nav-link" href="contacts">Contact</a>
             </li>
-            <?php if (isset($_SESSION['id_utilisateur'])): ?>
+            <?php if (isset($_SESSION['id'])): ?>
+              
               <li class="nav-item">
-                <a class="nav-link" href="deconnexion.php">Déonnexion</a>
+                <a class="nav-link" href="/ConnexionUser/deconnexion">Déonnexion</a>
               </li>
             <?php else: ?>
               <li class="nav-item">
-                <a class="nav-link" href="connexion.php">connexion</a>
+                <a class="nav-link" href="ConnexionUser">connexion</a>
               </li>
             <?php endif; ?>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>

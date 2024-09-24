@@ -1,12 +1,3 @@
-<?php
-
-// use App\Controllers\AvisController;
-
-// $avisController = new AvisController();
-
-// $Avis = $avisController->afficheAvis();
-// var_dump($Avis)
-?>
 
 <link rel="stylesheet" href="../Asset/css/mainaccueil.css">
 <video id="videoAC" src="../Asset/Images/Vidéos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
