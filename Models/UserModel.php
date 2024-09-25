@@ -7,7 +7,7 @@ class UserModel extends Model
     protected $nom;
     protected $prenom;
     protected $email;
-    protected $mot_de_passe;
+    protected $pass;
     protected $id_role;
 
     public function __construct()
@@ -33,7 +33,7 @@ class UserModel extends Model
             u.nom, 
             u.prenom, 
             u.email, 
-            u.mot_de_passe, 
+            u.pass, 
             r.role AS role
         FROM 
             {$this->table} u 
@@ -42,16 +42,16 @@ class UserModel extends Model
         return $this->req($sql)->fetchAll();
     }
 
-    public function createUser($nom, $prenom, $email, $mot_de_passe, $id_role)
+    public function createUser($nom, $prenom, $email, $pass, $id_role)
     {
         return $this->req(
-            "INSERT INTO " . $this->table . " (nom, prenom, email, mot_de_passe, id_role)
-            VALUES (:nom, :prenom, :email, mot_de_passe, :id_role)",
+            "INSERT INTO " . $this->table . " (nom, prenom, email, pass, id_role)
+            VALUES (:nom, :prenom, :email, :pass, :id_role)",
             [
                 'nom' => $nom,
                 'prenom' => $prenom,
                 'email' => $email,
-                'mot_de_passe' => $mot_de_passe,
+                'pass' => $pass,
                 'id_role'=> $id_role
             ]
             );
@@ -117,25 +117,7 @@ class UserModel extends Model
         return $this;
     }
 
-    /**
-     * Get the value of mot_de_passe
-     */ 
-    public function getMot_de_passe()
-    {
-        return $this->mot_de_passe;
-    }
-
-    /**
-     * Set the value of mot_de_passe
-     *
-     * @return  self
-     */ 
-    public function setMot_de_passe($mot_de_passe)
-    {
-        $this->mot_de_passe = $mot_de_passe;
-
-        return $this;
-    }
+    
 
     /**
      * Get the value of id_role
@@ -174,6 +156,26 @@ class UserModel extends Model
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of pass
+     */ 
+    public function getPass()
+    {
+        return $this->pass;
+    }
+
+    /**
+     * Set the value of pass
+     *
+     * @return  self
+     */ 
+    public function setPass($pass)
+    {
+        $this->pass = $pass;
 
         return $this;
     }

@@ -13,8 +13,5 @@ abstract class Controller
         require_once ROOT."/Views/".$file.".php";
         $contenu = ob_get_clean();
         require_once ROOT."/Views/default.php";
-
-        // var_dump($annonces);
-
     }
 }

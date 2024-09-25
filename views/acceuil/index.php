@@ -47,7 +47,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="../asset/Images/perroquet paysage 2.jpg" class="img-fluid" alt="perroquet"></a>
+      <a href=""><img src="../asset/Images/perroquetpaysage2.jpg" class="img-fluid" alt="perroquet"></a>
     </div>
 
     <!-- 3ème block image -->
@@ -57,7 +57,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="../asset/Images/croco paysge .jpg" class="img-fluid" alt="croco"></a>
+      <a href=""><img src="../asset/Images/crocopaysge.jpg" class="img-fluid" alt="croco"></a>
     </div>
   </div>
 </section>

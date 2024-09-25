@@ -13,7 +13,7 @@ h2{
 
 /* carousel  */
 .carousel-control-prev, .carousel-control-next {
-  top: 50%; 
+  top: 40%; 
   transform: translateY(-70%);
   position: absolute;
 }

@@ -20,7 +20,7 @@ class AvisController extends MainController
                 $result = $AvisModel->saveAvis($etoiles, $nom, $commentaire, $date);
 
             }
-            header("Location: /");
+            header("Location: /main");
             exit;
         }
     }

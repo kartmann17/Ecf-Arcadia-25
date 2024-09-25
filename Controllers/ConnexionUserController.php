@@ -38,7 +38,7 @@ class ConnexionUserController extends Controller
                 $_SESSION['prenom'] = $user->prenom;
                 $_SESSION['role'] = $user->role;
 
-                header("Location: /dash/index");
+                header("Location: /dash");
                 exit();
             }else{
                 $_SESSION['error_message'] = "Email ou mot de passe incorrect";

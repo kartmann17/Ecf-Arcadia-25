@@ -71,8 +71,16 @@
                   Dashbord
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="addAnimaux.php">Ajout d'animaux</a></li>
-                  <li><a class="dropdown-item" href="addUser.php">Ajout d'utilisateur</a></li>
+                  <li><a class="dropdown-item" href="/DashAnimaux">Ajout d'animaux</a></li>
+                  <li><a class="dropdown-item" href="#">liste des animaux</a></li>
+                  <li><a class="dropdown-item" href="/DashUser">Ajout d'utilisateur</a></li>
+                  <li><a class="dropdown-item" href="#">liste des utilisateurs</a></li>
+                  <li><a class="dropdown-item" href="#">Ajout Univers</a></li>
+                  <li><a class="dropdown-item" href="#">Liste des Univers</a></li>
+                  <li><a class="dropdown-item" href="#">Rapport véto</a></li>
+                  <li><a class="dropdown-item" href="#">Liste rapports véto</a></li>
+                  <li><a class="dropdown-item" href="#">liste des avis</a></li>
+                  <li><a class="dropdown-item" href="#">Ajout d'utilisateur</a></li>
                 </ul>
               </li>
             <?php endif; ?>
