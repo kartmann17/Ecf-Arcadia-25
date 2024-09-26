@@ -9,7 +9,7 @@
             <div class="card-body">
                 <h5 class="card-title"><?=$animal->nom; ?></h5>
                 <p class="card-text">Âge : <?=$animal->age; ?>ans</p>
-                <p class="card-text">Ceci est une description supplémentaire pour l'animal.</p>
+                <p class="card-text">Habitat: <?=$animal->id_habitat;?></p>
                 
             </div>
         </div>

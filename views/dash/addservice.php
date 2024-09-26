@@ -6,7 +6,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        <h4 class="text-center">Ajout Animal</h4>
+                        <h4 class="text-center">Ajouter un service</h4>
                     </div>
                     <div class="card-body">
                         <!-- Vérification des messages d'erreur ou de succès -->
@@ -18,34 +18,23 @@
                             <div class="alert alert-success"><?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?></div>
                         <?php endif; ?>
 
-                        <form action="/DashAnimaux/ajoutAnimaux" method="POST">
+                        <form action="/DashServices/ajoutService" method="POST">
                             <!-- Nom -->
                             <div class="mb-3">
                                 <label for="nom" class="form-label">Nom</label>
-                                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom Animal" required>
+                                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom Service" required>
                             </div>
                             
-                            <!-- Age -->
-                            <div class="mb-3">
-                                <label for="prenom" class="form-label">Age</label>
-                                <input type="number" class="form-control" id="age" name="age" placeholder="Age" required>
-                            </div>
+                            <!-- Description -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Ajoutez une description" required></textarea>
+                        </div>
 
                             <!-- Image -->
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
                                 <input type="file" class="form-control" id="image" name="img" accept="image/*" required>
-                            </div>
-
-                            <!-- habitat -->
-                            <div class="mb-3">
-                                <label for="role" class="form-label">habitat</label>
-                                <select class="form-select" id="habitat" name="id_habitat" required>
-                                    <option value="">Sélectionner un habitat</option>
-                                    <option value="1">Savavne</option>
-                                    <option value="2">Jungle</option>
-                                    <option value="3">Marais</option>
-                                </select>
                             </div>
                             
                             <div class="d-flex justify-content-between">

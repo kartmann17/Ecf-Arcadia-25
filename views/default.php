@@ -58,7 +58,7 @@
             <?php if (isset($_SESSION['id'])): ?>
               
               <li class="nav-item">
-                <a class="nav-link" href="/ConnexionUser/deconnexion">Déonnexion</a>
+                <a class="nav-link" href="/ConnexionUser/deconnexion">Déconnexion</a>
               </li>
             <?php else: ?>
               <li class="nav-item">
@@ -66,22 +66,8 @@
               </li>
             <?php endif; ?>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dashbord
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/DashAnimaux">Ajout d'animaux</a></li>
-                  <li><a class="dropdown-item" href="#">liste des animaux</a></li>
-                  <li><a class="dropdown-item" href="/DashUser">Ajout d'utilisateur</a></li>
-                  <li><a class="dropdown-item" href="#">liste des utilisateurs</a></li>
-                  <li><a class="dropdown-item" href="#">Ajout Univers</a></li>
-                  <li><a class="dropdown-item" href="#">Liste des Univers</a></li>
-                  <li><a class="dropdown-item" href="#">Rapport véto</a></li>
-                  <li><a class="dropdown-item" href="#">Liste rapports véto</a></li>
-                  <li><a class="dropdown-item" href="#">liste des avis</a></li>
-                  <li><a class="dropdown-item" href="#">Ajout d'utilisateur</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link " href="dash">Dashbord</a>
               </li>
             <?php endif; ?>
           </ul>

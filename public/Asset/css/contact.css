@@ -1,41 +1,84 @@
-
-
-.vide{
-    width: 100%;
-    height: 160vh;
-    background-image: url(/Asset/Images/girafe_paysage.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
+.vide {
+    height: 70vh
 }
 
-html, body{
-    position: relative;
-    background-color: #38453a;
+form.formulaire {
+    max-width: 600px;
+    width: 100%;
+}
+
+
+@media (min-width: 576px) and (max-width: 768px) {
+    form.formulaire h1 {
+        font-size: 28px;
+    }
+
+    form.formulaire .form-control {
+        font-size: 16px;
+    }
+
+    form.formulaire button {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    textarea.form-control {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    form.formulaire {
+        padding: 10px;
+    }
+
+    form.formulaire h1 {
+        font-size: 24px;
+    }
+
+    form.formulaire .form-control {
+        font-size: 14px;
+    }
+
+    form.formulaire button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    textarea.form-control {
+        height: 150px;
+        /* Ajuste la hauteur du textarea */
+    }
+}
+
+body {
+    background-image: url(/Asset/Images/girafe_paysage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 
 /* formulaire */
-h1{
+h1 {
     color: white;
     letter-spacing: 2px;
     margin-bottom: 10%;
 }
-.formulaire{
-    position: absolute;
+
+.formulaire {
     top: 60%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-color:#38453a;
+    background-color: #38453a;
     padding: 30px;
     width: 40%;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* bouton */
-.btn-primary{
-    background-color:#f78f2e ;
+.btn-primary {
+    background-color: #f78f2e;
 }
+
 /* fin formulaire */

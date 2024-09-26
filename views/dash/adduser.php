@@ -54,9 +54,9 @@
                                 </select>
                             </div>
 
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Enregistrer</button>
-                            </div>
+                            <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                            <a href="/dash" class="btn btn-secondary">Annuler</a>
                         </form>
                     </div>
                 </div>

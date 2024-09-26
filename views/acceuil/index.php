@@ -128,7 +128,7 @@
   <div class="carousel-inner">
     <?php if (isset($Avis) && !empty($Avis)): ?>
         <?php 
-        // spération de la table avis par lot de 3 avec array_chunk par pages
+        // spération de la table avis pour récupérer que 3 avis par caroussel
         $avisChunks = array_chunk($Avis, 3);
         $activeClass = 'active'; // activation de la premiere feuille
         foreach ($avisChunks as $avisGroup): ?>

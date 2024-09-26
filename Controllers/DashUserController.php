@@ -44,7 +44,7 @@ class DashUserController extends DashController
             } else {
                 $_SESSION['error_message'] = "Tous les champs sont requis.";
             }
-            header("Location: /DashUser");
+            header("Location: /dash");
             exit;
         }
     }
