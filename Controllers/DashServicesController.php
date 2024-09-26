@@ -8,6 +8,9 @@ class DashServicesController extends DashController
 {
     public function ajoutService()
     {
+        $ServicesModel = new ServicesModel();
+        $Services = $ServicesModel->findAll();
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Récupération des données du formulaire
