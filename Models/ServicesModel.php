@@ -44,7 +44,7 @@ class ServicesModel extends Model
         $result = $this->req($sql)->fetchAll();
         return $result;
     }
-    public function selectServiceId($id)
+    public function selectServiceById($id)
     {
         return $this->req("SELECT * FROM $this->table WHERE id = ?", [$id])->fetch();    }
 

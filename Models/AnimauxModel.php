@@ -18,32 +18,7 @@ class AnimauxModel extends Model
         $this->table = "Animal";
     }
 
-    public function selectionHabitat($nom)
-    {
-        return $this->req("SELECT id FROM Habitat WHERE nom = :nom", ['nom' => $nom])->fetch();
-    }
-
-    public function getHabitat()
-    {
-        return $this->req('SELECT * FROM Habitat')->fetchAll(); 
-    }
-
-    public function selectAllHabitat()
-    {
-        $sql = "
-        SELECT 
-            a.id, 
-            a.nom, 
-            a.age, 
-            a.img, 
-            h.nom AS nom
-        FROM 
-            {$this->table} a 
-         JOIN 
-            Habitat h ON a.id_habitat = h.nom";
-        return $this->req($sql)->fetchAll();
-    }
-
+    //Ajout d'animaux en base 
     public function addAnimaux($nom, $age, $img, $id_habitat)
     {
         return $this->req(
@@ -57,6 +32,29 @@ class AnimauxModel extends Model
             ]
         );  
     }
+
+    //mise a jour animaux 
+    public function updateAnimaux($id)
+    {
+        return $this->update($id);
+    }
+
+    //obtentention animaux par id
+    public function getAnimauxByUnivers($id_habitat)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE id_habitat = ?";
+        return $this->req($sql, [$id_habitat])->fetchAll();
+    }
+
+    
+
+    //supression des animaux
+    public function deleteAnimaux($id)
+    {
+        return $this->delete($id);
+    }
+
+
 
     /**
      * Get the value of id

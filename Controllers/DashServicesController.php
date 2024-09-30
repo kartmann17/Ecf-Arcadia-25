@@ -9,7 +9,7 @@ class DashServicesController extends DashController
     public function ajoutService()
     {
         $ServicesModel = new ServicesModel();
-        $Services = $ServicesModel->findAll();
+        $services = $ServicesModel->findAll();
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -23,13 +23,13 @@ class DashServicesController extends DashController
             if (!empty($nom) && !empty($description) && !empty($id_user) && !empty($img)) {
                 
                 // Appel du modèle pour l'insertion en base
-                $serviceModel = new ServicesModel();
-                $result = $serviceModel->createService($nom, $description, $id_user, $img);
+                $ServicesModel = new ServicesModel();
+                $result = $ServicesModel->createService($nom, $description, $id_user, $img);
 
                 if ($result) {
-                    $_SESSION["success_message"] = "Animal ajouté avec succès.";
+                    $_SESSION["success_message"] = "Service ajouté avec succès.";
                 } else {
-                    $_SESSION["error_message"] = "Erreur lors de l'ajout de l'animal.";
+                    $_SESSION["error_message"] = "Erreur lors de l'ajout du Service";
                 }
                 
                 // Redirection après traitement

@@ -12,8 +12,8 @@ class ContactsController extends Controller
     public function afficheMessage()
     {
         $ContactsModel = new ContactsModel();
-        $Contacts = $ContactsModel->findAll();  //récupération de tous les messages pour les envoyé sur le dashboard
-        $this->render("contacts/index", ['Contacts'=>$Contacts]);
+        $contacts = $ContactsModel->findAll();  
+        $this->render("contacts/index", ['contacts'=>$contacts]);
     }
 
     //soumission du message 

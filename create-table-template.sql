@@ -64,9 +64,9 @@ CREATE TABLE addavis(
 
 CREATE TABLE contacts(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    message TEXT NOT NULL
     nom VARCHAR(50)NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL
 );
 
 CREATE TABLE Service (

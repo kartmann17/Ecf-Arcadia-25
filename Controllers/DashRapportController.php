@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Controllers;
+use App\Models\RapportModel;
+use App\Models\AnimauxModel;
+
+class DashRapportController extends DashController
+{
+    public function ajoutRapport()
+    {
+        // Récupérer la liste des animaux pour le formulaire
+        $AnimauxModels = new AnimauxModel();
+        $animaux = $AnimauxModels->findAll();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Récupération des données du formulaire
+            $nom = $_POST['nom'] ?? '';
+            $date = $_POST['date'] ?? '';
+            $status = $_POST['status'] ?? '';
+            $nourriture_reco = $_POST['nourriture_reco'] ?? '';
+            $grammage_reco = $_POST['grammage_reco'] ?? '';
+            $sante = $_POST['sante'] ?? '';
+            $repas_donnees = $_POST['repas_donnees'] ?? '';
+            $quantite = $_POST['quantite'] ?? '';
+            $commentaire = $_POST['commentaire'] ?? '';
+            $id_User = $_POST['id_User'] ?? '';
+            $id_animal = $_POST['id_animal'] ?? '';
+
+            // Vérification que tous les champs sont remplis
+            if (!empty($nom) && !empty($date) && !empty($status) && !empty($nourriture_reco) 
+            && !empty($grammage_reco) && !empty($sante) && !empty($repas_donnees) && !empty($quantite) 
+            && !empty($commentaire) && !empty($id_User) && !empty($id_animal)) {
+
+                // Vérification supplémentaire pour le champ 'sante' entre 0 et 10
+                if ($sante < 0 || $sante > 10) {
+                    $_SESSION['error_message'] = "La santé de l'animal doit être entre 0 et 10.";
+                    header("Location: /addrapport");
+                    exit;
+                }
+
+                // Appel du modèle pour enregistrer le rapport
+                $RapportModel = new RapportModel();
+                $result = $RapportModel->saveRapport($nom, $date, $status, $nourriture_reco, $grammage_reco, $sante, $repas_donnees, $quantite, $commentaire, $id_User, $id_animal);
+
+                if ($result) {
+                    $_SESSION['success_message'] = "Rapport ajouté avec succès.";
+                    header("Location: /dash");
+                    exit;
+                } else {
+                    $_SESSION['error_message'] = "Erreur lors de l'ajout du rapport.";
+                }
+            } else {
+                $_SESSION['error_message'] = "Tous les champs sont requis.";
+            }
+        }
+        
+    }
+    public function index()
+    {
+        // Affichage de la page des rapports
+        $this->render("dash/addrapport");
+    }
+}

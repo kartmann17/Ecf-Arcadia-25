@@ -1,14 +1,16 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Models\AnimauxModel;
+use App\Models\UniversModel;
 
 class DashAnimauxController extends DashController
 {
     public function ajoutAnimaux()
     {
         $AnimauxModels = new AnimauxModel();
-        $Animaux = $AnimauxModels->findAll();
+        $animaux = $AnimauxModels->findAll();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Récupération des données du formulaire
@@ -19,7 +21,7 @@ class DashAnimauxController extends DashController
 
             // Vérification que tous les champs sont remplis
             if (!empty($nom) && !empty($age) && !empty($img) && !empty($id_habitat)) {
-                
+
                 if (strlen($nom) < 2) {
                     $_SESSION['error_message'] = "Le nom doit comporter au moins 2 caractères.";
                     header("Location: /addanimaux");

@@ -64,3 +64,15 @@
       font-size: 14px;
   }
 }
+
+/* page rapport veterinaire  */
+
+.rapport-container {
+  background-color: rgba(0, 0, 0, 0.75); /* Fond noir transparent */
+  color: white; /* Texte blanc pour contraste */
+  padding: 20px;
+  border-radius: 10px; /* Pour des coins arrondis */
+  width: 75%; /* Occupe 75% de la largeur de l'écran */
+  margin: 0 auto; /* Centre le formulaire horizontalement */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Ajout d'une ombre pour l'effet visuel */
+}

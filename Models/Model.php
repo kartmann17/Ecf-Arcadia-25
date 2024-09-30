@@ -72,7 +72,7 @@ public function create()
 
 
 
-public function update(int $id,)
+public function update(int $id)
 {
     $champs =[];
     $valeurs = [];
@@ -101,6 +101,7 @@ public function delete(int $id)
 {
     return $this->req("DELETE FROM {$this->table} WHERE id = ?", [$id]);
 }
+
 
 public function req(string $sql, array $attributs = null)
 {

@@ -7,7 +7,9 @@ class AnimauxController extends Controller
     public function index()             
     {
         $AnimauxModels = new AnimauxModel();
-        $Animaux = $AnimauxModels->findAll();
-        $this->render("animaux/index", ['Animaux'=>$Animaux]);
+        $animaux = $AnimauxModels->findAll();
+        $this->render("animaux/index", 
+        ['animaux'=>$animaux]);
     }
+
 }

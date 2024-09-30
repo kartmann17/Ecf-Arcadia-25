@@ -67,7 +67,7 @@
             <?php endif; ?>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
               <li class="nav-item">
-                <a class="nav-link " href="dash">Dashbord</a>
+                <a class="nav-link " href="dash">Dashboard</a>
               </li>
             <?php endif; ?>
           </ul>

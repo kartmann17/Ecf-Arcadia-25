@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 
-use App\config\Connexionbdd;
+use App\Config\Connexionbdd;
 use PDO;
 
 class AvisModel extends Model

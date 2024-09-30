@@ -3,8 +3,8 @@
 <h1 class="text-center mb-5">Nos animaux</h1>
 
 
-<div class="row row-cols-1 row-cols-md-3 g-5">
-    <?php foreach ($Animaux as $animal): ?>
+<div class="row row-cols-1 row-cols-md-3 g-5 m-auto">
+    <?php foreach ($animaux as $animal): ?>
         <div class="col"> 
             <div class="card m-auto w-75"> 
                 <img src="/Asset/Images/<?= $animal->img?>" class="card-img-top image" alt="Animal Image"/>

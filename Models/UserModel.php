@@ -57,6 +57,14 @@ class UserModel extends Model
             );
     }
 
+    public function listeUser()
+    {
+        // Requête SQL pour récupérer tous les user
+        $sql= "SELECT * FROM  {$this->table}";
+        $result = $this->req($sql)->fetchAll();
+        return $result;
+    }
+
     /**
      * Get the value of nom
      */ 

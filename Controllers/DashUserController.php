@@ -53,4 +53,5 @@ class DashUserController extends DashController
     {
         $this->render("dash/adduser");
     }
+
 }
