@@ -44,4 +44,21 @@ class RapportModel extends Model
             ]
         );
     }
+
+    public function recherche($id_animal)
+    {
+        return $this->req(
+            "SELECT v.*, a.nom as nom_animal
+             FROM Veterinaire v
+             JOIN Animal a On a.id_Animal = v.id_Animal
+             WHERE a.id_Animal = :id_animal",
+            ['id_animal' => $id_animal]    
+        )->fetch();
+    }
+
+    // Supprimer un rapport
+    public function deleteById($id)
+    {
+        return $this->delete($id);
+    }
 }

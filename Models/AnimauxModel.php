@@ -49,7 +49,7 @@ class AnimauxModel extends Model
     
 
     //supression des animaux
-    public function deleteAnimaux($id)
+    public function deleteById($id)
     {
         return $this->delete($id);
     }

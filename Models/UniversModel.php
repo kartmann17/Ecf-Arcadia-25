@@ -35,9 +35,9 @@ class UniversModel extends Model
     }
 
     //suppresions de l'univers par l'id 
-    public function deleteUnivers($id)
+    public function deleteById($id)
     {
-        return $this->req("DELETE FROM {$this->table} WHERE id = ?", [$id]);
+        return $this->delete($id);
     }
 
 

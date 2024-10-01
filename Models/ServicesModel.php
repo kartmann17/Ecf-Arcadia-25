@@ -53,7 +53,11 @@ class ServicesModel extends Model
         return $this->req('SELECT * FROM Role')->fetchAll();
     }
 
-
+// Supprimer un service
+public function deleteById($id)
+{
+    return $this->delete($id);
+}
 
     
 }

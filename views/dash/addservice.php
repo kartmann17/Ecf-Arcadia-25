@@ -6,7 +6,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        <h4 class="text-center">Ajouter un service</h4>
+                        <h2 class="text-center">Ajouter un service</h2>
                     </div>
                     <div class="card-body">
                         <!-- Vérification des messages d'erreur ou de succès -->

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\AnimauxModel;
 use App\Models\UniversModel;
 
@@ -11,5 +12,31 @@ class DashListeAnimauxController extends DashController
         $AnimauxModels = new AnimauxModel();
         $animaux = $AnimauxModels->findAll();
         $this->render('dash/listeanimaux', ['animaux' => $animaux]);
+    }
+
+    public function deleteAnimal()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $id = $_POST['id'] ?? null;
+
+            if ($id) {
+                $AnimauxModel = new AnimauxModel();
+
+                $result = $AnimauxModel->deleteById($id);
+
+                if ($result) {
+                    $_SESSION['success_message'] = "L'animal a été supprimé avec succès.";
+                } else {
+                    $_SESSION['error_message'] = "Erreur lors de la suppression de l'animal.";
+                }
+            } else {
+                $_SESSION['error_message'] = "ID d'animal invalide.";
+            }
+
+            // Redirection vers la dashboard
+            header("Location: /dash");
+            exit();
+        }
     }
 }

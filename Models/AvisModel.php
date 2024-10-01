@@ -41,5 +41,11 @@ class AvisModel extends Model
         );
 
     }
+    // Supprimer un avis
+    public function deleteById($id)
+    {
+        return $this->delete($id);
+    }
+
 }
 

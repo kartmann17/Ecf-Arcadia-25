@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="../Asset/css/dashindex.css">
 <div class="vide"></div>
+
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5 avis-container">
         <h2 class="mb-4">liste des avis</h2>
-        <table class="table table-striped table-bordered">
+        <table class="table table-bordered table-striped">
             <thead class="table-dark">
                 <tr>
                     <th>ETOILES</th>
@@ -14,18 +15,22 @@
                 </tr>
             </thead>
             <?php foreach ($Avis as $avis): ?>
-            <tbody>
-                <tr>
-                    <td><?= $avis->etoiles?></td>
-                    <td><?= $avis->nom?></td>
-                    <td><?= $avis->commentaire?></td>
-                    <td><?= $avis->date?></td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">Supprimer</button>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td><?= $avis->etoiles ?></td>
+                        <td><?= $avis->nom ?></td>
+                        <td><?= $avis->commentaire ?></td>
+                        <td><?= $avis->date ?></td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <form action="/DashListeAvis/deleteAvis" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette avis ?');">
+                                    <input type="hidden" name="id" value="<?= $avis->id ?>">
+                                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                            </div>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
-            </tbody>
+                </tbody>
         </table>
 
         <div class="text-end">

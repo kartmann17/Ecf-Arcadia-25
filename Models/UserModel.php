@@ -65,6 +65,13 @@ class UserModel extends Model
         return $result;
     }
 
+    //supression des utilisateurs
+    public function deleteById($id)
+    {
+        return $this->delete($id);
+    }
+
+
     /**
      * Get the value of nom
      */ 

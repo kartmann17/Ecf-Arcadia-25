@@ -1,17 +1,17 @@
-
 <link rel="stylesheet" href="../Asset/css/dashindex.css">
 <div class="vide"></div>
-<div class="container mt-5 w-75 m-auto">
+<div class="container mt-5 mb-5 users-container">
     <h2 class="mb-4">Gestion des Utilisateurs</h2>
-    <table class="table table-striped table-bordered w-50" >
-            <thead class="table-dark">
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Email</th>
-            <th>Rôle</th>
-            <th>Actions</th>
-        </tr>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Rôle</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <?php foreach ($user as $user): ?>
             <tbody>
@@ -21,8 +21,12 @@
                     <td><?= $user->email ?></td>
                     <td><?= $user->role ?></td>
                     <td>
-                        <button class="btn btn-warning btn-sm">Modifier</button>
-                        <button class="btn btn-danger btn-sm">Supprimer</button>
+                        <div class="d-flex justify-content-between">
+                            <form action="/DashListeUser/deleteUser" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette utilisateur ?');">
+                                <input type="hidden" name="id" value="<?= $user->id ?>">
+                                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -1,3 +1,7 @@
+*{
+  font-family: "Roboto Serif";
+}
+
 .vide{
     height: 50vh;
   }
@@ -13,12 +17,13 @@
 
   h2{
     color: #f78f2e;
+    font-family: "Pacifico", cursive;
   }
 
   .admin-space {
     width: 60%;
     min-height: 400px;
-    background-color: rgba(0, 0, 0, 0.6); /* 0.7 for 70% opacity */
+    background-color: rgba(0, 0, 0, 0.6);
     border: 1px solid #ced4da;
     padding: 30px;
     border-radius: 8px;
@@ -65,14 +70,71 @@
   }
 }
 
-/* page rapport veterinaire  */
-
+/* page liste rapport  */
 .rapport-container {
-  background-color: rgba(0, 0, 0, 0.75); /* Fond noir transparent */
-  color: white; /* Texte blanc pour contraste */
+  background-color: rgba(0, 0, 0, 0.75); 
+  color: white; 
   padding: 20px;
-  border-radius: 10px; /* Pour des coins arrondis */
-  width: 75%; /* Occupe 75% de la largeur de l'écran */
-  margin: 0 auto; /* Centre le formulaire horizontalement */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Ajout d'une ombre pour l'effet visuel */
+  border-radius: 10px; 
+  width: 75%; 
+  margin: 0 auto; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+
+
+/* page liste service  */
+.service-container{
+  background-color: rgba(0, 0, 0, 0.75); 
+  color: white; 
+  padding: 20px;
+  border-radius: 10px; 
+  width: 75%; 
+  margin: 0 auto; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+
+/* page liste animaux */
+.animaux-container{
+  background-color: rgba(0, 0, 0, 0.75); 
+  color: white; 
+  padding: 20px;
+  border-radius: 10px; 
+  width: 75%; 
+  margin: 0 auto; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+/*page liste avis*/
+.avis-container{
+  background-color: rgba(0, 0, 0, 0.75); 
+  color: white; 
+  padding: 20px;
+  border-radius: 10px; 
+  width: 75%; 
+  margin: 0 auto; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+/* page liste univers */
+.univers-container{
+  background-color: rgba(0, 0, 0, 0.75); 
+  color: white; 
+  padding: 20px;
+  border-radius: 10px; 
+  width: 75%; 
+  margin: 0 auto; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+/* page liste users */
+.users-container{
+  background-color: rgba(0, 0, 0, 0.75); 
+  color: white; 
+  padding: 20px;
+  border-radius: 10px; 
+  width: 75%; 
+  margin: 0 auto; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
 }

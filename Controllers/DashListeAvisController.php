@@ -16,4 +16,29 @@ class DashListeAvisController extends DashController
         http_response_code(404);
     }
 }
+public function deleteAvis()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $id = $_POST['id'] ?? null;
+
+            if ($id) {
+                $AvisModel = new AvisModel();
+
+                $result = $AvisModel->deleteById($id);
+
+                if ($result) {
+                    $_SESSION['success_message'] = "L'avis a été supprimé avec succès.";
+                } else {
+                    $_SESSION['error_message'] = "Erreur lors de la suppression de l'avis.";
+                }
+            } else {
+                $_SESSION['error_message'] = "ID invalide.";
+            }
+
+            // Redirection vers la page de gestion des animaux
+            header("Location: /dash");
+            exit();
+        }
+    }
 }
