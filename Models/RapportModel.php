@@ -23,7 +23,7 @@ class RapportModel extends Model
         $this->table = 'Veterinaire';
     }
 
-    //enregistrement d'un rapport 
+    //enregistrement d'un rapport en base
     public function saveRapport($nom, $date, $status, $nourriture_reco, $grammage_reco, $sante, $repas_donnees, $quantite, $commentaire, $id_User, $id_animal)
     {
         return $this->req(

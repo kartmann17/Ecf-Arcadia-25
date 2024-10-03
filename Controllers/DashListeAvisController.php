@@ -9,7 +9,7 @@ class DashListeAvisController extends DashController
     {
         $AvisModel = new AvisModel();
         $Avis = $AvisModel->findAll();
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['id_User'])) {
         $this->render("dash/listeavis", 
         compact("Avis"));
     }else {
@@ -36,9 +36,17 @@ public function deleteAvis()
                 $_SESSION['error_message'] = "ID invalide.";
             }
 
-            // Redirection vers la page de gestion des animaux
+            // Redirection vers le dashboard
             header("Location: /dash");
             exit();
         }
+
     }
+    public function validerAvis($id)
+        {
+            $avisModel = new AvisModel();
+            $avisModel->validerAvis($id);
+            header("Location: /dash");
+        }
+
 }

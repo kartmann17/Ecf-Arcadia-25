@@ -11,7 +11,7 @@ class DashListeUniversController extends DashController
         $UniversModel = new UniversModel();
         $univers = $UniversModel->findAll();
 
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['id_User'])) {
             $this->render('dash/listeunivers', [
                 'univers' => $univers
             ]);
@@ -39,7 +39,7 @@ class DashListeUniversController extends DashController
                 $_SESSION['error_message'] = "ID d'habitat invalide.";
             }
 
-            // Redirection vers la page de gestion des habitats
+            // Redirection vers le dashboard
             header("Location: /dash");
             exit();
         }

@@ -4,24 +4,24 @@ namespace App;
 
 class Autoloader
 {
-    static function register()
+    public static function register()
     {
-    spl_autoload_register([
-        __CLASS__, 
-        'Autoload'
-    ]);
+        spl_autoload_register([__CLASS__, 'autoload']);
     }
     
-    static function Autoload($class)
+    public static function autoload($class)
     {
-        $class = str_replace(__NAMESPACE__.'\\', '', $class);
-        $class = str_replace('\\','/', $class);
-        $file = __DIR__.'/' .$class .'.php';
-        if(file_exists($file)){
-            require_once $file;
-        }else{
-           echo "vous etes tromper d'accès";
-        } 
+        
+        if (strpos($class, __NAMESPACE__) === 0) {
+            
+            $class = str_replace(__NAMESPACE__ . '\\', '', $class);
+            $class = str_replace('\\', '/', $class);
+            $file = __DIR__ . '/' . $class . '.php';
+            if (file_exists($file)) {
+                require_once $file;
+            } else {
+                throw new \Exception("Le fichier pour la classe {$class} est introuvable : {$file}");
+            }
+        }
     }
-
 }

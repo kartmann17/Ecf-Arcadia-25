@@ -12,31 +12,61 @@ class AnimauxModel extends Model
     protected $id_race;
     protected $id_habitat;
 
-    
-    public function __construct() 
+
+    public function __construct()
     {
         $this->table = "Animal";
     }
 
     //Ajout d'animaux en base 
-    public function addAnimaux($nom, $age, $img, $id_habitat)
+    public function addAnimaux($nom, $age, $img, $id_race, $id_habitat)
     {
         return $this->req(
-            "INSERT INTO " . $this->table . " (nom, age, img, id_habitat) 
-             VALUES (:nom, :age, :img, :id_habitat)", 
+            "INSERT INTO " . $this->table . " (nom, age, img, id_race, id_habitat ) 
+             VALUES (:nom, :age, :img, :id_race, :id_habitat)",
             [
                 'nom' => $nom,
                 'age' => $age,
                 'img' => $img,
+                'id_race' => $id_race,
                 'id_habitat' => $id_habitat
             ]
-        );  
+        );
+    }
+
+    public function hydrate($donnees)
+    {
+        foreach ($donnees as $key => $value) {
+            $method = 'set' . ucfirst($key);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+        return $this;
     }
 
     //mise a jour animaux 
     public function updateAnimaux($id)
     {
         return $this->update($id);
+    }
+
+    public function getAnimauxById($id)
+    {
+        $sql = "
+        SELECT 
+            a.*, 
+            r.race AS race_nom,
+            h.nom AS habitat_nom
+        FROM 
+            {$this->table} a
+        JOIN
+            Race r ON a.id_race = r.id
+        JOIN 
+            Habitat h ON a.id_habitat = h.id
+        WHERE 
+            a.id = ?";
+        return $this->req($sql, [$id])->fetch();
     }
 
     //obtentention animaux par id
@@ -46,7 +76,8 @@ class AnimauxModel extends Model
         return $this->req($sql, [$id_habitat])->fetchAll();
     }
 
-    
+
+
 
     //supression des animaux
     public function deleteById($id)
@@ -58,7 +89,7 @@ class AnimauxModel extends Model
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -68,7 +99,7 @@ class AnimauxModel extends Model
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -78,7 +109,7 @@ class AnimauxModel extends Model
 
     /**
      * Get the value of nom
-     */ 
+     */
     public function getNom()
     {
         return $this->nom;
@@ -88,7 +119,7 @@ class AnimauxModel extends Model
      * Set the value of nom
      *
      * @return  self
-     */ 
+     */
     public function setNom($nom)
     {
         $this->nom = $nom;
@@ -98,7 +129,7 @@ class AnimauxModel extends Model
 
     /**
      * Get the value of age
-     */ 
+     */
     public function getAge()
     {
         return $this->age;
@@ -108,7 +139,7 @@ class AnimauxModel extends Model
      * Set the value of age
      *
      * @return  self
-     */ 
+     */
     public function setAge($age)
     {
         $this->age = $age;
@@ -118,7 +149,7 @@ class AnimauxModel extends Model
 
     /**
      * Get the value of img
-     */ 
+     */
     public function getImg()
     {
         return $this->img;
@@ -128,7 +159,7 @@ class AnimauxModel extends Model
      * Set the value of img
      *
      * @return  self
-     */ 
+     */
     public function setImg($img)
     {
         $this->img = $img;
@@ -140,7 +171,7 @@ class AnimauxModel extends Model
      * Set the value of visite
      *
      * @return  self
-     */ 
+     */
     public function setVisite($visite)
     {
         $this->visite = $visite;
@@ -150,7 +181,7 @@ class AnimauxModel extends Model
 
     /**
      * Get the value of id_race
-     */ 
+     */
     public function getId_race()
     {
         return $this->id_race;
@@ -160,7 +191,7 @@ class AnimauxModel extends Model
      * Set the value of id_race
      *
      * @return  self
-     */ 
+     */
     public function setId_race($id_race)
     {
         $this->id_race = $id_race;
@@ -170,7 +201,7 @@ class AnimauxModel extends Model
 
     /**
      * Get the value of id_habitat
-     */ 
+     */
     public function getId_habitat()
     {
         return $this->id_habitat;
@@ -180,7 +211,7 @@ class AnimauxModel extends Model
      * Set the value of id_habitat
      *
      * @return  self
-     */ 
+     */
     public function setId_habitat($id_habitat)
     {
         $this->id_habitat = $id_habitat;
@@ -188,4 +219,3 @@ class AnimauxModel extends Model
         return $this;
     }
 }
-

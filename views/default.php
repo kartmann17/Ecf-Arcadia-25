@@ -55,17 +55,17 @@
             <li class="nav-item">
               <a class="nav-link" href="contacts">Contact</a>
             </li>
-            <?php if (isset($_SESSION['id'])): ?>
+            <?php if (isset($_SESSION['id_User'])): ?>
               
               <li class="nav-item">
-                <a class="nav-link" href="/ConnexionUser/deconnexion">Déconnexion</a>
+                <a class="nav-link"  href="/ConnexionUser/deconnexion" onclick="return confirm('Voulez vous vous déconnecter ?');" >Déconnexion</a>
               </li>
             <?php else: ?>
               <li class="nav-item">
                 <a class="nav-link" href="ConnexionUser">connexion</a>
               </li>
             <?php endif; ?>
-            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+            <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'vétérinaire' || $_SESSION['role'] === 'employé')): ?>
               <li class="nav-item">
                 <a class="nav-link " href="dash">Dashboard</a>
               </li>

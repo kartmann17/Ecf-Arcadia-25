@@ -9,7 +9,7 @@ class DashListeRapportController extends DashController
     {
         $RapportModel = new RapportModel();
         $rapports = $RapportModel->findAll();
-        if(isset($_SESSION['id'])){
+        if(isset($_SESSION['id_User'])){
             $this->render('dash/listerapport', 
             [
                 'rapports' => $rapports

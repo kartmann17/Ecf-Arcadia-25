@@ -10,7 +10,7 @@ class DashServicesController extends DashController
     {
         $ServicesModel = new ServicesModel();
         $services = $ServicesModel->findAll();
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Récupération des données du formulaire
@@ -21,7 +21,7 @@ class DashServicesController extends DashController
 
             // Vérification que tous les champs sont remplis
             if (!empty($nom) && !empty($description) && !empty($id_user) && !empty($img)) {
-                
+
                 // Appel du modèle pour l'insertion en base
                 $ServicesModel = new ServicesModel();
                 $result = $ServicesModel->createService($nom, $description, $id_user, $img);
@@ -31,7 +31,7 @@ class DashServicesController extends DashController
                 } else {
                     $_SESSION["error_message"] = "Erreur lors de l'ajout du Service";
                 }
-                
+
                 // Redirection après traitement
                 header("Location: /dash");
                 exit();
@@ -39,19 +39,22 @@ class DashServicesController extends DashController
                 echo "Tous les champs sont requis.";
             }
         }
-        if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin' || $_SESSION['role'] === 'Employe') {
+        if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé') {
             $this->render('dash/index', [
                 'section' => 'addservice'
             ]);
         } else {
             http_response_code(404);
         }
-
     }
 
     public function index()
     {
-        // Affichage de la page des services
-        $this->render("dash/addservice");
+        if (isset($_SESSION['id_User'])) {
+            // Affichage de la page des services
+            $this->render("dash/addservice");
+        } else {
+            http_response_code(404);
+        }
     }
 }

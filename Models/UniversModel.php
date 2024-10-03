@@ -15,7 +15,7 @@ class UniversModel extends Model
     }
 
     //Ajout d'univers
-    public function createUnivers( $nom, $img, $description)
+    public function addUnivers( $nom, $img, $description)
     {
         return $this->req(
             "INSERT INTO " . $this->table . " (nom, img, description)

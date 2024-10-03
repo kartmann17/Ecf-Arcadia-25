@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\UserModel;
 use App\Models\RoleModel;
 
@@ -51,7 +52,10 @@ class DashUserController extends DashController
 
     public function index()
     {
-        $this->render("dash/adduser");
+        if(isset($_SESSION['id_User'])){
+            $this->render("dash/adduser");
+        } else {
+            http_response_code(404);
+        }
     }
-
 }

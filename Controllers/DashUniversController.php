@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Models\UniversModel;
@@ -22,8 +23,8 @@ class DashUniversController extends DashController
 
                 // Appel du modèle pour l'insertion en base
                 $UniversModel = new UniversModel();
-                $result = $UniversModel->createUnivers($nom, $img, $description);
-               
+                $result = $UniversModel->addUnivers($nom, $img, $description);
+
 
                 if ($result) {
                     $_SESSION["success_message"] = "Habitat ajouté avec succès.";
@@ -44,15 +45,16 @@ class DashUniversController extends DashController
             ]);
         } else {
             http_response_code(404);
-
         }
-
     }
 
     public function index()
     {
-        // Affichage de la vue d'ajout des animaux
-        $this->render("dash/addunivers");
+        if (isset($_SESSION['id_User'])) {
+            // Affichage de la vue d'ajout des animaux
+            $this->render("dash/addunivers");
+        } else {
+            http_response_code(404);
+        }
     }
 }
-

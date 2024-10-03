@@ -13,4 +13,5 @@ class ServicesController extends Controller
         // Affichage de la page des services
         $this->render("nos_services/index", ["services"=> $services]);
     }
+    
 }

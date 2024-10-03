@@ -32,19 +32,18 @@ CREATE TABLE Habitat (
 
 -- Création de la table Rapport
 CREATE TABLE Veterinaire (
-      id INT PRIMARY KEY AUTO_INCREMENT,
-    status VARCHAR(255),
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(50) NOT NULL,
     date DATE NOT NULL,
+    status VARCHAR(255),
     nourriture_reco VARCHAR(255),
-    santé VARCHAR(255),
-    repas_données VARCHAR(255),
-    quantité  INT,
-    description TEXT,
-    id_animal INT
     grammage_reco INT,
+    santé VARCHAR(255),
+    repas_donnees VARCHAR(255),
+    quantite  INT,
     commentaire TEXT,
     id_User INT NOT NULL,
+    id_animal INT,
     FOREIGN KEY (id_User) REFERENCES User(id),
     FOREIGN KEY (id_animal) REFERENCES Animal(id)
 );
@@ -89,3 +88,9 @@ CREATE TABLE Animal (
     FOREIGN KEY (id_race) REFERENCES Race(id),
     FOREIGN KEY (id_habitat) REFERENCES Habitat(id)
 );
+
+
+ALTER TABLE addavis 
+ADD valide BOOLEAN DEFAULT FALSE;
+
+Drop TABLE `Veterinaire`,

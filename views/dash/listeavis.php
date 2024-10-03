@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="../Asset/css/dashindex.css">
 <div class="vide"></div>
 
-<body>
     <div class="container mt-5 mb-5 avis-container">
         <h2 class="mb-4">liste des avis</h2>
         <table class="table table-bordered table-striped">

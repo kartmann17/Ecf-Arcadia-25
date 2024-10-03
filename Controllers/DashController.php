@@ -5,7 +5,7 @@ class DashController extends Controller
 {
     public function index()
     {
-        if(isset($_SESSION['id'])){
+        if(isset($_SESSION['id_User'])){
             $this->render('dash/index');
         }else{
             http_response_code(404);

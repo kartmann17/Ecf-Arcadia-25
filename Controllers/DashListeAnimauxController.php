@@ -11,8 +11,19 @@ class DashListeAnimauxController extends DashController
     {
         $AnimauxModels = new AnimauxModel();
         $animaux = $AnimauxModels->findAll();
+        if(isset($_SESSION['id_User'])){
         $this->render('dash/listeanimaux', ['animaux' => $animaux]);
+        } else {
+            http_response_code(404);
+        }
     }
+
+    public function updateAnimal($id)
+    {
+        
+    }
+
+
 
     public function deleteAnimal()
     {

@@ -10,12 +10,10 @@ h1{
 }
 
 .card-body {
-  height: 150px;
-}
-
-.card-body {
+  height: 12.5rem;
   margin-top: 30px;
 }
+
 
 .card img {
   height: 191px;

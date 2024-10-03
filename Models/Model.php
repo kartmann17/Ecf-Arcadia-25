@@ -19,6 +19,8 @@ class Model extends Connexionbdd
         
     }
 
+
+    
 public function findBy(array $criteres)
 {
     $champs =[];
@@ -39,10 +41,14 @@ public function findBy(array $criteres)
     return $this ->req(' SELECT * FROM ' . $this->table. ' WHERE ' . $liste_champs, $valeurs)->fetchAll();
 }
 
+
+
 public function find(int $id)
 {
     return $this->req("SELECT * FROM {$this->table} WHERE id = $id ")->fetch();
 }
+
+
 
 public function create()
 {
@@ -119,17 +125,13 @@ public function req(string $sql, array $attributs = null)
 }
 
 
-   public function hydrate(array $donnees)
+   public function hydrate( $donnees)
+
    {
     foreach($donnees as $key =>$value){
-        // on récupère le nom du setter correspondant à la clé (Key)
-        //titre -> setTitre
-        $setter = 'set'.ucfirst($key);
-        
-        //on vérifie si le setter existe
-        if(method_exists($this, $setter)){
-            // On appelle le setter
-            $this->$setter($value);
+        $method = 'set' . ucfirst($key);
+        if(method_exists($this, $method)){
+            $this->$method($value);
         }
     }
     return $this;

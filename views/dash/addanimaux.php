@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../Asset/css/dashindex.css">
-<div class="vide" ></div>
+<div class="vide"></div>
 <section class="container ">
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
@@ -9,13 +9,15 @@
                         <h2 class="text-center">Ajout Animal</h2>
                     </div>
                     <div class="card-body">
-                        <!-- Vérification des messages d'erreur ou de succès -->
-                        <?php if(isset($_SESSION['error_message'])): ?>
-                            <div class="alert alert-danger"><?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?></div>
+                        
+                        <?php if (isset($_SESSION['error_message'])): ?>
+                            <div class="alert alert-danger"><?php echo $_SESSION['error_message'];
+                                                            unset($_SESSION['error_message']); ?></div>
                         <?php endif; ?>
 
-                        <?php if(isset($_SESSION['success_message'])): ?>
-                            <div class="alert alert-success"><?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?></div>
+                        <?php if (isset($_SESSION['success_message'])): ?>
+                            <div class="alert alert-success"><?php echo $_SESSION['success_message'];
+                                                                unset($_SESSION['success_message']); ?></div>
                         <?php endif; ?>
 
                         <form action="/DashAnimaux/ajoutAnimaux" method="POST">
@@ -24,7 +26,7 @@
                                 <label for="nom" class="form-label">Nom</label>
                                 <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom Animal" required>
                             </div>
-                            
+
                             <!-- Age -->
                             <div class="mb-3">
                                 <label for="prenom" class="form-label">Age</label>
@@ -37,21 +39,33 @@
                                 <input type="file" class="form-control" id="image" name="img" accept="image/*" required>
                             </div>
 
-                            <!-- habitat -->
+                            <!-- Race -->
                             <div class="mb-3">
-                                <label for="role" class="form-label">habitat</label>
-                                <select class="form-select" id="habitat" name="id_habitat" required>
-                                    <option value="">Sélectionner un habitat</option>
-                                    <option value="1">Savavne</option>
-                                    <option value="2">Jungle</option>
-                                    <option value="3">Marais</option>
+                                <label for="role" class="form-label">Race</label>
+                                <select class="form-select" id="id_race" name="id_race" required>
+                                    <option value="">Sélectionner une race</option>
+                                    <?php foreach ($races as $race): ?>
+                                        <option value="<?= $race->id ?>"><?= $race->race ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
-                            
+
+                            <!-- habitat -->
+                            <div class="mb-3">
+                                <label for="role" class="form-label">Habitat</label>
+                                <select class="form-select" id="id_habitat" name="id_habitat" required>
+                                    <option value="">Sélectionner un habitat</option> 
+                                    <?php foreach ($univers as $univer): ?>
+                                        <option value="<?= $univer->id ?>"><?= $univer->nom ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+
                             <div class="d-flex justify-content-between">
-                            <button type="submit" class="btn btn-primary">Ajouter</button>
-                            <a href="/dash" class="btn btn-secondary">Annuler</a>
-                        </div>
+                                <button type="submit" class="btn btn-primary">Ajouter</button>
+                                <a href="/dash" class="btn btn-secondary">Annuler</a>
+                            </div>
                         </form>
                     </div>
                 </div>

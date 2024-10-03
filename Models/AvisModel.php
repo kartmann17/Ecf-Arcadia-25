@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use App\Config\Connexionbdd;
@@ -20,7 +21,7 @@ class AvisModel extends Model
     public function afficheAvis()
     {
         // Requête SQL pour récupérer tous les avis
-        $sql= "SELECT * FROM  {$this->table}";
+        $sql = "SELECT * FROM  {$this->table}";
         $result = $this->req($sql)->fetchAll();
         return $result;
     }
@@ -36,16 +37,19 @@ class AvisModel extends Model
                 'etoiles' => $etoiles,
                 'nom' => $nom,
                 'commentaire' => $commentaire,
-                'date' => $date 
+                'date' => $date
             ]
         );
-
     }
+
+    public function validerAvis($id)
+{
+    return $this->req("UPDATE {$this->table} SET valide = 1 WHERE id = ?", [$id]);
+}
+
     // Supprimer un avis
     public function deleteById($id)
     {
         return $this->delete($id);
     }
-
 }
-

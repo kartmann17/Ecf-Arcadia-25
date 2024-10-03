@@ -10,7 +10,7 @@ class DashListeServicesController extends DashController
         $ServicesModels = new ServicesModel();
         $services = $ServicesModels->findAll();
         // Affichage de la page des services
-        if(isset($_SESSION['id'])){
+        if(isset($_SESSION['id_User'])){
             $this->render("dash/listeservices", [
                 "services"=> $services
             ]);

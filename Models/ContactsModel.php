@@ -21,6 +21,7 @@ class ContactsModel extends Model
         // Requête SQL pour récupérer tous les messages
         $sql= "SELECT * FROM  {$this->table}";
         return $this->req($sql )->fetchAll();
+
     }
 
     // Enregistrer un message

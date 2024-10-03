@@ -20,27 +20,6 @@ h2 {
   top: 50%;
 }
 
-/* carousel  */
-
-.carousel-item {
-  height: 500px;
-}
-
-@media (max-width: 768px) {
-  .carousel-item {
-    height: 300px;
-  }
-}
-
-.carousel-inner {
-  max-width: 100%;
-}
-
-.carousel-image {
-  object-fit: contain;
-  height: 100%;
-  width: 100%;
-}
 
 .texte {
   color: #fff;
@@ -64,3 +43,4 @@ h2 {
     line-height: 1.5;
   }
 }
+

@@ -1,11 +1,12 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Models\AvisModel;
 
 class AvisController extends MainController
 {
-    
+
     // Méthode pour soumettre un avis
     public function ajoutAvis()
     {
@@ -18,10 +19,11 @@ class AvisController extends MainController
             if (!empty($etoiles) && !empty($nom) && !empty($commentaire)) {
                 $AvisModel = new AvisModel();
                 $result = $AvisModel->saveAvis($etoiles, $nom, $commentaire, $date);
-
             }
             header("Location: /main");
             exit;
         }
     }
+
+   
 }

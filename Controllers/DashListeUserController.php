@@ -11,7 +11,7 @@ class DashListeUserController extends DashController
     {
         $userModel = new UserModel();
         $user = $userModel->selectAllRole();
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['id_User'])) {
             $this->render(
                 'dash/listeuser',
                 [
@@ -42,7 +42,7 @@ class DashListeUserController extends DashController
                 $_SESSION['error_message'] = "ID utilisateur invalide.";
             }
 
-            // Redirection vers la page de gestion des animaux
+            // Redirection vers le dashboard
             header("Location: /dash");
             exit();
         }

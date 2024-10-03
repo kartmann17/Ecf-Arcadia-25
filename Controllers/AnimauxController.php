@@ -1,6 +1,8 @@
 <?php
 namespace App\Controllers;
 use App\Models\AnimauxModel;
+use App\Models\UniversModel;
+use App\Models\RaceModel;
 
 class AnimauxController extends Controller
 {
@@ -8,8 +10,15 @@ class AnimauxController extends Controller
     {
         $AnimauxModels = new AnimauxModel();
         $animaux = $AnimauxModels->findAll();
-        $this->render("animaux/index", 
-        ['animaux'=>$animaux]);
+        $universModels = new UniversModel();
+        $univers = $universModels->findAll();
+        $raceModels = new RaceModel();
+        $races = $raceModels->findAll();
+        $this->render("animaux/index", [
+            'animaux'=>$animaux,
+            'univers'=>$univers,
+            'races'=>$races
+        ]);
     }
 
 }

@@ -3,8 +3,23 @@
 
 <div class="container mt-5 mb-5 rapport-container">
     <h2 class="mb-4">Rapport animaux</h2>
+
+    <?php if (isset($_SESSION['error_message'])): ?>
+        <div class="alert alert-danger">
+            <?= $_SESSION['error_message'];
+            unset($_SESSION['error_message']); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['success_message'])): ?>
+        <div class="alert alert-success">
+            <?= $_SESSION['success_message'];
+            unset($_SESSION['success_message']); ?>
+        </div>
+    <?php endif; ?>
+
     <form action="/DashRapport/ajoutRapport" method="POST">
-       
+
         <div class="form-group mb-3">
             <label for="nom">Nom de l'animal</label>
             <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom de l'animal" required>
@@ -40,7 +55,7 @@
             <input type="text" class="form-control" id="repas" name="repas_donnees" placeholder="Type de repas donné" required>
         </div>
 
-        
+
         <div class="form-group mb-3">
             <label for="quantite">Quantité donnée (en grammes)</label>
             <input type="number" class="form-control" id="quantite" name="quantite" placeholder="Quantité donnée en grammes" required>
@@ -52,20 +67,16 @@
         </div>
 
         <div class="mb-3">
-            <label for="role" class="form-label">Utilisateur</label>
-            <select class="form-select" id="role" name="id_User" required>
-                <option value="">Sélectionner votre role</option>
-                <option value="2">Vétérinaire</option>
-                <option value="3">Employé</option>
+            <label for="role" class="form-label">Animal</label>
+            <select class="form-select" id="id_animal" name="id_animal" required>
+                <option value="">Sélectionner l'animal</option>
+                <?php foreach ($animaux as $animal): ?>
+                    <option value="<?= $animal->id ?>"><?= $animal->nom ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
 
-        <div class="form-group mb-3">
-            <label for="id_animal">ID Animal</label>
-            <input type="number" class="form-control" id="id_animal" name="id_animal" placeholder="ID de l'animal" required>
-        </div>
 
-        
         <div class="form-group text-end">
             <button type="submit" class="btn btn-primary">Enregistrer</button>
             <a href="/dash" class="btn btn-secondary">Annuler</a>

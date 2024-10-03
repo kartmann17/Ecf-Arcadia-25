@@ -20,8 +20,7 @@ class ConnexionUserController extends Controller
 
             //validation de l'email
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $_SESSION['error_message'] = 
-                "Email non valide";
+                $_SESSION['error_message'] = "Email non valide";
                 exit();
             }
 
@@ -30,10 +29,10 @@ class ConnexionUserController extends Controller
             $user = $ConnexionUserModel->recherche($email);
 
             // Vérification du mot de passe
-            if (password_verify($pass, $user->pass)) {
+            if ($user && password_verify($pass, $user->pass)) {
 
                 // Stockage des informations  dans la session
-                $_SESSION['id'] = $user->id;
+                $_SESSION['id_User'] = $user->id;
                 $_SESSION['nom'] = $user->nom;
                 $_SESSION['prenom'] = $user->prenom;
                 $_SESSION['role'] = $user->role;
@@ -52,6 +51,7 @@ class ConnexionUserController extends Controller
     public function deconnexion()
 {
     session_unset();
+    session_destroy();
     // Redirection page d'accueil
     header("Location: /");
     exit();

@@ -1,16 +1,22 @@
 <?php
+
 use App\Autoloader;
 use App\Config\main;
+use Dotenv\Dotenv;
 
-//je définie une constante avec le dossier racine du projet 
+// Inclure l'autoloader de Composer
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+// Définition d'une constante avec le chemin racine du projet
 define('ROOT', dirname(__DIR__));
 
-// import de l'autolader
-require_once ROOT.'/Autoloader.php';
+require_once ROOT . '/Autoloader.php';
 Autoloader::register();
 
-// instanciation du main(le routeur)
-$app = new main;
 
-//démarrage de l'application
-$app->start(); 
+$app = new main();
+
+$app->start();
