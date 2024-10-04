@@ -11,16 +11,18 @@ class DashRapportController extends DashController
     {
         $RapportModel = new RapportModel();
         $rapports = $RapportModel->findAll();
-        if(isset($_SESSION['id_User'])){
-            $this->render('dash/listerapport', 
-            [
-                'rapports' => $rapports
-            ]);
-        }else {
+        if (isset($_SESSION['id_User'])) {
+            $this->render(
+                'dash/listerapport',
+                [
+                    'rapports' => $rapports
+                ]
+            );
+        } else {
             http_response_code(404);
         }
     }
-    
+
     public function ajoutRapport()
     {
         if (!isset($_SESSION['id_User'])) {
@@ -94,7 +96,7 @@ class DashRapportController extends DashController
         $animaux = $AnimauxModels->findAll();
         $RapportModel = new RapportModel();
         $rapport = $RapportModel->find($id);
-       
+
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -139,7 +141,7 @@ class DashRapportController extends DashController
                 } else {
                     $_SESSION['error_message'] = "Erreur lors de la suppression du rapport.";
                 }
-            } 
+            }
             // Redirection vers la dashboard
             header("Location: /dash");
             exit();

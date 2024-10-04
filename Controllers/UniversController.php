@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Models\AnimauxModel;
@@ -19,6 +20,6 @@ class UniversController extends Controller
         $universModel = new UniversModel();
         $univers = $universModel->find($id);
 
-        $this->render('nos_univers/show', ['animaux' => $animaux,'univers' => $univers]);
+        $this->render('nos_univers/show', ['animaux' => $animaux, 'univers' => $univers]);
     }
 }

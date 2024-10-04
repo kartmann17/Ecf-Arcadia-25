@@ -16,7 +16,7 @@ class ContactsController extends Controller
     public function afficheMessage()
     {
         $ContactsModel = new ContactsModel();
-        $contacts = $ContactsModel->findAll();  
+        $contacts = $ContactsModel->findAll();
         $this->render("contacts/index", ['contacts' => $contacts]);
     }
 
@@ -30,13 +30,13 @@ class ContactsController extends Controller
 
             if (!empty($nom) && !empty($email) && !empty($message)) {
                 // Adresse email de l'admin
-                $adminEmail = $_ENV['SMTP_USER'];  
+                $adminEmail = $_ENV['SMTP_USER'];
                 $adminSubject = "Nouveau message de contact";
                 $adminMessage = "Vous avez reçu un nouveau message de :\n\n";
                 $adminMessage .= "Nom : $nom\n";
                 $adminMessage .= "Email : $email\n";
                 $adminMessage .= "Message : $message\n";
-                
+
                 // Enregistrement du message dans la base de données
                 $ContactsModel = new ContactsModel();
                 $result = $ContactsModel->saveMessage($nom, $email, $message);
@@ -76,26 +76,26 @@ class ContactsController extends Controller
     {
         $mail = new PHPMailer(true);
         try {
-            
+
             // Configuration du serveur SMTP
             $mail->isSMTP();
-            $mail->Host = $_ENV['SMTP_HOST']; 
+            $mail->Host = $_ENV['SMTP_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = $_ENV['SMTP_USER']; 
-            $mail->Password = $_ENV['SMTP_PASS']; 
+            $mail->Username = $_ENV['SMTP_USER'];
+            $mail->Password = $_ENV['SMTP_PASS'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = $_ENV['SMTP_PORT'];
             $mail->CharSet = 'UTF-8';
-    
+
             // Utiliser une adresse email valide
             $mail->setFrom($_ENV['SMTP_FROM'], $_ENV['SMTP_FROM_NAME']);
             $mail->addAddress($to);
-    
+
             // Contenu de l'email
-            $mail->isHTML(false); 
+            $mail->isHTML(false);
             $mail->Subject = $subject;
             $mail->Body = $message;
-    
+
             // Envoyer l'email
             return $mail->send();
         } catch (Exception $e) {

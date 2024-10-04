@@ -69,7 +69,7 @@ class RapportModel extends Model
              FROM Veterinaire v
              JOIN Animal a On a.id_Animal = v.id_Animal
              WHERE a.id_Animal = :id_animal",
-            ['id_animal' => $id_animal]    
+            ['id_animal' => $id_animal]
         )->fetch();
     }
 

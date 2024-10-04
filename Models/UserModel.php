@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 class UserModel extends Model
@@ -12,32 +13,32 @@ class UserModel extends Model
 
     public function __construct()
     {
-    $this->table = "User";
+        $this->table = "User";
     }
 
     public function selectionRole($role)
     {
         return $this->req("SELECT id FROM Role WHERE role = :role", ['role' => $role])->fetch();
     }
-   
+
     public function getRoles()
     {
-        return $this->req('SELECT * FROM Role')->fetchAll(); 
+        return $this->req('SELECT * FROM Role')->fetchAll();
     }
 
     public function selectAllRole()
     {
         $sql = "
-        SELECT 
-            u.id, 
-            u.nom, 
-            u.prenom, 
-            u.email, 
-            u.pass, 
+        SELECT
+            u.id,
+            u.nom,
+            u.prenom,
+            u.email,
+            u.pass,
             r.role AS role
-        FROM 
-            {$this->table} u 
-         JOIN 
+        FROM
+            {$this->table} u
+         JOIN
             Role r ON u.id_role = r.id";
         return $this->req($sql)->fetchAll();
     }
@@ -52,15 +53,15 @@ class UserModel extends Model
                 'prenom' => $prenom,
                 'email' => $email,
                 'pass' => $pass,
-                'id_role'=> $id_role
+                'id_role' => $id_role
             ]
-            );
+        );
     }
 
     public function listeUser()
     {
         // Requête SQL pour récupérer tous les user
-        $sql= "SELECT * FROM  {$this->table}";
+        $sql = "SELECT * FROM  {$this->table}";
         $result = $this->req($sql)->fetchAll();
         return $result;
     }
@@ -74,7 +75,7 @@ class UserModel extends Model
 
     /**
      * Get the value of nom
-     */ 
+     */
     public function getNom()
     {
         return $this->nom;
@@ -84,7 +85,7 @@ class UserModel extends Model
      * Set the value of nom
      *
      * @return  self
-     */ 
+     */
     public function setNom($nom)
     {
         $this->nom = $nom;
@@ -94,7 +95,7 @@ class UserModel extends Model
 
     /**
      * Get the value of prenom
-     */ 
+     */
     public function getPrenom()
     {
         return $this->prenom;
@@ -104,7 +105,7 @@ class UserModel extends Model
      * Set the value of prenom
      *
      * @return  self
-     */ 
+     */
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
@@ -114,7 +115,7 @@ class UserModel extends Model
 
     /**
      * Get the value of email
-     */ 
+     */
     public function getEmail()
     {
         return $this->email;
@@ -124,7 +125,7 @@ class UserModel extends Model
      * Set the value of email
      *
      * @return  self
-     */ 
+     */
     public function setEmail($email)
     {
         $this->email = $email;
@@ -132,22 +133,21 @@ class UserModel extends Model
         return $this;
     }
 
-    
+
 
     /**
      * Get the value of id_role
-     */ 
-    public function getId_role():array
+     */
+    public function getId_role(): array
     {
         return $this->id_role;
-        
     }
 
     /**
      * Set the value of id_role
      *
      * @return  self
-     */ 
+     */
     public function setId_role($id_role)
     {
         $this->id_role = $id_role;
@@ -157,7 +157,7 @@ class UserModel extends Model
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -167,7 +167,7 @@ class UserModel extends Model
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -177,7 +177,7 @@ class UserModel extends Model
 
     /**
      * Get the value of pass
-     */ 
+     */
     public function getPass()
     {
         return $this->pass;
@@ -187,7 +187,7 @@ class UserModel extends Model
      * Set the value of pass
      *
      * @return  self
-     */ 
+     */
     public function setPass($pass)
     {
         $this->pass = $pass;

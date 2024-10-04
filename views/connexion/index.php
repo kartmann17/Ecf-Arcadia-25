@@ -2,7 +2,7 @@
 <div class="vh-100 w-100 d-flex align-items-center justify-content-center first" id="mainBgn">
     <div class="formContainer">
         <div class="vide"></div>
-        <form action="/connexionUser/connexion" method="POST" >
+        <form action="/connexionUser/connexion" method="POST">
             <div>
                 <span class="inputLogo"><i class="fas fa-lock"></i></span><input type="text"
                     class="form-control rounded-pill" name="email" placeholder="example@email.com" required>

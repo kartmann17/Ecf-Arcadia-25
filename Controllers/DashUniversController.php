@@ -81,7 +81,7 @@ class DashUniversController extends DashController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $id = $_POST['id']?? null;
+            $id = $_POST['id'] ?? null;
 
             if ($id) {
                 $UniversModel = new UniversModel();

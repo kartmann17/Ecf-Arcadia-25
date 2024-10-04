@@ -43,9 +43,9 @@ class AvisModel extends Model
     }
 
     public function validerAvis($id)
-{
-    return $this->req("UPDATE {$this->table} SET valide = 1 WHERE id = ?", [$id]);
-}
+    {
+        return $this->req("UPDATE {$this->table} SET valide = 1 WHERE id = ?", [$id]);
+    }
 
     // Supprimer un avis
     public function deleteById($id)

@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Controllers;
+
 class DashController extends Controller
 {
     public function index()
     {
-        if(isset($_SESSION['id_User'])){
+        if (isset($_SESSION['id_User'])) {
             $this->render('dash/index');
-        }else{
+        } else {
             http_response_code(404);
-            echo"la page recherchée n'existe pas";
+            echo "la page recherchée n'existe pas";
         }
     }
 }

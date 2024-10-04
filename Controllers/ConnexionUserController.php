@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\ConnexionUserModel;
+
 class ConnexionUserController extends Controller
 {
     public function index()
@@ -11,7 +13,7 @@ class ConnexionUserController extends Controller
 
     public function connexion()
     {
-        //verification de la methode en post ou en get 
+        //verification de la methode en post ou en get
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             //nettoyage des entrées utilisateurs
@@ -39,20 +41,19 @@ class ConnexionUserController extends Controller
 
                 header("Location: /dash");
                 exit();
-            }else{
+            } else {
                 $_SESSION['error_message'] = "Email ou mot de passe incorrect";
                 header("Location:/ConnexionUser");
                 exit();
             }
-
         }
     }
 
     public function deconnexion()
-{
-    session_unset();
-    // Redirection page d'accueil
-    header("Location: /");
-    exit();
-}
+    {
+        session_unset();
+        // Redirection page d'accueil
+        header("Location: /");
+        exit();
+    }
 }

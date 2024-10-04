@@ -19,9 +19,8 @@ class ContactsModel extends Model
     public function afficheMessage()
     {
         // Requête SQL pour récupérer tous les messages
-        $sql= "SELECT * FROM  {$this->table}";
-        return $this->req($sql )->fetchAll();
-
+        $sql = "SELECT * FROM  {$this->table}";
+        return $this->req($sql)->fetchAll();
     }
 
     // Enregistrer un message
@@ -37,7 +36,5 @@ class ContactsModel extends Model
                 'message' => $message
             ]
         );
-
     }
 }
-

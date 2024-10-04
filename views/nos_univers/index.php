@@ -4,7 +4,7 @@
 <?php foreach ($univers as $univer): ?>
     <section class="container my-5">
         <div class="text-center mb-4">
-        <a href="/Univers/showAnimaux/<?= $univer->id ?>">
+            <a href="/Univers/showAnimaux/<?= $univer->id ?>">
                 <h2 class="mt-3 mb-5">Notre espace <?= $univer->nom ?></h2>
             </a>
         </div>

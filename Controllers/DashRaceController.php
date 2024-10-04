@@ -11,15 +11,15 @@ class DashRaceController extends DashController
         $RaceModel = new RaceModel();
         $races = $RaceModel->findAll();
 
-        if(isset($_SESSION['id_User'])){
+        if (isset($_SESSION['id_User'])) {
             $this->render('dash/listeraces', [
                 'races' => $races
             ]);
-        }else {
+        } else {
             http_response_code(404);
+        }
     }
-}
-    
+
     public function ajoutRace()
     {
         $RaceModel = new RaceModel();

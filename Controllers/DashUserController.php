@@ -10,93 +10,91 @@ use PHPMailer\PHPMailer\Exception;
 class DashUserController extends DashController
 {
     public function ajoutUser()
-{
-    $userModel = new UserModel();
-    $roleModel = new RoleModel();
-    $users = $userModel->findAll();
-    $roles = $roleModel->findAll();
+    {
+        $userModel = new UserModel();
+        $roleModel = new RoleModel();
+        $users = $userModel->findAll();
+        $roles = $roleModel->findAll();
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $nom = $_POST['nom'] ?? '';
-        $prenom = $_POST['prenom'] ?? '';
-        $email = $_POST['email'] ?? '';
-        $pass = $_POST['pass'] ?? '';
-        $role = $_POST['role'] ?? '';
+            $nom = $_POST['nom'] ?? '';
+            $prenom = $_POST['prenom'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $pass = $_POST['pass'] ?? '';
+            $role = $_POST['role'] ?? '';
 
-        if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($pass) && !empty($role)) {
+            if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($pass) && !empty($role)) {
 
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $_SESSION['error_message'] = "L'email est invalide";
-                header("Location: /adduser");
-                exit;
-            }
-
-            // Hashage du mot de passe
-            $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
-
-            // Appel du modèle pour l'insertion
-            $result = $userModel->createUser($nom, $prenom, $email, $hashedPass, $role);
-
-            if ($result) {
-                // Envoi de l'email à l'utilisateur (sans le mot de passe)
-                $clientSubject = "Votre compte a été créé";
-                $clientMessage = "Bonjour $nom $prenom,\n\n";
-                $clientMessage .= "Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter avec votre email : $email.\n";
-                $clientMessage .= "Veuillez vous rapprocher de nous pour connaître votre mot de passe .";
-
-                // Envoi de l'email
-                if ($this->sendEmail($email, $clientSubject, $clientMessage)) {
-                    $_SESSION['success_message'] = "Utilisateur ajouté et email envoyé avec succès.";
-                } else {
-                    $_SESSION['error_message'] = "Utilisateur ajouté, mais l'email n'a pas pu être envoyé.";
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $_SESSION['error_message'] = "L'email est invalide";
+                    header("Location: /adduser");
+                    exit;
                 }
 
+                // Hashage du mot de passe
+                $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+
+                // Appel du modèle pour l'insertion
+                $result = $userModel->createUser($nom, $prenom, $email, $hashedPass, $role);
+
+                if ($result) {
+                    // Envoi de l'email à l'utilisateur (sans le mot de passe)
+                    $clientSubject = "Votre compte a été créé";
+                    $clientMessage = "Bonjour $nom $prenom,\n\n";
+                    $clientMessage .= "Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter avec votre email : $email.\n";
+                    $clientMessage .= "Veuillez vous rapprocher de nous pour connaître votre mot de passe .";
+
+                    // Envoi de l'email
+                    if ($this->sendEmail($email, $clientSubject, $clientMessage)) {
+                        $_SESSION['success_message'] = "Utilisateur ajouté et email envoyé avec succès.";
+                    } else {
+                        $_SESSION['error_message'] = "Utilisateur ajouté, mais l'email n'a pas pu être envoyé.";
+                    }
+                } else {
+                    $_SESSION['error_message'] = "Erreur lors de l'ajout de l'utilisateur.";
+                }
             } else {
-                $_SESSION['error_message'] = "Erreur lors de l'ajout de l'utilisateur.";
+                $_SESSION['error_message'] = "Tous les champs sont requis.";
             }
-
-        } else {
-            $_SESSION['error_message'] = "Tous les champs sont requis.";
+            header("Location: /dash");
+            exit;
         }
-        header("Location: /dash");
-        exit;
     }
-}
 
-private function sendEmail($to, $subject, $message)
-{
-    $mail = new PHPMailer(true);
-    try {
-        
-        // Configuration du serveur SMTP
-        $mail->isSMTP();
-        $mail->Host = $_ENV['SMTP_HOST']; 
-        $mail->SMTPAuth = true;
-        $mail->Username = $_ENV['SMTP_USER']; 
-        $mail->Password = $_ENV['SMTP_PASS']; 
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = $_ENV['SMTP_PORT'];
-        $mail->CharSet = 'UTF-8';
+    private function sendEmail($to, $subject, $message)
+    {
+        $mail = new PHPMailer(true);
+        try {
 
-        
-        $mail->setFrom($_ENV['SMTP_FROM'], $_ENV['SMTP_FROM_NAME']);
-        $mail->addAddress($to);
+            // Configuration du serveur SMTP
+            $mail->isSMTP();
+            $mail->Host = $_ENV['SMTP_HOST'];
+            $mail->SMTPAuth = true;
+            $mail->Username = $_ENV['SMTP_USER'];
+            $mail->Password = $_ENV['SMTP_PASS'];
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = $_ENV['SMTP_PORT'];
+            $mail->CharSet = 'UTF-8';
 
-        // Contenu de l'email
-        $mail->isHTML(false); 
-        $mail->Subject = $subject;
-        $mail->Body = $message;
 
-        // Envoyer l'email
-        return $mail->send();
-    } catch (Exception $e) {
-        error_log("Erreur lors de l'envoi de l'email : " . $mail->ErrorInfo);
-        return false;
+            $mail->setFrom($_ENV['SMTP_FROM'], $_ENV['SMTP_FROM_NAME']);
+            $mail->addAddress($to);
+
+            // Contenu de l'email
+            $mail->isHTML(false);
+            $mail->Subject = $subject;
+            $mail->Body = $message;
+
+            // Envoyer l'email
+            return $mail->send();
+        } catch (Exception $e) {
+            error_log("Erreur lors de l'envoi de l'email : " . $mail->ErrorInfo);
+            return false;
+        }
     }
-}
 
-public function deleteUser()
+    public function deleteUser()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -122,7 +120,7 @@ public function deleteUser()
         }
     }
 
-public function liste()
+    public function liste()
     {
         $userModel = new UserModel();
         $user = $userModel->selectAllRole();
@@ -133,16 +131,16 @@ public function liste()
                     'user' => $user
                 ]
             );
-        }else {
+        } else {
             http_response_code(404);
         }
     }
-public function index()
-{
-    if (isset($_SESSION['id_User'])) {
-        $this->render("dash/adduser");
-    } else {
-        http_response_code(404);
+    public function index()
+    {
+        if (isset($_SESSION['id_User'])) {
+            $this->render("dash/adduser");
+        } else {
+            http_response_code(404);
+        }
     }
-}
 }

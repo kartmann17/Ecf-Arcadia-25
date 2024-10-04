@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-class RoleModel extends Model{
+class RoleModel extends Model
+{
 
     protected $id;
     protected $role;
@@ -14,7 +15,7 @@ class RoleModel extends Model{
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -24,7 +25,7 @@ class RoleModel extends Model{
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -34,7 +35,7 @@ class RoleModel extends Model{
 
     /**
      * Get the value of role
-     */ 
+     */
     public function getRole()
     {
         return $this->role;
@@ -44,7 +45,7 @@ class RoleModel extends Model{
      * Set the value of role
      *
      * @return  self
-     */ 
+     */
     public function setRole($role)
     {
         $this->role = $role;

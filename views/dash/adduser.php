@@ -11,13 +11,13 @@
                     <div class="card-body">
 
                         <form action="/DashUser/ajoutUser" method="POST">
-                            
+
                             <div class="mb-3">
                                 <label for="nom" class="form-label">Nom</label>
                                 <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom" required>
                             </div>
-                            
-                           
+
+
                             <div class="mb-3">
                                 <label for="prenom" class="form-label">Prénom</label>
                                 <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Votre prénom" required>
@@ -28,13 +28,13 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Votre email" required>
                             </div>
 
-                            
+
                             <div class="mb-3">
                                 <label for="password" class="form-label">Mot de passe</label>
                                 <input type="password" class="form-control" id="password" name="pass" placeholder="Votre mot de passe" required>
                             </div>
 
-                            
+
                             <div class="mb-3">
                                 <label for="role" class="form-label">Rôle</label>
                                 <select class="form-select" id="role" name="role" required>
@@ -45,8 +45,8 @@
                             </div>
 
                             <div class="d-flex justify-content-between">
-                            <button type="submit" class="btn btn-primary">Ajouter</button>
-                            <a href="/dash" class="btn btn-secondary">Annuler</a>
+                                <button type="submit" class="btn btn-primary">Ajouter</button>
+                                <a href="/dash" class="btn btn-secondary">Annuler</a>
                         </form>
                     </div>
                 </div>

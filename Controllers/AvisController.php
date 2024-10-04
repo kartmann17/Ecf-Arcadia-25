@@ -24,6 +24,4 @@ class AvisController extends MainController
             exit;
         }
     }
-
-   
 }

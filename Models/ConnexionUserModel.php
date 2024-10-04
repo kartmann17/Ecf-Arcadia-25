@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 class ConnexionUserModel extends Model
@@ -16,17 +17,17 @@ class ConnexionUserModel extends Model
     public function recherche($email)
     {
         return $this->req(
-            "SELECT u.id, u.nom, u.prenom, u.email, u.pass, r.role 
-            FROM User u 
-            JOIN Role r ON u.id_role = r.id 
-            WHERE u.email = :email", 
+            "SELECT u.id, u.nom, u.prenom, u.email, u.pass, r.role
+            FROM User u
+            JOIN Role r ON u.id_role = r.id
+            WHERE u.email = :email",
             ['email' => $email]
         )->fetch();
     }
 
     /**
      * Get the value of id_role
-     */ 
+     */
     public function getId_role()
     {
         return $this->id_role;
@@ -36,7 +37,7 @@ class ConnexionUserModel extends Model
      * Set the value of id_role
      *
      * @return  self
-     */ 
+     */
     public function setId_role($id_role)
     {
         $this->id_role = $id_role;
@@ -47,7 +48,7 @@ class ConnexionUserModel extends Model
 
     /**
      * Get the value of nom
-     */ 
+     */
     public function getNom()
     {
         return $this->nom;
@@ -57,7 +58,7 @@ class ConnexionUserModel extends Model
      * Set the value of nom
      *
      * @return  self
-     */ 
+     */
     public function setNom($nom)
     {
         $this->nom = $nom;
@@ -67,7 +68,7 @@ class ConnexionUserModel extends Model
 
     /**
      * Get the value of prenom
-     */ 
+     */
     public function getPrenom()
     {
         return $this->prenom;
@@ -77,7 +78,7 @@ class ConnexionUserModel extends Model
      * Set the value of prenom
      *
      * @return  self
-     */ 
+     */
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
@@ -87,7 +88,7 @@ class ConnexionUserModel extends Model
 
     /**
      * Get the value of pass
-     */ 
+     */
     public function getPass()
     {
         return $this->pass;
@@ -97,7 +98,7 @@ class ConnexionUserModel extends Model
      * Set the value of pass
      *
      * @return  self
-     */ 
+     */
     public function setPass($pass)
     {
         $this->pass = $pass;
@@ -107,7 +108,7 @@ class ConnexionUserModel extends Model
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -117,7 +118,7 @@ class ConnexionUserModel extends Model
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;

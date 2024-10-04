@@ -4,10 +4,10 @@
     <h1 class="text-center mt-5"> Tous Nos Services</h1>
 </div>
 <section class="services container-fluid">
-    <div class="row g-4"> 
+    <div class="row g-4">
         <?php foreach ($services as $service): ?>
-            <div class="col-12 col-md-6 col-lg-4 "> 
-                <div class="card h-100"> 
+            <div class="col-12 col-md-6 col-lg-4 ">
+                <div class="card h-100">
                     <div class="card-body presanimaux text-center">
                         <div class="buttonA mb-3">
                             <button>

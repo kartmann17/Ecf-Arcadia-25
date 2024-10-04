@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="/Asset/css/mainaccueil.css">
 <video id="videoAC" src="/Asset/Images/Vidéos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
 <div class="title d-flex justify-content-center">
@@ -67,47 +66,99 @@
 <section class="container-fluid horaires py-5">
   <h2 class="text-center mb-5">Nos Horaires</h2>
   <div class="table-responsive">
-    <table class=" mx-auto text-center w-75"> 
+    <table class=" mx-auto text-center w-75">
       <tbody>
         <tr>
-          <td><h4>Lundi</h4></td>
-          <td><h4>08h30</h4></td>
-          <td><h4>-</h4></td>
-          <td><h4>18h30</h4></td>
+          <td>
+            <h4>Lundi</h4>
+          </td>
+          <td>
+            <h4>08h30</h4>
+          </td>
+          <td>
+            <h4>-</h4>
+          </td>
+          <td>
+            <h4>18h30</h4>
+          </td>
         </tr>
         <tr>
-          <td><h4>Mardi</h4></td>
-          <td><h4>08h30</h4></td>
-          <td><h4>-</h4></td>
-          <td><h4>18h30</h4></td>
+          <td>
+            <h4>Mardi</h4>
+          </td>
+          <td>
+            <h4>08h30</h4>
+          </td>
+          <td>
+            <h4>-</h4>
+          </td>
+          <td>
+            <h4>18h30</h4>
+          </td>
         </tr>
         <tr>
-          <td><h4>Mercredi</h4></td>
-          <td><h4>08h30</h4></td>
-          <td><h4>-</h4></td>
-          <td><h4>18h30</h4></td>
+          <td>
+            <h4>Mercredi</h4>
+          </td>
+          <td>
+            <h4>08h30</h4>
+          </td>
+          <td>
+            <h4>-</h4>
+          </td>
+          <td>
+            <h4>18h30</h4>
+          </td>
         </tr>
         <tr>
-          <td><h4>Jeudi</h4></td>
-          <td><h4>08h30</h4></td>
-          <td><h4>-</h4></td>
-          <td><h4>18h30</h4></td>
+          <td>
+            <h4>Jeudi</h4>
+          </td>
+          <td>
+            <h4>08h30</h4>
+          </td>
+          <td>
+            <h4>-</h4>
+          </td>
+          <td>
+            <h4>18h30</h4>
+          </td>
         </tr>
         <tr>
-          <td><h4>Vendredi</h4></td>
-          <td><h4>08h30</h4></td>
-          <td><h4>-</h4></td>
-          <td><h4>18h30</h4></td>
+          <td>
+            <h4>Vendredi</h4>
+          </td>
+          <td>
+            <h4>08h30</h4>
+          </td>
+          <td>
+            <h4>-</h4>
+          </td>
+          <td>
+            <h4>18h30</h4>
+          </td>
         </tr>
         <tr>
-          <td><h4>Samedi</h4></td>
-          <td><h4>08h30</h4></td>
-          <td><h4>-</h4></td>
-          <td><h4>20h00</h4></td>
+          <td>
+            <h4>Samedi</h4>
+          </td>
+          <td>
+            <h4>08h30</h4>
+          </td>
+          <td>
+            <h4>-</h4>
+          </td>
+          <td>
+            <h4>20h00</h4>
+          </td>
         </tr>
         <tr>
-          <td><h4>Dimanche</h4></td>
-          <td colspan="3"><h4>Fermé</h4></td>
+          <td>
+            <h4>Dimanche</h4>
+          </td>
+          <td colspan="3">
+            <h4>Fermé</h4>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -117,17 +168,17 @@
 
 <!-- Début section 4 avis -->
 <section class="avis">
-<div class="buttonA d-flex justify-content-center mb-5">
+  <div class="buttonA d-flex justify-content-center mb-5">
     <button>
       <h3>Avis</h3>
     </button>
-</div>
+  </div>
 
-<!-- caroussel avis-->
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <?php if (isset($Avis) && !empty($Avis)): ?>
-        <?php 
+  <!-- caroussel avis-->
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <?php if (isset($Avis) && !empty($Avis)): ?>
+        <?php
         // spération de la table avis pour récupérer que 3 avis par caroussel
         $avisChunks = array_chunk($Avis, 3);
         $activeClass = 'active'; // activation de la premiere feuille
@@ -135,7 +186,7 @@
           <div class="carousel-item <?= $activeClass; ?>">
             <div class="row justify-content-center m-auto w-75">
               <?php foreach ($avisGroup as $avis): ?>
-                <div class="col-12 col-md-4 mb-3"> 
+                <div class="col-12 col-md-4 mb-3">
                   <div class="card text-bg-light mb-3">
                     <div class="card-header d-flex justify-content-center column-gap-4">
                       <?php
@@ -146,7 +197,7 @@
                       }
                       ?>
                     </div>
-                    <div class="card-body text-center overflow-auto"> 
+                    <div class="card-body text-center overflow-auto">
                       <h5 class="card-title"><?= htmlspecialchars($avis->nom, ENT_QUOTES, 'UTF-8'); ?></h5>
                       <p class="card-text"><?= htmlspecialchars($avis->commentaire, ENT_QUOTES, 'UTF-8'); ?></p>
                     </div>
@@ -155,13 +206,13 @@
               <?php endforeach; ?>
             </div>
           </div>
-          <?php $activeClass = '';?>
+          <?php $activeClass = ''; ?>
         <?php endforeach; ?>
-    <?php else: ?>
-      <p>Aucun avis pour le moment.</p>
-    <?php endif; ?>
+      <?php else: ?>
+        <p>Aucun avis pour le moment.</p>
+      <?php endif; ?>
+    </div>
   </div>
-</div>
 
   <!-- partie bouton avis avec modal avis -->
   <div class="buttonb d-flex justify-content-center mb-3">
@@ -179,7 +230,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          
+
           <!-- Formulaire d'avis -->
           <form action="/Avis/ajoutAvis" method="POST">
             <!-- Etoiles -->
@@ -226,7 +277,6 @@
     </div>
   </div>
 
-  
-  
-</section>
 
+
+</section>

@@ -11,14 +11,16 @@ class DashValideAvisController extends DashController
         $AvisModel = new AvisModel();
         $Avis = $AvisModel->findAll();
         if (isset($_SESSION['id_User'])) {
-        $this->render("dash/listeavis", 
-        compact("Avis"));
-    }else {
-        http_response_code(404);
+            $this->render(
+                "dash/listeavis",
+                compact("Avis")
+            );
+        } else {
+            http_response_code(404);
+        }
     }
-}
 
-public function deleteAvis()
+    public function deleteAvis()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -42,15 +44,14 @@ public function deleteAvis()
             header("Location: /dash");
             exit();
         }
-
     }
 
     public function validerAvis($id)
-        {
-            $avisModel = new AvisModel();
-            $avisModel->validerAvis($id);
-            header("Location: /dash");
-        }
+    {
+        $avisModel = new AvisModel();
+        $avisModel->validerAvis($id);
+        header("Location: /dash");
+    }
     public function index()
     {
         $AvisModel = new AvisModel();

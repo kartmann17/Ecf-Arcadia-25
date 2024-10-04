@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Models;
+
 use App\Models\UserModel;
 
 class ServicesModel extends Model
@@ -40,18 +42,18 @@ class ServicesModel extends Model
         return $this;
     }
 
-    //mise a jour services 
+    //mise a jour services
     public function updateServices($id)
     {
         return $this->update($id);
     }
 
-    
+
     public function AllServices()
     {
         return $this->req(
             "SELECT s.*, u.nom as User_nom
-            FROM $this->table s 
+            FROM $this->table s
             JOIN User u ON s.id_User = u.id"
         )->fetchAll();
     }
@@ -64,18 +66,17 @@ class ServicesModel extends Model
     }
     public function selectServiceById($id)
     {
-        return $this->req("SELECT * FROM $this->table WHERE id = ?", [$id])->fetch();    }
+        return $this->req("SELECT * FROM $this->table WHERE id = ?", [$id])->fetch();
+    }
 
     public function getRoles()
     {
         return $this->req('SELECT * FROM Role')->fetchAll();
     }
 
-// Supprimer un service
-public function deleteById($id)
-{
-    return $this->delete($id);
-}
-
-    
+    // Supprimer un service
+    public function deleteById($id)
+    {
+        return $this->delete($id);
+    }
 }

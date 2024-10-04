@@ -24,7 +24,7 @@
                         <div class="d-flex justify-content-between">
                             <form action="/DashUser/deleteUser" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette utilisateur ?');">
                                 <input type="hidden" name="id" value="<?= $user->id ?>">
-                                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                                <button class="btn btn-danger btn-sm">Supprimer</button>
                             </form>
                         </div>
                     </td>

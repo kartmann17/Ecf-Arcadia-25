@@ -3,62 +3,62 @@
 
 <div class="container-fluid admin-container">
     <div class="admin-space">
-    <h2 class="mb-4 text-center">Dashboard <?php echo $_SESSION['nom']; ?></h2>
+        <h2 class="mb-4 text-center">Dashboard <?php echo $_SESSION['nom']; ?></h2>
         <div class="row">
             <!-- Colonne 1 -->
-          
-            <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashAnimaux" class="admin-link">Ajout d'animaux</a>
-            </div>
-                <?php endif; ?>
+
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashAnimaux" class="admin-link">Ajout d'animaux</a>
+                </div>
+            <?php endif; ?>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/DashAnimaux/liste" class="admin-link">Liste des animaux</a>
             </div>
-            <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashRace" class="admin-link">Ajout Race</a>
-            </div>
-                <?php endif; ?>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashRace" class="admin-link">Ajout Race</a>
+                </div>
+            <?php endif; ?>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/DashRace/liste" class="admin-link">Liste Races</a>
             </div>
 
-            <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashUser" class="admin-link">Ajout d'utilisateur</a>
-            </div>
-    
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashUser" class="admin-link">Ajout d'utilisateur</a>
+                </div>
 
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashUser/liste" class="admin-link">Liste des utilisateurs</a>
-            </div>
-            
-          
-            <!-- Colonne 2 -->
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashUnivers" class="admin-link">Ajout Univers</a>
-            </div>
-    
-            
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashUnivers/liste" class="admin-link">Liste des univers</a>
-            </div>
+
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashUser/liste" class="admin-link">Liste des utilisateurs</a>
+                </div>
+
+
+                <!-- Colonne 2 -->
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashUnivers" class="admin-link">Ajout Univers</a>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashUnivers/liste" class="admin-link">Liste des univers</a>
+                </div>
             <?php endif; ?>
 
-            <?php if(isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé')): ?>
-            <!-- Colonne 3 -->
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashServices" class="admin-link">Ajout service</a>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashServices/liste" class="admin-link">Liste des services</a>
-            </div>
+            <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé')): ?>
+                <!-- Colonne 3 -->
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashServices" class="admin-link">Ajout service</a>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashServices/liste" class="admin-link">Liste des services</a>
+                </div>
 
-                <?php endif;?>
-            
+            <?php endif; ?>
+
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/DashRapport" class="admin-link">Ajout Rapport</a>
             </div>
@@ -66,18 +66,18 @@
                 <a href="/DashRapport/liste" class="admin-link">Liste rapport</a>
             </div>
 
-            <?php if(isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé')): ?>
+            <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé')): ?>
 
-            <!-- Colonne 4 -->
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashValideAvis" class="admin-link">Avis à valider</a>
-            </div>
-    
+                <!-- Colonne 4 -->
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashValideAvis" class="admin-link">Avis à valider</a>
+                </div>
 
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashValideAvis/liste" class="admin-link">Liste des avis</a>
-            </div>
-                <?php endif; ?>
+
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashValideAvis/liste" class="admin-link">Liste des avis</a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 

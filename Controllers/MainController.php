@@ -13,4 +13,3 @@ class MainController extends Controller
         $this->render("acceuil/index", compact("Avis"));
     }
 }
-
