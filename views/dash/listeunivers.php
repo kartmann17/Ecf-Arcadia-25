@@ -21,7 +21,7 @@
                         <td><?= $univer->description ?></td>
                         <td>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-warning btn-sm me-1">Modifier</button>
+                                <a href="/DashUnivers/updateUnivers/<?= $univer->id ?>" class="btn btn-warning btn-sm me-1">Modifier</a>
 
                                 <form action="/DashUnivers/deleteUniver" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette habitat?');">
                                     <input type="hidden" name="id" value="<?= $univer->id ?>">

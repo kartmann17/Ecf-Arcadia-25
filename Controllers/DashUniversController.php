@@ -48,6 +48,35 @@ class DashUniversController extends DashController
         }
     }
 
+    public function updateUnivers($id)
+    {
+        $UniversModel = new UniversModel();
+        $univers = $UniversModel->find($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+            // Vérification que tous les champs sont remplis
+            $UniversModel->hydrate($_POST);
+
+            // Appel du modèle pour l'insertion en base
+            if ($UniversModel->update($id)) {
+
+
+                $_SESSION["success_message"] = "Univer modifié avec succès.";
+            } else {
+                $_SESSION["error_message"] = "Erreur lors de la modification.";
+            }
+
+            // Redirection après traitement
+            header("Location: /dash");
+            exit;
+        }
+
+        $this->render('dash/updateunivers', [
+            'univers' => $univers
+        ]);
+    }
     public function deleteUniver()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
