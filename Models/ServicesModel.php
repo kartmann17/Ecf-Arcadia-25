@@ -29,6 +29,24 @@ class ServicesModel extends Model
         );
     }
 
+    public function hydrate($donnees)
+    {
+        foreach ($donnees as $key => $value) {
+            $method = 'set' . ucfirst($key);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+        return $this;
+    }
+
+    //mise a jour services 
+    public function updateServices($id)
+    {
+        return $this->update($id);
+    }
+
+    
     public function AllServices()
     {
         return $this->req(

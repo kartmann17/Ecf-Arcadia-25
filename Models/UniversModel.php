@@ -51,8 +51,8 @@ class UniversModel extends Model
         return $this;
     }
 
-    //mise a jour animaux 
-    public function updateAnimal($id)
+    //mise a jour univers
+    public function updateUnivers($id)
     {
         return $this->update($id);
     }

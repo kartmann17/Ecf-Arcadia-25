@@ -48,6 +48,45 @@ class DashServicesController extends DashController
         }
     }
 
+
+
+    public function updateServices($id)
+    {
+        $ServicesModel = new ServicesModel();
+        $services = $ServicesModel->find($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+            // Vérification que tous les champs sont remplis
+            $ServicesModel->hydrate($_POST);
+
+            // Appel du modèle pour l'insertion en base
+            if ($ServicesModel->update($id)) {
+
+
+                $_SESSION["success_message"] = "Service modifié avec succès.";
+            } else {
+                $_SESSION["error_message"] = "Erreur lors de la modification.";
+            }
+
+            // Redirection après traitement
+            header("Location: /dash");
+            exit;
+        }
+
+        if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé') {
+            $this->render('dash/updateservices', [
+                'services' => $services
+            ]);
+        } else {
+            http_response_code(404);
+        }
+    }
+
+
+
+
     public function liste()
     {
         $ServicesModels = new ServicesModel();
@@ -84,6 +123,8 @@ class DashServicesController extends DashController
             exit();
         }
     }
+
+
 
     public function index()
     {
