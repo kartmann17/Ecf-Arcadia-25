@@ -7,6 +7,20 @@ use App\Models\AnimauxModel;
 
 class DashRapportController extends DashController
 {
+    public function liste()
+    {
+        $RapportModel = new RapportModel();
+        $rapports = $RapportModel->findAll();
+        if(isset($_SESSION['id_User'])){
+            $this->render('dash/listerapport', 
+            [
+                'rapports' => $rapports
+            ]);
+        }else {
+            http_response_code(404);
+        }
+    }
+    
     public function ajoutRapport()
     {
         if (!isset($_SESSION['id_User'])) {
@@ -74,6 +88,29 @@ class DashRapportController extends DashController
 
 
         return $this->render('dash/ajoutrapport', ['animaux' => $animaux]);
+    }
+
+    public function deleteRapport()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $id = $_POST['id'] ?? null;
+
+            if ($id) {
+                $RapportModel = new RapportModel();
+
+                $result = $RapportModel->deleteById($id);
+
+                if ($result) {
+                    $_SESSION['success_message'] = "Le rapport a été supprimé avec succès.";
+                } else {
+                    $_SESSION['error_message'] = "Erreur lors de la suppression du rapport.";
+                }
+            } 
+            // Redirection vers la dashboard
+            header("Location: /dash");
+            exit();
+        }
     }
     public function index()
     {

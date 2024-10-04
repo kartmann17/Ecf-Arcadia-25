@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Asset/css/dashindex.css">
+<link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
 
 <body>
@@ -23,7 +23,7 @@
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-warning btn-sm me-1">Modifier</button>
 
-                                <form action="/DashListeUnivers/deleteUniver" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette habitat?');">
+                                <form action="/DashUnivers/deleteUniver" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette habitat?');">
                                     <input type="hidden" name="id" value="<?= $univer->id ?>">
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                                 </form>

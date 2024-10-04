@@ -1,6 +1,6 @@
 
-<link rel="stylesheet" href="../Asset/css/mainaccueil.css">
-<video id="videoAC" src="../Asset/Images/Vidéos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
+<link rel="stylesheet" href="/Asset/css/mainaccueil.css">
+<video id="videoAC" src="/Asset/Images/Vidéos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
 <div class="title d-flex justify-content-center">
   <h1>Découvrez les Merveilles du Monde <br> Animal: Une Journée Magique au Zoo!</h1>
 </div>
@@ -38,7 +38,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="../asset/Images/lion_paysage.jpg" class="img-fluid" alt="lion"></a>
+      <a href=""><img src="/Asset/Images/lion_paysage.jpg" class="img-fluid" alt="lion"></a>
     </div>
     <!-- 2ème block image -->
     <div class="buttonA">
@@ -47,7 +47,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="../asset/Images/perroquetpaysage2.jpg" class="img-fluid" alt="perroquet"></a>
+      <a href=""><img src="/Asset/Images/perroquetpaysage2.jpg" class="img-fluid" alt="perroquet"></a>
     </div>
 
     <!-- 3ème block image -->
@@ -57,7 +57,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="../asset/Images/crocopaysge.jpg" class="img-fluid" alt="croco"></a>
+      <a href=""><img src="/Asset/Images/crocopaysge.jpg" class="img-fluid" alt="croco"></a>
     </div>
   </div>
 </section>

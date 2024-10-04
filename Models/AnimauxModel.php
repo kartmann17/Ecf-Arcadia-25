@@ -46,7 +46,7 @@ class AnimauxModel extends Model
     }
 
     //mise a jour animaux 
-    public function updateAnimaux($id)
+    public function updateAnimal($id)
     {
         return $this->update($id);
     }

@@ -1,22 +1,8 @@
-<link rel="stylesheet" href="../Asset/css/dashindex.css">
+<link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
 
 <div class="container mt-5 mb-5 rapport-container">
     <h2 class="mb-4">Rapport animaux</h2>
-
-    <?php if (isset($_SESSION['error_message'])): ?>
-        <div class="alert alert-danger">
-            <?= $_SESSION['error_message'];
-            unset($_SESSION['error_message']); ?>
-        </div>
-    <?php endif; ?>
-
-    <?php if (isset($_SESSION['success_message'])): ?>
-        <div class="alert alert-success">
-            <?= $_SESSION['success_message'];
-            unset($_SESSION['success_message']); ?>
-        </div>
-    <?php endif; ?>
 
     <form action="/DashRapport/ajoutRapport" method="POST">
 

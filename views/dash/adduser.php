@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Asset/css/dashindex.css">
+<link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
 <section class="container">
     <div class="container mt-5">
@@ -9,14 +9,6 @@
                         <h2 class="text-center">Enregistrement Utilisateur</h2>
                     </div>
                     <div class="card-body">
-                        
-                        <?php if(isset($_SESSION['error_message'])): ?>
-                            <div class="alert alert-danger"><?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?></div>
-                        <?php endif; ?>
-
-                        <?php if(isset($_SESSION['success_message'])): ?>
-                            <div class="alert alert-success"><?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?></div>
-                        <?php endif; ?>
 
                         <form action="/DashUser/ajoutUser" method="POST">
                             

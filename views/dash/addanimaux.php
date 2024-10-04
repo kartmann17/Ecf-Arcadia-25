@@ -1,5 +1,6 @@
-<link rel="stylesheet" href="../Asset/css/dashindex.css">
+<link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
+
 <section class="container ">
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
@@ -9,16 +10,6 @@
                         <h2 class="text-center">Ajout Animal</h2>
                     </div>
                     <div class="card-body">
-                        
-                        <?php if (isset($_SESSION['error_message'])): ?>
-                            <div class="alert alert-danger"><?php echo $_SESSION['error_message'];
-                                                            unset($_SESSION['error_message']); ?></div>
-                        <?php endif; ?>
-
-                        <?php if (isset($_SESSION['success_message'])): ?>
-                            <div class="alert alert-success"><?php echo $_SESSION['success_message'];
-                                                                unset($_SESSION['success_message']); ?></div>
-                        <?php endif; ?>
 
                         <form action="/DashAnimaux/ajoutAnimaux" method="POST">
                             <!-- Nom -->
@@ -54,7 +45,7 @@
                             <div class="mb-3">
                                 <label for="role" class="form-label">Habitat</label>
                                 <select class="form-select" id="id_habitat" name="id_habitat" required>
-                                    <option value="">Sélectionner un habitat</option> 
+                                    <option value="">Sélectionner un habitat</option>
                                     <?php foreach ($univers as $univer): ?>
                                         <option value="<?= $univer->id ?>"><?= $univer->nom ?></option>
                                     <?php endforeach; ?>

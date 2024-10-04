@@ -53,6 +53,79 @@ class DashAnimauxController extends DashController
         }
     }
 
+ public function deleteAnimal()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $id = $_POST['id'] ?? null;
+
+            if ($id) {
+                $AnimauxModel = new AnimauxModel();
+
+                $result = $AnimauxModel->deleteById($id);
+
+                if ($result) {
+                    $_SESSION['success_message'] = "L'animal a été supprimé avec succès.";
+                } else {
+                    $_SESSION['error_message'] = "Erreur lors de la suppression de l'animal.";
+                }
+            } else {
+                $_SESSION['error_message'] = "ID d'animal invalide.";
+            }
+
+            // Redirection vers la dashboard
+            header("Location: /dash");
+            exit();
+        }
+    }
+
+    public function liste()
+    {
+        $AnimauxModels = new AnimauxModel();
+        $animaux = $AnimauxModels->findAll();
+        if (isset($_SESSION['id_User'])) {
+            $this->render('dash/listeanimaux', ['animaux' => $animaux]);
+        } else {
+            http_response_code(404);
+        }
+    }
+
+    public function updateAnimal($id)
+    {
+        $AnimauxModels = new AnimauxModel();
+        $animaux = $AnimauxModels->find($id);
+        $universModels = new UniversModel();
+        $univers = $universModels->findAll();
+        $raceModels = new RaceModel();
+        $races = $raceModels->findAll();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+            // Vérification que tous les champs sont remplis
+            $AnimauxModels->hydrate($_POST);
+
+            // Appel du modèle pour l'insertion en base
+            if ($AnimauxModels->update($id)) {
+
+
+                $_SESSION["success_message"] = "Animal modifié avec succès.";
+            } else {
+                $_SESSION["error_message"] = "Erreur lors de la modification.";
+            }
+
+            // Redirection après traitement
+            header("Location: /dash");
+            exit;
+        }
+
+        $this->render('dash/updateanimaux', [
+            'animaux'=>$animaux,
+            'univers'=>$univers,
+            'races'=>$races
+        ]);
+    }
+
     public function index()
     {
         $AnimauxModels = new AnimauxModel();

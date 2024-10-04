@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Asset/css/dashindex.css">
+<link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
 
     <div class="container mt-5 mb-5 avis-container">
@@ -22,7 +22,7 @@
                         <td><?= $avis->date ?></td>
                         <td>
                             <div class="d-flex justify-content-between">
-                                <form action="/DashListeAvis/deleteAvis" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette avis ?');">
+                                <form action="/DashValideAvis/deleteAvis" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette avis ?');">
                                     <input type="hidden" name="id" value="<?= $avis->id ?>">
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                             </div>

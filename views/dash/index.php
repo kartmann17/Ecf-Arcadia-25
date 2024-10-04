@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Asset/css/dashindex.css">
+<link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
 
 <div class="container-fluid admin-container">
@@ -14,7 +14,7 @@
                 <?php endif; ?>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashListeAnimaux" class="admin-link">Liste des animaux</a>
+                <a href="/DashAnimaux/liste" class="admin-link">Liste des animaux</a>
             </div>
             <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
@@ -23,7 +23,7 @@
                 <?php endif; ?>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashListeRace" class="admin-link">Liste Races</a>
+                <a href="/DashRace/liste" class="admin-link">Liste Races</a>
             </div>
 
             <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
@@ -33,7 +33,7 @@
     
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashListeUser" class="admin-link">Liste des utilisateurs</a>
+                <a href="/DashUser/liste" class="admin-link">Liste des utilisateurs</a>
             </div>
             
           
@@ -44,7 +44,7 @@
     
             
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashListeUnivers" class="admin-link">Liste des univers</a>
+                <a href="/DashUnivers/liste" class="admin-link">Liste des univers</a>
             </div>
             <?php endif; ?>
 
@@ -54,7 +54,7 @@
                 <a href="/DashServices" class="admin-link">Ajout service</a>
             </div>
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashListeServices" class="admin-link">Liste des services</a>
+                <a href="/DashServices/liste" class="admin-link">Liste des services</a>
             </div>
 
                 <?php endif;?>
@@ -63,7 +63,7 @@
                 <a href="/DashRapport" class="admin-link">Ajout Rapport</a>
             </div>
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashListeRapport" class="admin-link">Liste rapport</a>
+                <a href="/DashRapport/liste" class="admin-link">Liste rapport</a>
             </div>
 
             <?php if(isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé')): ?>
@@ -75,7 +75,7 @@
     
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashListeAvis" class="admin-link">Liste des avis</a>
+                <a href="/DashValideAvis/liste" class="admin-link">Liste des avis</a>
             </div>
                 <?php endif; ?>
         </div>

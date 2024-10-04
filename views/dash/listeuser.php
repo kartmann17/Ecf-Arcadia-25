@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Asset/css/dashindex.css">
+<link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
 <div class="container mt-5 mb-5 users-container">
     <h2 class="mb-4">Gestion des Utilisateurs</h2>
@@ -22,7 +22,7 @@
                     <td><?= $user->role ?></td>
                     <td>
                         <div class="d-flex justify-content-between">
-                            <form action="/DashListeUser/deleteUser" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette utilisateur ?');">
+                            <form action="/DashUser/deleteUser" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette utilisateur ?');">
                                 <input type="hidden" name="id" value="<?= $user->id ?>">
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                             </form>

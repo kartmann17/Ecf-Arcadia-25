@@ -9,9 +9,9 @@
   <?php if (isset($link)){
     echo $link;
   } ?>
-  <link rel="icon" type="image/png" href="Asset/Icones/favicon.ico">
-  <link rel="stylesheet" href="Asset/css/defaultNav.css">
-  <link rel="stylesheet" href="Asset/css/defaultFooter.css">
+  <link rel="icon" type="image/png" href="/Asset/Icones/favicon.ico">
+  <link rel="stylesheet" href="/Asset/css/defaultNav.css">
+  <link rel="stylesheet" href="/Asset/css/defaultFooter.css">
   <?php if (isset($script)){
     echo $script;
   } ?>
@@ -26,7 +26,7 @@
       <nav role="navigation">
         <div class="py-1 text-center border-bottom">
           <a href="/">
-          <img class="logoA" src="Asset/Icones/sansfond2.svg" alt="logo principal">
+          <img class="logoA" src="/Asset/Icones/sansfond2.svg" alt="logo principal">
           </a>
         </div>
       </nav>
@@ -44,16 +44,16 @@
               <a class="nav-link" aria-current="page" href="/">ARCADIA</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="services">Nos Services</a>
+              <a class="nav-link" href="/services">Nos Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="animaux">Nos Animaux</a>
+              <a class="nav-link" href="/animaux">Nos Animaux</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="univers">Nos Univers</a>
+              <a class="nav-link" href="/univers">Nos Univers</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contacts">Contact</a>
+              <a class="nav-link" href="/contacts">Contact</a>
             </li>
             <?php if (isset($_SESSION['id_User'])): ?>
               
@@ -62,12 +62,12 @@
               </li>
             <?php else: ?>
               <li class="nav-item">
-                <a class="nav-link" href="ConnexionUser">connexion</a>
+                <a class="nav-link" href="/ConnexionUser">connexion</a>
               </li>
             <?php endif; ?>
             <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'vétérinaire' || $_SESSION['role'] === 'employé')): ?>
               <li class="nav-item">
-                <a class="nav-link " href="dash">Dashboard</a>
+                <a class="nav-link " href="/dash">Dashboard</a>
               </li>
             <?php endif; ?>
           </ul>

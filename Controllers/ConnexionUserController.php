@@ -51,7 +51,6 @@ class ConnexionUserController extends Controller
     public function deconnexion()
 {
     session_unset();
-    session_destroy();
     // Redirection page d'accueil
     header("Location: /");
     exit();

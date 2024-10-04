@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="../Asset/css/nosunivers.css">
+<link rel="stylesheet" href="/Asset/css/nosunivers.css">
+<div class="vide"></div>
 <div class="container my-5">
     <h2 class="text-center mb-4">Animaux de l'habitat : <?= $univers->nom ?></h2>
 

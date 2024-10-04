@@ -35,7 +35,7 @@ class main
         $params = isset($_GET['p']) ? explode('/', $_GET['p']) : []; 
 
         // var_dump($params);
-        if($params[0] != ''){
+        if (isset($params[0]) && $params[0] != ''){
             //récupération du controleur a instancier
             //mettre une majuscule en 1 er lettre et ajout du namespace complet avant et ajout du "controller" après 
             $controller = '\\App\\Controllers\\'.ucfirst(array_shift($params)).'Controller';

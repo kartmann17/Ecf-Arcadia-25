@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Asset/css/nosunivers.css">
+<link rel="stylesheet" href="/Asset/css/nosunivers.css">
 <div class="vide"></div>
 
 <?php foreach ($univers as $univer): ?>

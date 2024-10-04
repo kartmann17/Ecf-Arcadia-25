@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Asset/css/dashindex.css">
+<link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
 <div class="container mt-5 mb-5 service-container">
     <h2 class="mb-4">Gestion des Services</h2>
@@ -21,7 +21,7 @@
                         <div class="d-flex justify-content-between">
                             <button class="btn btn-warning btn-sm me-1">Modifier</button>
 
-                            <form action="/DashListeServices/deleteService" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer ce service ?');">
+                            <form action="/DashServices/deleteService" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer ce service ?');">
                                     <input type="hidden" name="id" value="<?= $service->id?>">
                             <button class="btn btn-danger btn-sm">Supprimer</button>
                             </form>

@@ -126,7 +126,6 @@ public function req(string $sql, array $attributs = null)
 
 
    public function hydrate( $donnees)
-
    {
     foreach($donnees as $key =>$value){
         $method = 'set' . ucfirst($key);

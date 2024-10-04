@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Asset/css/nosanimaux.css">
+<link rel="stylesheet" href="/Asset/css/nosanimaux.css">
 <div class="vide"></div>
 <h1 class="text-center mb-5">Nos animaux</h1>
 

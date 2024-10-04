@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Asset/css/dashindex.css">
+<link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
 
 <div class="container mt-5 mb-5 rapport-container">
@@ -38,7 +38,7 @@
                 <td>
                     <div class="d-flex justify-content-between">
                         <button class="btn btn-warning btn-sm me-1">Modifier</button>
-                        <form action="/DashListeRapport/deleteRapport" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer ce rapport ?');">
+                        <form action="/DashRapport/deleteRapport" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer ce rapport ?');">
                             <input type="hidden" name="id" value="<?= $rapport->id?>">
                             <button class="btn btn-danger btn-sm">Supprimer</button>
                     </form>
