@@ -85,10 +85,43 @@ class DashRapportController extends DashController
                 return $this->render('dash/ajoutrapport', ['animaux' => $animaux]);
             }
         }
-
-
         return $this->render('dash/ajoutrapport', ['animaux' => $animaux]);
     }
+
+    public function updateRapport($id)
+    {
+        $AnimauxModels = new AnimauxModel();
+        $animaux = $AnimauxModels->findAll();
+        $RapportModel = new RapportModel();
+        $rapport = $RapportModel->find($id);
+       
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+            // Vérification que tous les champs sont remplis
+            $AnimauxModels->hydrate($_POST);
+
+            // Appel du modèle pour l'insertion en base
+            if ($AnimauxModels->update($id)) {
+
+
+                $_SESSION["success_message"] = "Rapport modifié avec succès.";
+            } else {
+                $_SESSION["error_message"] = "Erreur lors de la modification.";
+            }
+
+            // Redirection après traitement
+            header("Location: /dash");
+            exit;
+        }
+
+        $this->render('dash/updaterapport', [
+            'animaux' => $animaux,
+            'rapport' => $rapport
+        ]);
+    }
+
 
     public function deleteRapport()
     {

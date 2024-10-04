@@ -37,7 +37,8 @@
                 <td><?= $rapport->id_animal ?></td>
                 <td>
                     <div class="d-flex justify-content-between">
-                        <button class="btn btn-warning btn-sm me-1">Modifier</button>
+                    <a href="/DashRapport/updateRapport/<?= $rapport->id ?>" class="btn btn-warning btn-sm me-1">Modifier</a>
+
                         <form action="/DashRapport/deleteRapport" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer ce rapport ?');">
                             <input type="hidden" name="id" value="<?= $rapport->id?>">
                             <button class="btn btn-danger btn-sm">Supprimer</button>

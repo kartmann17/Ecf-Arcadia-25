@@ -21,7 +21,6 @@
                         <div class="d-flex justify-content-between">
                         <a href="/DashServices/updateServices/<?= $service->id ?>" class="btn btn-warning btn-sm me-1">Modifier</a>
 
-
                             <form action="/DashServices/deleteService" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer ce service ?');">
                                     <input type="hidden" name="id" value="<?= $service->id?>">
                             <button class="btn btn-danger btn-sm">Supprimer</button>
