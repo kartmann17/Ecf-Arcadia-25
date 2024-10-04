@@ -75,6 +75,37 @@ class DashRaceController extends DashController
             exit();
         }
     }
+
+    public function updateRace($id)
+    {
+        $RaceModels = new RaceModel();
+        $races = $RaceModels->find($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+            // Vérification que tous les champs sont remplis
+            $RaceModels->hydrate($_POST);
+
+            // Appel du modèle pour l'insertion en base
+            if ($RaceModels->update($id)) {
+
+
+                $_SESSION["success_message"] = "Race modifié avec succès.";
+            } else {
+                $_SESSION["error_message"] = "Erreur lors de la modification.";
+            }
+
+            // Redirection après traitement
+            header("Location: /dash");
+            exit;
+        }
+
+        $this->render('dash/updateraces', [
+            'races' => $races
+        ]);
+    }
+
     public function index()
     {
         if (isset($_SESSION['id_User'])) {

@@ -15,7 +15,7 @@
                     <td><?= $race->race ?></td>
                     <td>
                         <div class="d-flex justify-content-between">
-                            <button class="btn btn-warning btn-sm me-1">Modifier</button>
+                            <a href="/DashRace/updateRace/<?= $race->id ?>" class="btn btn-warning btn-sm me-1">Modifier</a>
 
                             <form action="/DashRace/deleteRace" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette race ?');">
                                 <input type="hidden" name="id" value="<?= $race->id ?>">

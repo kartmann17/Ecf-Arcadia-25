@@ -53,7 +53,7 @@ class DashAnimauxController extends DashController
         }
     }
 
- public function deleteAnimal()
+    public function deleteAnimal()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -120,9 +120,9 @@ class DashAnimauxController extends DashController
         }
 
         $this->render('dash/updateanimaux', [
-            'animaux'=>$animaux,
-            'univers'=>$univers,
-            'races'=>$races
+            'animaux' => $animaux,
+            'univers' => $univers,
+            'races' => $races
         ]);
     }
 
@@ -134,9 +134,9 @@ class DashAnimauxController extends DashController
         $univers = $universModels->findAll();
         $raceModels = new RaceModel();
         $races = $raceModels->findAll();
-        if(isset($_SESSION['id_User'])){
-        // Affichage de la vue d'ajout des animaux
-        $this->render("dash/addanimaux", compact('animaux', 'univers', 'races'));
+        if (isset($_SESSION['id_User'])) {
+            // Affichage de la vue d'ajout des animaux
+            $this->render("dash/addanimaux", compact('animaux', 'univers', 'races'));
         } else {
             http_response_code(404);
         }

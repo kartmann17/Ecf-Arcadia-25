@@ -26,21 +26,9 @@ class RaceModel extends Model
 
     public function updateRace($id)
     {
-        $champs =[];
-        $valeurs = [];
-
-        foreach($this as $champ => $valeur)
-    {
-        
-        if($valeur != null && $champ != 'db' && $champ != 'table'){
-        $champs[] = "$champ = ?";
-        $valeurs[] = $valeur;
-        }
+        return $this->update($id);
     }
-    $valeurs[] = $id;
-    $liste_champs = implode(', ', $champs);
-    return $this->req('UPDATE '.$this->table. ' SET '. $liste_champs.' WHERE id = ?', $valeurs);
-    }
+    
 
     public function deleteById($id)
     {
