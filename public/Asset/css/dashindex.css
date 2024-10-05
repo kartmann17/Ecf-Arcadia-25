@@ -33,9 +33,11 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
+
 }
 
-/* Centrage de l'admin-space */
+
 .admin-container {
   min-height: 100vh;
   display: flex;
@@ -43,7 +45,7 @@ h2 {
   align-items: center;
 }
 
-/* Style des liens */
+
 .admin-link {
   display: block;
   width: 100%;
@@ -59,6 +61,28 @@ h2 {
 
 .admin-link:hover {
   background-color: #f78f2e;
+}
+
+@media (max-width: 768px) {
+  .admin-link-container {
+      text-align: center;
+  }
+
+  .admin-link {
+      font-size: 14px;
+      padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-link-container {
+      margin-bottom: 15px;
+  }
+
+  .admin-link {
+      font-size: 12px;
+      padding: 8px;
+  }
 }
 
 .admin-link-container {
@@ -80,8 +104,13 @@ h2 {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
 }
 
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
 
 
 /* page liste service  */
@@ -93,7 +122,34 @@ h2 {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
 }
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table .img-thumbnail {
+  max-width: 80px;
+  height: auto;
+  object-fit: cover;
+}
+
+.table .btn-sm {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.text-end {
+  margin-top: 20px;
+}
+
 
 
 /* page liste animaux */
@@ -105,7 +161,25 @@ h2 {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
 }
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.img-thumbnail {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+
 
 /*page liste avis*/
 .avis-container {
@@ -116,7 +190,29 @@ h2 {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
 }
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table .btn-sm {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.text-end {
+  margin-top: 20px;
+}
+
+
 
 /* page liste univers */
 .univers-container {
@@ -127,7 +223,34 @@ h2 {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
 }
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table .img-thumbnail {
+  max-width: 80px;
+  height: auto;
+  object-fit: cover;
+}
+
+.table .btn-sm {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.text-end {
+  margin-top: 20px;
+}
+
 
 /* page liste users */
 .users-container {
@@ -138,7 +261,29 @@ h2 {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
 }
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table .btn-sm {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.text-end {
+  margin-top: 20px;
+}
+
+
 
 /* page liste race  */
 
@@ -150,4 +295,60 @@ h2 {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table .btn-sm {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.text-end {
+  margin-top: 20px;
+}
+
+/* page de tous les updates */
+.container {
+  max-width: 100%;/
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);/
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-control,
+.form-select {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .card-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .btn {
+    margin-bottom: 10px;
+  }
 }

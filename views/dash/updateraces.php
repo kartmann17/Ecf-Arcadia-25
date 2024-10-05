@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
-<section class="container ">
+<section class="container">
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        <h2 class="text-center">Mise a jour <?= $races->race ?></h2>
+                        <h2 class="text-center">Mise à jour <?= $races->race ?></h2>
                     </div>
                     <div class="card-body">
                         <form action="/DashRace/updateRace/<?= $races->id ?>" method="POST">
@@ -15,7 +15,7 @@
                             <!-- Nom de la race -->
                             <div class="mb-3">
                                 <label for="nom" class="form-label">Nom de la race</label>
-                                <input type="text" class="form-control" id="nom" name="race" value="<?= $races->race ?>" placeholder="Nom de l'animal" required>
+                                <input type="text" class="form-control" id="nom" name="race" value="<?= $races->race ?>" placeholder="Nom de la race" required>
                             </div>
 
                             <!-- Boutons de soumission -->

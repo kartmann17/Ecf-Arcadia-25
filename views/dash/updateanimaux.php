@@ -1,17 +1,16 @@
 <link rel="stylesheet" href="/Asset/css/dashindex.css">
 <div class="vide"></div>
-<section class="container ">
+<section class="container">
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        <h2 class="text-center">Mise a jour <?= $animaux->nom ?></h2>
+                        <h2 class="text-center">Mise à jour <?= $animaux->nom ?></h2>
                     </div>
                     <div class="card-body">
 
-
-                        <form action="/DashAnimaux/updateAnimal/<?= $animaux->id ?>" method="POST">
+                        <form action="/DashAnimaux/updateAnimal/<?= $animaux->id ?>" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?= $animaux->id ?>" />
 
                             <!-- Nom de l'animal -->
