@@ -90,9 +90,3 @@ CREATE TABLE Animal (
 );
 
 
-ALTER TABLE addavis 
-ADD valide BOOLEAN DEFAULT FALSE;
-
-Drop TABLE `Veterinaire`,
-
-ALTER TABLE Animal ADD visite INT DEFAULT 0;

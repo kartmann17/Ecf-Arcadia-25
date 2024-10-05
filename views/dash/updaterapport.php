@@ -6,7 +6,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        <h2 class="text-center">Mis a jour <?= $rapport->nom ?></h2>
+                        <h2 class="text-center">Mise a jour <?= $rapport->nom ?></h2>
                     </div>
                     <div class="card-body">
 
@@ -60,7 +60,7 @@
 
                             <div class="form-group mb-3">
                                 <label for="commentaire">Commentaire</label>
-                                <textarea class="form-control" id="commentaire" name="commentaire" value="<?= $rapport->commentaire ?>" rows="3" placeholder="Ajouter un commentaire..." required></textarea>
+                                <textarea class="form-control" id="commentaire" name="commentaire" value="<?= $rapport->commentaire ?>" rows="3" placeholder="Ajouter un commentaire..." required><?= $rapport->commentaire ?></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="role" class="form-label">Animal</label>
@@ -76,7 +76,7 @@
 
                             <div class="form-group text-end">
                                 <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                <a href="/dash" class="btn btn-secondary">Annuler</a>
+                                <a href="/DashRapport/liste" class="btn btn-secondary">Annuler</a>
                             </div>
                         </form>
                     </div>

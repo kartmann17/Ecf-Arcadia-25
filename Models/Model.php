@@ -81,7 +81,7 @@ class Model extends Connexionbdd
 
         //on boucle pour eclater le tableau
         foreach ($this as $champ => $valeur) {
-            // Update annonce SET titre = ?, description = ?, prix = ?, WHERE id= ?)
+
             if ($valeur != null && $champ != 'db' && $champ != 'table') {
                 $champs[] = "$champ = ?";
                 $valeurs[] = $valeur;
@@ -119,9 +119,9 @@ class Model extends Connexionbdd
     }
 
 
-    public function hydrate($donnees)
+    public function hydrate($data)
     {
-        foreach ($donnees as $key => $value) {
+        foreach ($data as $key => $value) {
             $method = 'set' . ucfirst($key);
             if (method_exists($this, $method)) {
                 $this->$method($value);

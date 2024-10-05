@@ -6,7 +6,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        <h2 class="text-center">Mis a jour <?= $animaux->nom ?></h2>
+                        <h2 class="text-center">Mise a jour <?= $animaux->nom ?></h2>
                     </div>
                     <div class="card-body">
 
@@ -57,7 +57,7 @@
                             <!-- Boutons de soumission -->
                             <div class="d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">Mettre à jour</button>
-                                <a href="/dash" class="btn btn-secondary">Annuler</a>
+                                <a href="/DashAnimaux/liste" class="btn btn-secondary">Annuler</a>
                             </div>
                         </form>
                     </div>
