@@ -53,6 +53,11 @@
                                 </select>
                             </div>
 
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" name="description" value="<?= $animaux->description ?>" rows="4" placeholder="Description de l'animal" required><?= $animaux->description ?></textarea>
+                            </div>
+
                             <!-- Boutons de soumission -->
                             <div class="d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">Mettre à jour</button>

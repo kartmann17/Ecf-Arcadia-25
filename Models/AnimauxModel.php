@@ -11,6 +11,7 @@ class AnimauxModel extends Model
     protected $visite;
     protected $id_race;
     protected $id_habitat;
+    protected $description;
 
 
     public function __construct()
@@ -18,18 +19,19 @@ class AnimauxModel extends Model
         $this->table = "Animal";
     }
 
-    //Ajout d'animaux en base 
-    public function addAnimaux($nom, $age, $img, $id_race, $id_habitat)
+    //Ajout d'animaux en base
+    public function addAnimaux($nom, $age, $img, $id_race, $id_habitat, $description)
     {
         return $this->req(
-            "INSERT INTO " . $this->table . " (nom, age, img, id_race, id_habitat ) 
-             VALUES (:nom, :age, :img, :id_race, :id_habitat)",
+            "INSERT INTO " . $this->table . " (nom, age, img, id_race, id_habitat, description)
+             VALUES (:nom, :age, :img, :id_race, :id_habitat, :description)",
             [
                 'nom' => $nom,
                 'age' => $age,
                 'img' => $img,
                 'id_race' => $id_race,
-                'id_habitat' => $id_habitat
+                'id_habitat' => $id_habitat,
+                'description' => $description,
             ]
         );
     }
@@ -45,26 +47,27 @@ class AnimauxModel extends Model
         return $this;
     }
 
-    //mise a jour animaux 
+    //mise a jour animaux
     public function updateAnimal($id)
     {
         return $this->update($id);
     }
 
+
     public function getAnimauxById($id)
     {
         $sql = "
-        SELECT 
-            a.*, 
+        SELECT
+            a.*,
             r.race AS race_nom,
             h.nom AS habitat_nom
-        FROM 
+        FROM
             {$this->table} a
         JOIN
             Race r ON a.id_race = r.id
-        JOIN 
+        JOIN
             Habitat h ON a.id_habitat = h.id
-        WHERE 
+        WHERE
             a.id = ?";
         return $this->req($sql, [$id])->fetch();
     }
@@ -168,6 +171,13 @@ class AnimauxModel extends Model
     }
 
     /**
+     * Get the value of visite
+     */
+    public function getVisite()
+    {
+        return $this->visite;
+    }
+    /**
      * Set the value of visite
      *
      * @return  self
@@ -218,4 +228,25 @@ class AnimauxModel extends Model
 
         return $this;
     }
+
+    /**
+     * Get the value of description
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     *
+     * @return  self
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
 }

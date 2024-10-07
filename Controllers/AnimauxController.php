@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Models\AnimauxModel;
 use App\Models\UniversModel;
 use App\Models\RaceModel;
-
 class AnimauxController extends Controller
 {
     public function index()
@@ -22,4 +21,5 @@ class AnimauxController extends Controller
             'races' => $races
         ]);
     }
+
 }

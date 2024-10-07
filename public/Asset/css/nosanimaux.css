@@ -11,11 +11,25 @@ h1 {
 }
 
 .card-body {
-  height: 12.5rem;
-  margin-top: 30px;
+  height: 15rem;
+  margin-top: 10px;
 }
 
 
 .card img {
   height: 191px;
 }
+
+.btm{
+  background-color: #f78f2e;
+  color: white;
+}
+
+
+.modal-body span {
+  font-family: roboto, serif;
+}
+
+
+
+

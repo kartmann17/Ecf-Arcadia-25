@@ -14,6 +14,7 @@
                     <th>Image</th>
                     <th>Habitat</th>
                     <th>Visite</th>
+                    <th>Description</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                         </td>
                         <td><?= $animal->id_habitat ?></td>
                         <td><?= $animal->visite ?></td>
+                        <td><?= $animal->description ?></td>
                         <td>
                             <div class="d-flex justify-content-between">
                                 <a href="/DashAnimaux/updateAnimal/<?= $animal->id ?>" class="btn btn-warning ">Modifier</a>

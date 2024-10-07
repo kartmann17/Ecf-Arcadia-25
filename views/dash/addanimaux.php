@@ -52,6 +52,12 @@
                                 </select>
                             </div>
 
+                            <!-- Description -->
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Description de l'animal" required></textarea>
+                            </div>
+
 
                             <div class="d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">Ajouter</button>

@@ -24,9 +24,10 @@ class DashAnimauxController extends DashController
             $img = $_POST['img'] ?? '';
             $id_race = $_POST['id_race'] ?? '';
             $id_habitat = $_POST['id_habitat'] ?? '';
+            $description = $_POST['description']?? '';
 
             // Vérification que tous les champs sont remplis
-            if (!empty($nom) && !empty($age) && !empty($img) && !empty($id_race) && !empty($id_habitat)) {
+            if (!empty($nom) && !empty($age) && !empty($img) && !empty($id_race) && !empty($id_habitat) && !empty($description)) {
 
                 if (strlen($nom) < 2) {
                     $_SESSION['error_message'] = "Le nom doit comporter au moins 2 caractères.";
@@ -36,7 +37,7 @@ class DashAnimauxController extends DashController
 
                 // Appel du modèle pour l'insertion en base
                 $AnimauxModel = new AnimauxModel();
-                $result = $AnimauxModel->addAnimaux($nom, $age, $img, $id_race, $id_habitat);
+                $result = $AnimauxModel->addAnimaux($nom, $age, $img, $id_race, $id_habitat, $description);
 
                 if ($result) {
                     $_SESSION["success_message"] = "Animal ajouté avec succès.";
@@ -115,7 +116,7 @@ class DashAnimauxController extends DashController
             }
 
             // Redirection après traitement
-            header("Location: /dash");
+            header("Location: /DashAnimaux/liste");
             exit;
         }
 
