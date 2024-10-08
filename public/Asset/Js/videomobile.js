@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var video = document.getElementById('videoAC');
+    let video = document.getElementById('videoAC');
 
     // detection si l'appareil est mobile
     function isMobile() {

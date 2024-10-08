@@ -102,13 +102,11 @@ class DashAnimauxController extends DashController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-
             // Vérification que tous les champs sont remplis
             $AnimauxModels->hydrate($_POST);
 
             // Appel du modèle pour l'insertion en base
             if ($AnimauxModels->update($id)) {
-
 
                 $_SESSION["success_message"] = "Animal modifié avec succès.";
             } else {

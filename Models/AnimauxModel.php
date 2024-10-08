@@ -79,6 +79,15 @@ class AnimauxModel extends Model
         return $this->req($sql, [$id_habitat])->fetchAll();
     }
 
+    // compteur de visite par animaux
+    public function incrementVisits(int $id)
+    {
+        $sql = 'UPDATE ' . $this->table . ' SET visite = visite + 1 WHERE id = ?';
+        return $this->req($sql, [$id]);
+    }
+
+
+
     //supression des animaux
     public function deleteById($id)
     {

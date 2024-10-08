@@ -8,6 +8,6 @@ function showModal(name, age, race, habitat, description, imgSrc) {
     document.getElementById('modal-animal-description').innerText = description;
     document.getElementById('modal-animal-img').src = imgSrc;
 
-    var myModal = new bootstrap.Modal(document.getElementById('animalModal'));
+    let myModal = new bootstrap.Modal(document.getElementById('animalModal'));
     myModal.show();
 }

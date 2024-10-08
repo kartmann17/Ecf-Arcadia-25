@@ -23,17 +23,17 @@
                         <?php break;
                             endif;
                         endforeach; ?>
-                        
+
                     </div>
 
                     <button class="btn btm mt-3 w-100 mt-auto"
-                        onclick="
-                        showModal('<?= $animal->nom ?>', '<?= $animal->age ?>',
-                        '<?= isset($race->race) ? $race->race : 'Non défini' ?>',
-                        '<?= isset($univer->nom) ? $univer->nom : 'Non défini' ?>',
-                        '<?= $animal->description ?>',
-                        '/Asset/Images/<?= $animal->img ?>');
-                        incrementCounter(<?= $animal->id ?>);">
+                        data-animal-id="<?= $animal->id ?>"
+                        onclick='
+                        showModal("<?= $animal->nom ?>", "<?= $animal->age ?>",
+                        "<?= isset($race->race) ? htmlspecialchars($race->race) : "Non défini" ?>",
+                        "<?= isset($univer->nom) ? htmlspecialchars($univer->nom) : "Non défini" ?>",
+                        "<?= htmlspecialchars($animal->description) ?>",
+                        "/Asset/Images/<?= $animal->img ?>");'>
                         Détails
                     </button>
                 </div>
@@ -65,3 +65,4 @@
 </div>
 
 <script src="/Asset/Js/detailsanimaux.js"></script>
+<script src="/Asset/Js/clicsvisite.js"></script>
