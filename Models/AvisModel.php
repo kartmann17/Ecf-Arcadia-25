@@ -29,7 +29,6 @@ class AvisModel extends Model
     // Enregistrer un avis
     public function saveAvis($etoiles, $nom, $commentaire, $date)
     {
-
         // Préparation et exécution de la requête
         return $this->req(
             "INSERT INTO {$this->table} (etoiles, nom, commentaire, date) VALUES (:etoiles, :nom, :commentaire, :date)",

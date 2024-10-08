@@ -2,10 +2,12 @@
 
 namespace App;
 
+
 class Autoloader
 {
     public static function register()
     {
+        require __DIR__ . '/vendor/autoload.php';
         spl_autoload_register([__CLASS__, 'autoload']);
     }
 

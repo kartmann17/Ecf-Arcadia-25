@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\RapportModel;
 use App\Models\AnimauxModel;
 
+
 class DashRapportController extends DashController
 {
     public function liste()
@@ -22,6 +23,7 @@ class DashRapportController extends DashController
             http_response_code(404);
         }
     }
+
 
     public function ajoutRapport()
     {

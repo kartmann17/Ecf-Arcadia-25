@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AvisModel;
+use App\Models\HorairesModel;
 
 class MainController extends Controller
 {
@@ -12,4 +13,5 @@ class MainController extends Controller
         $Avis = $AvisModel->findAll();
         $this->render("acceuil/index", compact("Avis"));
     }
+    
 }

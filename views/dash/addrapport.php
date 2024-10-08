@@ -21,6 +21,7 @@
             <input type="text" class="form-control" id="status" name="status" placeholder="Ex : Actif, Repos, Malade..." required>
         </div>
 
+
         <div class="form-group mb-3">
             <label for="nourriture">Nourriture recommandée</label>
             <input type="text" class="form-control" id="nourriture" name="nourriture_reco" placeholder="Type de nourriture" required>
@@ -31,10 +32,12 @@
             <input type="number" class="form-control" id="grammage" name="grammage_reco" placeholder="Grammage en grammes" required>
         </div>
 
+
         <div class="form-group mb-3">
             <label for="sante">Santé (sur 10)</label>
             <input type="number" class="form-control" id="sante" name="sante" min="0" max="10" placeholder="Niveau de santé (0-10)" required>
         </div>
+
 
         <div class="form-group mb-3">
             <label for="repas">Repas donnés</label>
@@ -46,6 +49,7 @@
             <label for="quantite">Quantité donnée (en grammes)</label>
             <input type="number" class="form-control" id="quantite" name="quantite" placeholder="Quantité donnée en grammes" required>
         </div>
+        
 
         <div class="form-group mb-3">
             <label for="commentaire">Commentaire</label>

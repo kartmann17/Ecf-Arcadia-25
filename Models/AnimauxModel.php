@@ -79,16 +79,11 @@ class AnimauxModel extends Model
         return $this->req($sql, [$id_habitat])->fetchAll();
     }
 
-
-
-
     //supression des animaux
     public function deleteById($id)
     {
         return $this->delete($id);
     }
-
-
 
     /**
      * Get the value of id

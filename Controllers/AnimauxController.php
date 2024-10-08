@@ -22,4 +22,5 @@ class AnimauxController extends Controller
         ]);
     }
 
+
 }

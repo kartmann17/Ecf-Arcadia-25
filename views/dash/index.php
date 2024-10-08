@@ -26,7 +26,7 @@
                 <a href="/DashRace/liste" class="admin-link">Liste Races</a>
             </div>
 
-            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin' ): ?>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/DashUser" class="admin-link">Ajout d'utilisateur</a>
                 </div>
@@ -60,10 +60,10 @@
             <?php endif; ?>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashRapport" class="admin-link">Ajout Rapport</a>
+                <a href="/DashRapport" class="admin-link">Ajout Rapport Animaux</a>
             </div>
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashRapport/liste" class="admin-link">Liste rapport</a>
+                <a href="/DashRapport/liste" class="admin-link">Liste rapport Animaux</a>
             </div>
 
             <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé')): ?>
@@ -78,6 +78,12 @@
                     <a href="/DashValideAvis/liste" class="admin-link">Liste des avis</a>
                 </div>
             <?php endif; ?>
+            <!-- <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="#" class="admin-link">Ajout Rapport Univers</a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/DashRapport/listeRapportU" class="admin-link">Liste rapport Univers</a>
+            </div> -->
         </div>
     </div>
 

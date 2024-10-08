@@ -198,8 +198,8 @@
                       ?>
                     </div>
                     <div class="card-body text-center overflow-auto">
-                      <h5 class="card-title"><?= htmlspecialchars($avis->nom, ENT_QUOTES, 'UTF-8'); ?></h5>
-                      <p class="card-text"><?= htmlspecialchars($avis->commentaire, ENT_QUOTES, 'UTF-8'); ?></p>
+                      <h5 class="card-title"><?= $avis->nom ?></h5>
+                      <p class="card-text"><?= $avis->commentaire ?></p>
                     </div>
                   </div>
                 </div>
@@ -232,7 +232,7 @@
         <div class="modal-body">
 
           <!-- Formulaire d'avis -->
-          <form action="/Avis/ajoutAvis" method="POST">
+          <form id="avisForm" action="/Avis/ajoutAvis" method="POST">
             <!-- Etoiles -->
             <div class="rating mb-3">
               <input type="radio" name="etoiles" value="5" id="5" required>
@@ -247,26 +247,25 @@
               <label for="1">☆</label>
             </div>
 
-            <!-- Champ date de visite -->
+            <!--  date de visite -->
             <div class="controls mb-3">
               <label for="date" class="mb-1">Date de votre visite</label>
               <input id="date" class="datepicker form-control" type="date" name="date" required>
             </div>
 
-            <!-- Champ nom -->
+            <!--  nom -->
             <div class="mb-3">
               <label for="nom" class="form-label">Nom</label>
               <input id="nom" class="form-control" type="text" name="nom" placeholder="Nom" required />
             </div>
 
-            <!-- Champ commentaire -->
+            <!--  commentaire -->
             <div class="mb-3">
               <label for="commentaire" class="form-label">Commentaire</label>
-              <textarea id="commentaire" class="form-control" name="commentaire" rows="6" placeholder="Message"
-                required></textarea>
+              <textarea id="commentaire" class="form-control" name="commentaire" rows="6" placeholder="Message" required></textarea>
             </div>
 
-            <!-- Footer du formulaire -->
+            <!-- Footer  -->
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
               <button type="submit" class="btn btn-primary">Envoyer</button>
@@ -281,3 +280,4 @@
 
 </section>
 <script src="/Asset/Js/videomobile.js"></script>
+<script src="/Asset/Js/req.js"></script>
