@@ -1,0 +1,44 @@
+body {
+  background: url(/Asset/Images/foret.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+.vide {
+  height: 70vh;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  letter-spacing: 2px;
+  top: 50%;
+}
+
+
+.texte {
+  color: #fff;
+}
+
+.texte P {
+  width: 60%;
+  height: 30vh;
+  font-family: "Roboto Serif";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 768px) {
+  .texte p {
+    width: 70%;
+    height: 100px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
