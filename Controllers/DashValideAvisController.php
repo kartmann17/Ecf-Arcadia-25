@@ -6,6 +6,7 @@ use App\Models\AvisModel;
 
 class DashValideAvisController extends DashController
 {
+
     public function liste()
     {
         $AvisModel = new AvisModel();
@@ -47,25 +48,25 @@ class DashValideAvisController extends DashController
     }
 
     public function validerAvis()
-{
-    if (isset($_POST['id'])) {
-        $id = $_POST['id'];
+    {
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
 
-        $avisModel = new AvisModel();
-        $avisModel->validerAvis($id);
+            $avisModel = new AvisModel();
+            $avisModel->DashValiderAvis($id);
 
-        header("Location: /dash");
-        exit();
-    } else {
-        echo "Erreur : ID manquant.";
+            header("Location: /dash");
+            exit();
+        } else {
+            echo "Erreur : ID manquant.";
+        }
     }
-}
 
 
     public function index()
     {
         $AvisModel = new AvisModel();
-        $Avis = $AvisModel->findAll();
+        $Avis = $AvisModel->findNonValides();
         if (isset($_SESSION['id_User'])) {
             $this->render("dash/valideavis", compact("Avis"));
         } else {
