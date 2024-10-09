@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="/Asset/css/mainaccueil.css">
 <video id="videoAC" src="/Asset/Images/Vidéos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
 <div class="title d-flex justify-content-center">
@@ -179,35 +180,45 @@
     <div class="carousel-inner">
       <?php if (isset($Avis) && !empty($Avis)): ?>
         <?php
-        // spération de la table avis pour récupérer que 3 avis par caroussel
-        $avisChunks = array_chunk($Avis, 3);
-        $activeClass = 'active'; // activation de la premiere feuille
-        foreach ($avisChunks as $avisGroup): ?>
-          <div class="carousel-item <?= $activeClass; ?>">
-            <div class="row justify-content-center m-auto w-75">
-              <?php foreach ($avisGroup as $avis): ?>
-                <div class="col-12 col-md-4 mb-3">
-                  <div class="card text-bg-light mb-3">
-                    <div class="card-header d-flex justify-content-center column-gap-4">
-                      <?php
-                      for ($i = 1; $i <= 5; $i++) {
-                        if ($i <= $avis->etoiles) {
-                          echo '<span class="star-filled">&#9733;</span>';
-                        }
-                      }
-                      ?>
+        // Filtrer les avis qui ont un champ 'valide' égal à 1
+        $avisValides = array_filter($Avis, function ($avis) {
+            return $avis->valide == 1;
+        });
+
+        // Vérifier s'il y a des avis valides après filtrage
+        if (!empty($avisValides)) {
+            // Séparation des avis valides en groupes de 3 pour le carousel
+            $avisChunks = array_chunk($avisValides, 3);
+            $activeClass = 'active'; // activation de la première feuille
+            foreach ($avisChunks as $avisGroup): ?>
+              <div class="carousel-item <?= $activeClass; ?>">
+                <div class="row justify-content-center m-auto w-75">
+                  <?php foreach ($avisGroup as $valide): ?>
+                    <div class="col-12 col-md-4 mb-3">
+                      <div class="card text-bg-light mb-3">
+                        <div class="card-header d-flex justify-content-center column-gap-4">
+                          <?php
+                          for ($i = 1; $i <= 5; $i++) {
+                            if ($i <= $valide->etoiles) {
+                              echo '<span class="star-filled">&#9733;</span>';
+                            }
+                          }
+                          ?>
+                        </div>
+                        <div class="card-body text-center overflow-auto">
+                          <h5 class="card-title"><?= $valide->nom ?></h5>
+                          <p class="card-text"><?= $valide->commentaire ?></p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="card-body text-center overflow-auto">
-                      <h5 class="card-title"><?= $avis->nom ?></h5>
-                      <p class="card-text"><?= $avis->commentaire ?></p>
-                    </div>
-                  </div>
+                  <?php endforeach; ?>
                 </div>
-              <?php endforeach; ?>
-            </div>
-          </div>
-          <?php $activeClass = ''; ?>
-        <?php endforeach; ?>
+              </div>
+              <?php $activeClass = ''; ?>
+            <?php endforeach; ?>
+        <?php } else { ?>
+          <p>Aucun avis valide pour le moment.</p>
+        <?php } ?>
       <?php else: ?>
         <p>Aucun avis pour le moment.</p>
       <?php endif; ?>

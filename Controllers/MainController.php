@@ -13,5 +13,5 @@ class MainController extends Controller
         $Avis = $AvisModel->findAll();
         $this->render("acceuil/index", compact("Avis"));
     }
-    
+
 }

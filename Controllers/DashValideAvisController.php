@@ -40,18 +40,28 @@ class DashValideAvisController extends DashController
                 $_SESSION['error_message'] = "ID invalide.";
             }
 
-            // Redirection vers le dashboard
-            header("Location: /dash");
+            // Redirection vers la liste des avis après supression
+            header("Location: /DashValideAvis/liste");
             exit();
         }
     }
 
-    public function validerAvis($id)
-    {
+    public function validerAvis()
+{
+    if (isset($_POST['id'])) {
+        $id = $_POST['id'];
+
         $avisModel = new AvisModel();
         $avisModel->validerAvis($id);
+
         header("Location: /dash");
+        exit();
+    } else {
+        echo "Erreur : ID manquant.";
     }
+}
+
+
     public function index()
     {
         $AvisModel = new AvisModel();

@@ -12,12 +12,14 @@ class AvisModel extends Model
     protected $nom;
     protected $commentaire;
     protected $date;
+    protected $valide;
 
 
     public function __construct()
     {
         $this->table = 'addavis';
     }
+
     public function afficheAvis()
     {
         // Requête SQL pour récupérer tous les avis
@@ -40,15 +42,44 @@ class AvisModel extends Model
             ]
         );
     }
+    
 
     public function validerAvis($id)
     {
         return $this->req("UPDATE {$this->table} SET valide = 1 WHERE id = ?", [$id]);
     }
 
+
+    public function valideAvis($valide)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE valide = ?"; //permet d'afficher les avis sur la page d'accueil
+        return $this->req($sql,[$valide])->fetchAll();
+    }
+
+
     // Supprimer un avis
     public function deleteById($id)
     {
         return $this->delete($id);
+    }
+
+    /**
+     * Get the value of valide
+     */
+    public function getValide()
+    {
+        return $this->valide;
+    }
+
+    /**
+     * Set the value of valide
+     *
+     * @return  self
+     */
+    public function setValide($valide)
+    {
+        $this->valide = $valide;
+
+        return $this;
     }
 }
