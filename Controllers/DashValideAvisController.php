@@ -7,6 +7,7 @@ use App\Models\AvisModel;
 class DashValideAvisController extends DashController
 {
 
+    // affichage de la liste des avis
     public function liste()
     {
         $AvisModel = new AvisModel();
@@ -21,6 +22,7 @@ class DashValideAvisController extends DashController
         }
     }
 
+    //suppression des avis
     public function deleteAvis()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -47,6 +49,7 @@ class DashValideAvisController extends DashController
         }
     }
 
+    //validation des avis avec le bouton
     public function validerAvis()
     {
         if (isset($_POST['id'])) {
@@ -63,10 +66,11 @@ class DashValideAvisController extends DashController
     }
 
 
+    //affichage de la page valider avis avec uniquement les avis non validé
     public function index()
     {
         $AvisModel = new AvisModel();
-        $Avis = $AvisModel->findNonValides();
+        $Avis = $AvisModel->findNonValides(); //affichage uniquemenbt des avis non validé
         if (isset($_SESSION['id_User'])) {
             $this->render("dash/valideavis", compact("Avis"));
         } else {

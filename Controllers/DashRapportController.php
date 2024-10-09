@@ -8,6 +8,7 @@ use App\Models\AnimauxModel;
 
 class DashRapportController extends DashController
 {
+    // affichage de la liste des rapports
     public function liste()
     {
         $RapportModel = new RapportModel();
@@ -24,7 +25,7 @@ class DashRapportController extends DashController
         }
     }
 
-
+    // ajout d'un rapport
     public function ajoutRapport()
     {
         if (!isset($_SESSION['id_User'])) {
@@ -92,6 +93,7 @@ class DashRapportController extends DashController
         return $this->render('dash/ajoutrapport', ['animaux' => $animaux]);
     }
 
+    //mise a jour d'un rapport
     public function updateRapport($id)
     {
 
@@ -122,6 +124,7 @@ class DashRapportController extends DashController
     }
 
 
+    // suppression d'un raport
     public function deleteRapport()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -144,6 +147,8 @@ class DashRapportController extends DashController
             exit();
         }
     }
+
+    // affichage de la page ajout rapport
     public function index()
     {
         $AnimauxModels = new AnimauxModel();

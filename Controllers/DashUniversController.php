@@ -6,6 +6,7 @@ use App\Models\UniversModel;
 
 class DashUniversController extends DashController
 {
+    //Ajout d'un habitat (univer)
     public function ajoutUnivers()
     {
         $UniversModel = new UniversModel();
@@ -48,6 +49,8 @@ class DashUniversController extends DashController
         }
     }
 
+
+    //mise à jour des habitat (univer)
     public function updateUnivers($id)
     {
         $UniversModel = new UniversModel();
@@ -77,6 +80,8 @@ class DashUniversController extends DashController
             'univers' => $univers
         ]);
     }
+
+    // Suppression des habitats (univer)
     public function deleteUniver()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -103,6 +108,7 @@ class DashUniversController extends DashController
         }
     }
 
+    // Liste des habitats (univer)
     public function liste()
     {
         $UniversModel = new UniversModel();

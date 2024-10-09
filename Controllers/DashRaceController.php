@@ -6,6 +6,7 @@ use App\Models\RaceModel;
 
 class DashRaceController extends DashController
 {
+    // affichage de la liste des races
     public function liste()
     {
         $RaceModel = new RaceModel();
@@ -20,6 +21,7 @@ class DashRaceController extends DashController
         }
     }
 
+    // ajout des races
     public function ajoutRace()
     {
         $RaceModel = new RaceModel();
@@ -50,6 +52,7 @@ class DashRaceController extends DashController
         }
     }
 
+    // suppresion des races
     public function deleteRace()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -76,6 +79,7 @@ class DashRaceController extends DashController
         }
     }
 
+    // mise a jour de la race
     public function updateRace($id)
     {
         $RaceModels = new RaceModel();
@@ -106,6 +110,7 @@ class DashRaceController extends DashController
         ]);
     }
 
+    // affichage de la page ajout race
     public function index()
     {
         if (isset($_SESSION['id_User'])) {

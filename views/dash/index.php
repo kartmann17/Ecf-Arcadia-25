@@ -84,6 +84,11 @@
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/DashRapport/listeRapportU" class="admin-link">Liste rapport Univers</a>
             </div> -->
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Contacts/afficheMessage" class="admin-link">Liste contact</a>
+            </div>
+
         </div>
     </div>
 

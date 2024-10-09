@@ -11,7 +11,7 @@ class MainController extends Controller
     {
         $AvisModel = new AvisModel();
         $Avis = $AvisModel->findAll();
-        $this->render("acceuil/index", compact("Avis"));
+        $this->render("acceuil/index", compact("Avis"));  //Affichage des avis validé depuis le dashboard sur la page d'accueil 
     }
 
 }

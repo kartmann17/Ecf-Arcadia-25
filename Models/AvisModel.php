@@ -43,12 +43,13 @@ class AvisModel extends Model
         );
     }
 
-
+//validation des avis dans le dashboard
     public function DashValiderAvis($id)
     {
         return $this->req("UPDATE {$this->table} SET valide = 1 WHERE id = ?", [$id]);
     }
 
+    // Récupérer tous les avis non validés
     public function findNonValides()
     {
         $sql = "SELECT * FROM {$this->table} WHERE valide = 0";
@@ -60,7 +61,6 @@ class AvisModel extends Model
         $sql = "SELECT * FROM {$this->table} WHERE valide = ?"; //permet d'afficher les avis sur la page d'accueil
         return $this->req($sql, [$valide])->fetchAll();
     }
-
 
     // Supprimer un avis
     public function deleteById($id)

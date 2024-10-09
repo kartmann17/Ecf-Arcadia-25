@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 class DashController extends Controller
 {
+    //affichage du dashboard des employés
     public function index()
     {
         if (isset($_SESSION['id_User'])) {

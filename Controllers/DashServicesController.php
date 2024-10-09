@@ -85,9 +85,7 @@ class DashServicesController extends DashController
     }
 
 
-
-
-
+    // affichage de la liste des services
     public function liste()
     {
         $ServicesModels = new ServicesModel();
@@ -102,6 +100,8 @@ class DashServicesController extends DashController
         }
     }
 
+
+    //supression des services
     public function deleteService()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

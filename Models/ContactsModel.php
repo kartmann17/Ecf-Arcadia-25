@@ -37,4 +37,9 @@ class ContactsModel extends Model
             ]
         );
     }
+
+    public function deleteById($id)
+    {
+        return $this->delete($id);
+    }
 }

@@ -8,17 +8,20 @@ use App\Models\ContactsModel;
 
 class ContactsController extends Controller
 {
+    // affichege de la page contacts
     public function index()
     {
         $this->render('contacts/index');
     }
 
+    //affichage des contacts dans le dashboard
     public function afficheMessage()
     {
         $ContactsModel = new ContactsModel();
         $contacts = $ContactsModel->findAll();
-        $this->render("contacts/index", ['contacts' => $contacts]);
+        $this->render("dash/listecontact", ['contacts' => $contacts]);
     }
+
 
     // Soumission du message
     public function ajoutMessage()
@@ -69,6 +72,30 @@ class ContactsController extends Controller
                 header("Location: /contacts");
                 exit();
             }
+        }
+    }
+
+    //suppression des contacts dans le Dashboard
+    public function deleteContact()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $id = $_POST['id'] ?? null;
+
+            if ($id) {
+                $ContactsModel = new ContactsModel();
+
+                $result =  $ContactsModel->deleteById($id);
+
+                if ($result) {
+                    $_SESSION['success_message'] = "Le contact a été supprimé avec succès.";
+                } else {
+                    $_SESSION['error_message'] = "Erreur lors de la suppression du contact.";
+                }
+            }
+            // Redirection vers la dashboard
+            header("Location: /Contacts/afficheMessage");
+            exit();
         }
     }
 

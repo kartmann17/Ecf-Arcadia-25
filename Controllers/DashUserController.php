@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 
 class DashUserController extends DashController
 {
+    //Ajout des users
     public function ajoutUser()
     {
         $userModel = new UserModel();
@@ -62,6 +63,7 @@ class DashUserController extends DashController
         }
     }
 
+    //envoi de mail au nouveaux utilisateurs
     private function sendEmail($to, $subject, $message)
     {
         $mail = new PHPMailer(true);
@@ -94,6 +96,8 @@ class DashUserController extends DashController
         }
     }
 
+
+    //supression des utilisateurs
     public function deleteUser()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -120,6 +124,7 @@ class DashUserController extends DashController
         }
     }
 
+    //Liste des utilisateurs
     public function liste()
     {
         $userModel = new UserModel();
@@ -135,6 +140,8 @@ class DashUserController extends DashController
             http_response_code(404);
         }
     }
+
+    //affichage de la page adduser
     public function index()
     {
         if (isset($_SESSION['id_User'])) {

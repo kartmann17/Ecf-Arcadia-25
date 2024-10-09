@@ -7,7 +7,7 @@ use App\Models\AvisModel;
 class AvisController extends MainController
 {
 
-    // Méthode pour soumettre un avis
+    // ajout des avis en base de données depuis le formulaire de la page d'accueil 
     public function ajoutAvis()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

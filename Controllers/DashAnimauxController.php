@@ -80,6 +80,7 @@ class DashAnimauxController extends DashController
         }
     }
 
+    // affichage de la liste des animaux dans l'onglet liste
     public function liste()
     {
         $AnimauxModels = new AnimauxModel();
@@ -91,6 +92,7 @@ class DashAnimauxController extends DashController
         }
     }
 
+    //mise a jour des animaux
     public function updateAnimal($id)
     {
         $AnimauxModels = new AnimauxModel();
@@ -125,6 +127,7 @@ class DashAnimauxController extends DashController
         ]);
     }
 
+    // affichage de la page des animaux dans le dashboard
     public function index()
     {
         $AnimauxModels = new AnimauxModel();

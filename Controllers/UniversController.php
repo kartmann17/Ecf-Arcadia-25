@@ -14,6 +14,7 @@ class UniversController extends Controller
     }
 
 
+    //affichage animanux par habitat dans page nos univers
     public function showAnimaux($id)
     {
         $universModel = new UniversModel();
