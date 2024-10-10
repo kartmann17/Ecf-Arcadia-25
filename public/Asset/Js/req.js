@@ -1,7 +1,7 @@
 document.getElementById('avisForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    
+
     const form = event.target;
     const formData = new FormData(form);
 

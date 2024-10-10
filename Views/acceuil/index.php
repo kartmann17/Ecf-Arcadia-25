@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="/Asset/css/mainaccueil.css">
 <video id="videoAC" src="/Asset/Images/Videos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
 <div class="title d-flex justify-content-center">
@@ -34,30 +33,37 @@
     <!-- 1 er block image -->
     <div class="buttonA">
       <button>
-        <h3>Savane</h3>
+        <h3><?= htmlspecialchars("Savane", ENT_QUOTES, 'UTF-8') ?></h3>
       </button>
     </div>
     <div class="images">
-      <a href="Univers/showAnimaux/1"><img src="/Asset/Images/lion_paysage.jpg" class="img-fluid" alt="lion"></a>
+      <a href="<?= htmlspecialchars("Univers/showAnimaux/1", ENT_QUOTES, 'UTF-8') ?>">
+        <img src="<?= htmlspecialchars("/Asset/Images/lion_paysage.jpg", ENT_QUOTES, 'UTF-8') ?>" class="img-fluid" alt="<?= htmlspecialchars("lion", ENT_QUOTES, 'UTF-8') ?>">
+      </a>
     </div>
+
     <!-- 2ème block image -->
     <div class="buttonA">
       <button>
-        <h3>Jungle</h3>
+        <h3><?= htmlspecialchars("Jungle", ENT_QUOTES, 'UTF-8') ?></h3>
       </button>
     </div>
     <div class="images">
-      <a href="Univers/showAnimaux/2"><img src="/Asset/Images/perroquetpaysage2.jpg" class="img-fluid" alt="perroquet"></a>
+      <a href="<?= htmlspecialchars("Univers/showAnimaux/2", ENT_QUOTES, 'UTF-8') ?>">
+        <img src="<?= htmlspecialchars("/Asset/Images/perroquetpaysage2.jpg", ENT_QUOTES, 'UTF-8') ?>" class="img-fluid" alt="<?= htmlspecialchars("perroquet", ENT_QUOTES, 'UTF-8') ?>">
+      </a>
     </div>
 
     <!-- 3ème block image -->
     <div class="buttonA">
       <button>
-        <h3>Marais</h3>
+        <h3><?= htmlspecialchars("Marais", ENT_QUOTES, 'UTF-8') ?></h3>
       </button>
     </div>
     <div class="images">
-      <a href="Univers/showAnimaux/3"><img src="/Asset/Images/crocopaysge.jpg" class="img-fluid" alt="croco"></a>
+      <a href="<?= htmlspecialchars("Univers/showAnimaux/3", ENT_QUOTES, 'UTF-8') ?>">
+        <img src="<?= htmlspecialchars("/Asset/Images/crocopaysge.jpg", ENT_QUOTES, 'UTF-8') ?>" class="img-fluid" alt="<?= htmlspecialchars("croco", ENT_QUOTES, 'UTF-8') ?>">
+      </a>
     </div>
   </div>
 </section>
@@ -67,50 +73,50 @@
 <section class="container-fluid horaires py-5">
   <h2 class="text-center mb-5">Nos Horaires</h2>
   <div class="table-responsive">
-  <table class="table text-center table-custom mx-auto">
-    <tbody>
+    <table class="table text-center table-custom mx-auto">
+      <tbody>
         <tr>
-            <td class="jour">Lundi</td>
-            <td class="heure">08h30</td>
-            <td class="separateur">-</td>
-            <td class="heure">18h30</td>
+          <td class="jour">Lundi</td>
+          <td class="heure">08h30</td>
+          <td class="separateur">-</td>
+          <td class="heure">18h30</td>
         </tr>
         <tr>
-            <td class="jour">Mardi</td>
-            <td class="heure">08h30</td>
-            <td class="separateur">-</td>
-            <td class="heure">18h30</td>
+          <td class="jour">Mardi</td>
+          <td class="heure">08h30</td>
+          <td class="separateur">-</td>
+          <td class="heure">18h30</td>
         </tr>
         <tr>
-            <td class="jour">Mercredi</td>
-            <td class="heure">08h30</td>
-            <td class="separateur">-</td>
-            <td class="heure">18h30</td>
+          <td class="jour">Mercredi</td>
+          <td class="heure">08h30</td>
+          <td class="separateur">-</td>
+          <td class="heure">18h30</td>
         </tr>
         <tr>
-            <td class="jour">Jeudi</td>
-            <td class="heure">08h30</td>
-            <td class="separateur">-</td>
-            <td class="heure">18h30</td>
+          <td class="jour">Jeudi</td>
+          <td class="heure">08h30</td>
+          <td class="separateur">-</td>
+          <td class="heure">18h30</td>
         </tr>
         <tr>
-            <td class="jour">Vendredi</td>
-            <td class="heure">08h30</td>
-            <td class="separateur">-</td>
-            <td class="heure">18h30</td>
+          <td class="jour">Vendredi</td>
+          <td class="heure">08h30</td>
+          <td class="separateur">-</td>
+          <td class="heure">18h30</td>
         </tr>
         <tr>
-            <td class="jour">Samedi</td>
-            <td class="heure">08h30</td>
-            <td class="separateur">-</td>
-            <td class="heure">20h00</td>
+          <td class="jour">Samedi</td>
+          <td class="heure">08h30</td>
+          <td class="separateur">-</td>
+          <td class="heure">20h00</td>
         </tr>
         <tr>
-            <td class="jour">Dimanche</td>
-            <td colspan="3" class="ferme">Fermé</td>
+          <td class="jour">Dimanche</td>
+          <td colspan="3" class="ferme">Fermé</td>
         </tr>
-    </tbody>
-</table>
+      </tbody>
+    </table>
   </div>
 </section>
 <!-- fin secion 3 horaires -->
@@ -130,40 +136,40 @@
         <?php
         // Filtrer les avis qui ont un champ 'valide' égal à 1
         $avisValides = array_filter($Avis, function ($avis) {
-            return $avis->valide == 1;
+          return $avis->valide == 1;
         });
 
         // Vérifier s'il y a des avis valides après filtrage
         if (!empty($avisValides)) {
-            // Séparation des avis valides en groupes de 3 pour le carousel
-            $avisChunks = array_chunk($avisValides, 3);
-            $activeClass = 'active'; // activation de la première feuille
-            foreach ($avisChunks as $avisGroup): ?>
-              <div class="carousel-item <?= $activeClass; ?>">
-                <div class="row justify-content-center m-auto w-75">
-                  <?php foreach ($avisGroup as $valide): ?>
-                    <div class="col-12 col-md-4 mb-3">
-                      <div class="card text-bg-light mb-3">
-                        <div class="card-header d-flex justify-content-center column-gap-4">
-                          <?php
-                          for ($i = 1; $i <= 5; $i++) {
-                            if ($i <= $valide->etoiles) {
-                              echo '<span class="star-filled">&#9733;</span>';
-                            }
+          // Séparation des avis valides en groupes de 3 pour le carousel
+          $avisChunks = array_chunk($avisValides, 3);
+          $activeClass = 'active'; // activation de la première feuille
+          foreach ($avisChunks as $avisGroup): ?>
+            <div class="carousel-item <?= $activeClass; ?>">
+              <div class="row justify-content-center m-auto w-75">
+                <?php foreach ($avisGroup as $valide): ?>
+                  <div class="col-12 col-md-4 mb-3">
+                    <div class="card text-bg-light mb-3">
+                      <div class="card-header d-flex justify-content-center column-gap-4">
+                        <?php
+                        for ($i = 1; $i <= 5; $i++) {
+                          if ($i <= $valide->etoiles) {
+                            echo '<span class="star-filled">&#9733;</span>';
                           }
-                          ?>
-                        </div>
-                        <div class="card-body text-center overflow-auto">
-                          <h5 class="card-title"><?= $valide->nom ?></h5>
-                          <p class="card-text"><?= $valide->commentaire ?></p>
-                        </div>
+                        }
+                        ?>
+                      </div>
+                      <div class="card-body text-center overflow-auto">
+                        <h5 class="card-title"><?= $valide->nom ?></h5>
+                        <p class="card-text"><?= $valide->commentaire ?></p>
                       </div>
                     </div>
-                  <?php endforeach; ?>
-                </div>
+                  </div>
+                <?php endforeach; ?>
               </div>
-              <?php $activeClass = ''; ?>
-            <?php endforeach; ?>
+            </div>
+            <?php $activeClass = ''; ?>
+          <?php endforeach; ?>
         <?php } else { ?>
           <p>Aucun avis valide pour le moment.</p>
         <?php } ?>
@@ -190,8 +196,10 @@
         </div>
         <div class="modal-body">
 
+
           <!-- Formulaire d'avis -->
           <form id="avisForm" action="/Avis/ajoutAvis" method="POST">
+
             <!-- Etoiles -->
             <div class="rating mb-3">
               <input type="radio" name="etoiles" value="5" id="5" required>

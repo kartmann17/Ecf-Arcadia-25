@@ -4,12 +4,13 @@
         <div class="vide"></div>
         <form action="/connexionUser/connexion" method="POST">
             <div>
-                <span class="inputLogo"><i class="fas fa-lock"></i></span><input type="text"
-                    class="form-control rounded-pill" name="email" placeholder="example@email.com" required>
+                <span class="inputLogo"><i class="fas fa-lock"></i></span>
+                <input type="text" class="form-control rounded-pill" name="email" placeholder="example@email.com" required>
+                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
             </div>
             <div class="my-2">
-                <span class="inputLogo"><i class="fas fa-key"></i></span><input type="password"
-                    class="form-control rounded-pill" name="pass" placeholder="password" required>
+                <span class="inputLogo"><i class="fas fa-key"></i></span>
+                <input type="password" class="form-control rounded-pill" name="pass" placeholder="password" required>
             </div>
             <button class="btn btn-accent rounded-pill w-100" type="submit">Login</button>
         </form>
