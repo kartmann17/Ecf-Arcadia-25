@@ -18,6 +18,7 @@ video {
 
 body {
     background-color: #38453a;
+
 }
 
 /* 1 ere section */
@@ -86,13 +87,17 @@ iframe {
 .images {
     margin-top: 10px;
     height: auto;
-
+    display: flex;
+    justify-content: center;
 }
 
 .images img {
     border-radius: 15px;
-    height: 450px;
+    max-width: 100%;
     width: 90vw;
+    max-height: 600px;
+    object-fit: cover;
+    object-position:center;
 
 }
 
@@ -103,12 +108,57 @@ iframe {
     color: white;
 }
 
-tbody {
-    color: white;
+.table-custom {
+    width: 60%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: transparent;
+    border: none;
 }
 
-tbody h4 {
-    font-size: 30px;
+.table-custom td {
+    padding: 10px 12px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8rem;
+}
+
+.table-custom .jour {
+    font-weight: bold;
+    text-align: left;
+    padding-right: 8px;
+}
+
+.table-custom .heure {
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #ddd;
+}
+
+.table-custom .separateur {
+    padding: 0;
+    color: #adb5bd;
+    font-weight: bold;
+}
+
+.table-custom .ferme {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    color: #f78f2e;
+}
+
+
+@media (max-width: 768px) {
+    .table-custom {
+        width: 90%;
+    }
+
+    .table-custom td {
+        padding: 8px; 
+    }
 }
 
 /* fin 3 eme section horaire */
@@ -126,8 +176,7 @@ tbody h4 {
     height: 23rem;
 }
 
-.card-body h5,
-p {
+.card-body h5,p {
     font-family: roboto, serif;
 
 }

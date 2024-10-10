@@ -38,7 +38,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="/Asset/Images/lion_paysage.jpg" class="img-fluid" alt="lion"></a>
+      <a href="Univers/showAnimaux/1"><img src="/Asset/Images/lion_paysage.jpg" class="img-fluid" alt="lion"></a>
     </div>
     <!-- 2ème block image -->
     <div class="buttonA">
@@ -47,7 +47,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="/Asset/Images/perroquetpaysage2.jpg" class="img-fluid" alt="perroquet"></a>
+      <a href="Univers/showAnimaux/2"><img src="/Asset/Images/perroquetpaysage2.jpg" class="img-fluid" alt="perroquet"></a>
     </div>
 
     <!-- 3ème block image -->
@@ -57,7 +57,7 @@
       </button>
     </div>
     <div class="images">
-      <a href=""><img src="/Asset/Images/crocopaysge.jpg" class="img-fluid" alt="croco"></a>
+      <a href="Univers/showAnimaux/3"><img src="/Asset/Images/crocopaysge.jpg" class="img-fluid" alt="croco"></a>
     </div>
   </div>
 </section>
@@ -67,102 +67,50 @@
 <section class="container-fluid horaires py-5">
   <h2 class="text-center mb-5">Nos Horaires</h2>
   <div class="table-responsive">
-    <table class=" mx-auto text-center w-75">
-      <tbody>
+  <table class="table text-center table-custom mx-auto">
+    <tbody>
         <tr>
-          <td>
-            <h4>Lundi</h4>
-          </td>
-          <td>
-            <h4>08h30</h4>
-          </td>
-          <td>
-            <h4>-</h4>
-          </td>
-          <td>
-            <h4>18h30</h4>
-          </td>
+            <td class="jour">Lundi</td>
+            <td class="heure">08h30</td>
+            <td class="separateur">-</td>
+            <td class="heure">18h30</td>
         </tr>
         <tr>
-          <td>
-            <h4>Mardi</h4>
-          </td>
-          <td>
-            <h4>08h30</h4>
-          </td>
-          <td>
-            <h4>-</h4>
-          </td>
-          <td>
-            <h4>18h30</h4>
-          </td>
+            <td class="jour">Mardi</td>
+            <td class="heure">08h30</td>
+            <td class="separateur">-</td>
+            <td class="heure">18h30</td>
         </tr>
         <tr>
-          <td>
-            <h4>Mercredi</h4>
-          </td>
-          <td>
-            <h4>08h30</h4>
-          </td>
-          <td>
-            <h4>-</h4>
-          </td>
-          <td>
-            <h4>18h30</h4>
-          </td>
+            <td class="jour">Mercredi</td>
+            <td class="heure">08h30</td>
+            <td class="separateur">-</td>
+            <td class="heure">18h30</td>
         </tr>
         <tr>
-          <td>
-            <h4>Jeudi</h4>
-          </td>
-          <td>
-            <h4>08h30</h4>
-          </td>
-          <td>
-            <h4>-</h4>
-          </td>
-          <td>
-            <h4>18h30</h4>
-          </td>
+            <td class="jour">Jeudi</td>
+            <td class="heure">08h30</td>
+            <td class="separateur">-</td>
+            <td class="heure">18h30</td>
         </tr>
         <tr>
-          <td>
-            <h4>Vendredi</h4>
-          </td>
-          <td>
-            <h4>08h30</h4>
-          </td>
-          <td>
-            <h4>-</h4>
-          </td>
-          <td>
-            <h4>18h30</h4>
-          </td>
+            <td class="jour">Vendredi</td>
+            <td class="heure">08h30</td>
+            <td class="separateur">-</td>
+            <td class="heure">18h30</td>
         </tr>
         <tr>
-          <td>
-            <h4>Samedi</h4>
-          </td>
-          <td>
-            <h4>08h30</h4>
-          </td>
-          <td>
-            <h4>-</h4>
-          </td>
-          <td>
-            <h4>20h00</h4>
-          </td>
+            <td class="jour">Samedi</td>
+            <td class="heure">08h30</td>
+            <td class="separateur">-</td>
+            <td class="heure">20h00</td>
         </tr>
         <tr>
-          <td>
-            <h4>Dimanche</h4>
-          </td>
-          <td colspan="3">
-            <h4>Fermé</h4>
-          </td>
+            <td class="jour">Dimanche</td>
+            <td colspan="3" class="ferme">Fermé</td>
         </tr>
-      </tbody>
-    </table>
+    </tbody>
+</table>
   </div>
 </section>
 <!-- fin secion 3 horaires -->

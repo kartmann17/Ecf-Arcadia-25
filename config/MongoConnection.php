@@ -1,15 +1,13 @@
-
 <?php
 
-namespace App\config;
+namespace App\Config;
 
 use MongoDB\Client;
+use MongoDB\Collection;
 
 class MongoConnection
 {
     protected $client;
-
-
 
     public function __construct()
     {
@@ -21,13 +19,21 @@ class MongoConnection
      *
      * @return Client Returns the MongoDB client instance.
      */
-    protected function connect()
+    protected function connect(): Client
     {
+        // Vérifie si l'URI MongoDB est défini
+        $mongoUri = $_ENV['MONGODB_URI'] ?? null;
+
+        if (!$mongoUri) {
+            throw new \InvalidArgumentException("L'URI MongoDB n'est pas définie dans les variables d'environnement.");
+        }
+
         try {
             // Connect to MongoDB Atlas via the URI
-            return new Client($_ENV['MONGODB_URI']);
+            return new Client($mongoUri);
         } catch (\Exception $e) {
-            die("Erreur de connexion à MongoDB : " . $e->getMessage());
+            // Lance une exception au lieu de terminer le script
+            throw new \RuntimeException("Erreur de connexion à MongoDB : " . $e->getMessage());
         }
     }
 
@@ -36,9 +42,9 @@ class MongoConnection
      *
      * @param string $database The name of the database.
      * @param string $collection The name of the collection.
-     * @return MongoDB\Collection The specified collection.
+     * @return Collection The specified collection.
      */
-    protected function getCollection($database, $collection)
+    public function getCollection(string $database, string $collection): Collection
     {
         return $this->client->$database->$collection;
     }
