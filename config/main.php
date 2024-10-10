@@ -2,7 +2,7 @@
 
 namespace App\config;
 
-use App\controllers\MainController;
+use App\Controllers\MainController;
 
 class Main
 {
