@@ -24,7 +24,9 @@ class Autoloader
             // Si le fichier existe, on le charge
             if (file_exists($file)) {
                 require_once $file;
-            } 
+            }else{
+                error_log("autoloader error $file");
+            }
         }
     }
 }
