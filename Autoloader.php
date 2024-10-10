@@ -24,9 +24,7 @@ class Autoloader
             // Si le fichier existe, on le charge
             if (file_exists($file)) {
                 require_once $file;
-            } else {
-                throw new \Exception("Le fichier pour la classe {$class} est introuvable : {$file}");
-            }
+            } 
         }
     }
 }
