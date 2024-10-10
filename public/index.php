@@ -13,7 +13,7 @@ $dotenv->load();
 // Définition d'une constante avec le chemin racine du projet
 define('ROOT', dirname(__DIR__));
 
-require_once ROOT . '/Autoloader.php';
+require_once __DIR__ . '/Autoloader.php';
 Autoloader::register();
 
 $app = new Main();
