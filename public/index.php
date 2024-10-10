@@ -1,7 +1,7 @@
 <?php
 
 use App\Autoloader;
-use App\Config\Main;
+use App\config\Main;
 use Dotenv\Dotenv;
 
 // Define the ROOT constant to indicate the root directory of the project

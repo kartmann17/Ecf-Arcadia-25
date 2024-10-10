@@ -1,7 +1,7 @@
 
 <?php
 
-namespace App\Config;
+namespace App\config;
 
 use MongoDB\Client;
 
