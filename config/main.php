@@ -2,11 +2,8 @@
 
 namespace App\config;
 
-use App\Controllers\MainController;
+use App\controllers\MainController;
 
-/**
- * Routeur principal
- */
 class Main
 {
     public function start()
