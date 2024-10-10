@@ -7,7 +7,7 @@ use App\Controllers\MainController;
 /**
  * Routeur principal
  */
-class main
+class Main
 {
     public function start()
     {

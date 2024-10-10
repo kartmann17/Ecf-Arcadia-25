@@ -1,7 +1,7 @@
 <?php
 
 use App\Autoloader;
-use App\Config\main;
+use App\Config\Main;
 use Dotenv\Dotenv;
 
 // Inclure l'autoloader de Composer
@@ -17,6 +17,6 @@ require_once ROOT . '/Autoloader.php';
 Autoloader::register();
 
 
-$app = new main();
+$app = new Main();
 
 $app->start();
