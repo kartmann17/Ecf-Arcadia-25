@@ -1,6 +1,6 @@
 
 <link rel="stylesheet" href="/Asset/css/mainaccueil.css">
-<video id="videoAC" src="/Asset/Images/Vidéos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
+<video id="videoAC" src="/Asset/Images/Videos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
 <div class="title d-flex justify-content-center">
   <h1>Découvrez les Merveilles du Monde <br> Animal: Une Journée Magique au Zoo!</h1>
 </div>
