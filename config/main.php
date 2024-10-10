@@ -33,17 +33,17 @@ class Main
         // gestion des paramètre d'URL
         //p=controleur/methode/paramètres
         //séparation des paramètres dans un tableau
-        $params = isset($_GET['p']) ? explode('/', $_GET['p']) : [];
+        $params = isset($_GET['p']) ? explode('/', filter_var($_GET['p'], FILTER_SANITIZE_URL)) : [];
 
         // var_dump($params);
         if (isset($params[0]) && $params[0] != '') {
             //récupération du controleur a instancier
             //mettre une majuscule en 1 er lettre et ajout du namespace complet avant et ajout du "controller" après
-            $controller = '\\App\\Controllers\\' . ucfirst(array_shift($params)) . 'Controller';
+            $controllerName = '\\App\\Controllers\\' . ucfirst(array_shift($params)) . 'Controller';
 
-            if (class_exists($controller)) {
+            if (class_exists($controllerName)) {
                 // instenciation du controleur
-                $controller = new $controller();
+                $controller = new $controllerName();
             } else {
                 http_response_code(404);
                 exit();
@@ -54,7 +54,7 @@ class Main
 
             if (method_exists($controller, $action)) {
                 // si il reste des paramètres on les passe à la méthode
-                (isset($params[0])) ? call_user_func_array([$controller, $action], $params) : $controller->$action();
+                call_user_func_array([$controller, $action], $params);
             } else {
                 http_response_code(404);
                 echo "la page recherchée n'existe pas";
