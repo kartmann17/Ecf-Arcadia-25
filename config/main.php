@@ -61,7 +61,7 @@ class Main
             }
         } else {
             //on instencie le controleur par defaut car pas de paramètre
-            $controller = new MainController;
+            $controller = new MainController();
 
             // appel de la methode index
             $controller->index();
