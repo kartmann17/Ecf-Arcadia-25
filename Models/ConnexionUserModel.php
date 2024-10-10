@@ -10,6 +10,7 @@ class ConnexionUserModel extends Model
     protected $email;
     protected $pass;
     protected $id_role;
+    
     public function __construct()
     {
         $this->table = "User";
