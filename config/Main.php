@@ -10,8 +10,11 @@ class Main
     {
         session_start();
 
-
-        //on retire le "trailing slash de l'url
+        //géner token aléatoire
+        if (isset($_SESSION['csrf_token'])) {
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
+        
         // on récupére l'url
         $uri = $_SERVER['REQUEST_URI'];
 

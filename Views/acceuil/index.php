@@ -22,7 +22,7 @@
     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10522.271462987312!2d-3.4074777!3d47.8122465!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x481058961f2dd7e5%3A0x28874405b9bc370!2sLes%20Terres%20de%20Nata%C3%A9!5e1!3m2!1sfr!2sfr!4v1722681323943!5m2!1sfr!2sfr"
     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
     referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
+  Maps Zoo</iframe>
 </section>
 <!-- fin section 1 prés du zoo-->
 
@@ -38,7 +38,7 @@
     </div>
     <div class="images">
       <a href="<?= htmlspecialchars("Univers/showAnimaux/1", ENT_QUOTES, 'UTF-8') ?>">
-        <img src="<?= htmlspecialchars("/Asset/Images/lion_paysage.jpg", ENT_QUOTES, 'UTF-8') ?>" class="img-fluid" alt="<?= htmlspecialchars("lion", ENT_QUOTES, 'UTF-8') ?>">
+        <img src="<?= htmlspecialchars("/Asset/Images/lion_paysage.webp", ENT_QUOTES, 'UTF-8') ?>" class="img-fluid" alt="<?= htmlspecialchars("lion", ENT_QUOTES, 'UTF-8') ?>">
       </a>
     </div>
 
@@ -50,7 +50,7 @@
     </div>
     <div class="images">
       <a href="<?= htmlspecialchars("Univers/showAnimaux/2", ENT_QUOTES, 'UTF-8') ?>">
-        <img src="<?= htmlspecialchars("/Asset/Images/perroquetpaysage2.jpg", ENT_QUOTES, 'UTF-8') ?>" class="img-fluid" alt="<?= htmlspecialchars("perroquet", ENT_QUOTES, 'UTF-8') ?>">
+        <img src="<?= htmlspecialchars("/Asset/Images/perroquetpaysage2.webp", ENT_QUOTES, 'UTF-8') ?>" class="img-fluid" alt="<?= htmlspecialchars("perroquet", ENT_QUOTES, 'UTF-8') ?>">
       </a>
     </div>
 
@@ -62,7 +62,7 @@
     </div>
     <div class="images">
       <a href="<?= htmlspecialchars("Univers/showAnimaux/3", ENT_QUOTES, 'UTF-8') ?>">
-        <img src="<?= htmlspecialchars("/Asset/Images/crocopaysge.jpg", ENT_QUOTES, 'UTF-8') ?>" class="img-fluid" alt="<?= htmlspecialchars("croco", ENT_QUOTES, 'UTF-8') ?>">
+        <img src="<?= htmlspecialchars("/Asset/Images/crocopaysge.webp", ENT_QUOTES, 'UTF-8') ?>" class="img-fluid" alt="<?= htmlspecialchars("croco", ENT_QUOTES, 'UTF-8') ?>">
       </a>
     </div>
   </div>
@@ -84,7 +84,7 @@
                 <td class="separateur">-</td>
                 <td class="heure"><?= htmlspecialchars($horaire['fermeture'], ENT_QUOTES, 'UTF-8') ?></td>
               <?php else: ?>
-                <td colspan="3" class="text-danger">Fermé</td>
+                <td colspan="3" class="ferme">Fermé</td>
               <?php endif; ?>
             </tr>
           <?php endforeach; ?>
@@ -193,7 +193,7 @@
             <!--  date de visite -->
             <div class="controls mb-3">
               <label for="date" class="mb-1">Date de votre visite</label>
-              <input id="date" class="datepicker form-control" type="date" name="date" required>
+              <input id="date" class="datepicker form-control" type="date" name="date" max="<?= date('Y-m-d'); ?>" required>
             </div>
 
             <!--  nom -->
