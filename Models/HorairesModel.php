@@ -1,9 +1,10 @@
 <?php
 namespace App\Models;
 
+use App\Config\MongoConnection;
 use MongoDB\Client;
 
-class HorairesModel extends Model
+class HorairesModel extends MongoConnection
 {
     protected $table = "horaires";
     protected $client;
@@ -12,7 +13,7 @@ class HorairesModel extends Model
     public function __construct()
     {
         // Initialisation de la connexion MongoDB
-        $this->client = new Client(getenv('MONGODB_URI'));
+        parent::__construct();
         $this->collection = $this->client->selectCollection('votre_base_de_donnees', $this->table);
     }
 
