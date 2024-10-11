@@ -27,5 +27,4 @@ class HorairesModel extends MongoConnection
         return $this->collection->find()->toArray();
     }
 
-
 }
