@@ -1,8 +1,8 @@
 <?php
 namespace App\Models;
 
-use App\Config\MongoConnection;
-use MongoDB\Client;
+use App\config\MongoConnection;
+
 
 class HorairesModel extends MongoConnection
 {
@@ -14,7 +14,7 @@ class HorairesModel extends MongoConnection
     {
         // Initialisation de la connexion MongoDB
         parent::__construct();
-        $this->collection = $this->client->selectCollection('votre_base_de_donnees', $this->table);
+        $this->collection = $this->getCollection('Arcadia', 'horaires');
     }
 
     /**
@@ -24,34 +24,8 @@ class HorairesModel extends MongoConnection
      */
     public function getAllHoraires()
     {
-        $documents = $this->collection->find();
-        $horaires = [];
-        foreach ($documents as $document) {
-            $horaires[] = [
-                'jour' => $document['jour'],
-                'ouverture' => $document['ouverture'],
-                'fermeture' => $document['fermeture'] ?? 'Fermé' // Assurez-vous que les champs existent ou gérez les valeurs par défaut
-            ];
-        }
-        return $horaires;
+        return $this->collection->find()->toArray();
     }
 
-    /**
-     * Ajouter un horaire dans la collection.
-     *
-     * @param string $jour Le jour de la semaine.
-     * @param string $ouverture Heure d'ouverture.
-     * @param string $fermeture Heure de fermeture.
-     * @return bool Indique si l'insertion a réussi.
-     */
-    public function addHoraire($jour, $ouverture, $fermeture)
-    {
-        $result = $this->collection->insertOne([
-            'jour' => $jour,
-            'ouverture' => $ouverture,
-            'fermeture' => $fermeture
-        ]);
 
-        return $result->getInsertedCount() === 1;
-    }
 }

@@ -3,7 +3,6 @@
 namespace App\Config;
 
 use MongoDB\Client;
-use MongoDB\Collection;
 
 class MongoConnection
 {
@@ -21,16 +20,9 @@ class MongoConnection
      */
     protected function connect(): Client
     {
-        // Vérifie si l'URI MongoDB est défini
-        $mongoUri = $_ENV['MONGODB_URI'] ?? null;
-
-        if (!$mongoUri) {
-            throw new \InvalidArgumentException("L'URI MongoDB n'est pas définie dans les variables d'environnement.");
-        }
-
         try {
             // Connect to MongoDB Atlas via the URI
-            return new Client($mongoUri);
+            return new Client($_ENV['MONGODB_URI']);
         } catch (\Exception $e) {
             // Lance une exception au lieu de terminer le script
             throw new \RuntimeException("Erreur de connexion à MongoDB : " . $e->getMessage());
@@ -44,7 +36,7 @@ class MongoConnection
      * @param string $collection The name of the collection.
      * @return Collection The specified collection.
      */
-    public function getCollection(string $database, string $collection): Collection
+    public function getCollection(string $database, string $collection)
     {
         return $this->client->$database->$collection;
     }
