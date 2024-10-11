@@ -45,11 +45,14 @@ class ConnexionUserController extends Controller
             // Vérification du mot de passe
             if ($user && password_verify($pass, $user->pass)) {
 
+                //regénération de l'id de session
+                session_regenerate_id(true);
+
                 // Stockage des informations  dans la session
                 $_SESSION['id_User'] = $user->id;
-                $_SESSION['nom'] = $user->nom;
-                $_SESSION['prenom'] = $user->prenom;
-                $_SESSION['role'] = $user->role;
+                $_SESSION['nom'] = htmlspecialchars($user->nom, ENT_QUOTES, 'UTF-8');
+                $_SESSION['prenom'] = htmlspecialchars($user->prenom, ENT_QUOTES, 'UTF-8');
+                $_SESSION['role'] = htmlspecialchars($user->role, ENT_QUOTES, 'UTF-8');
 
                 //On regénère le token pour la sécurisation des futurs entrées (vétérinaire, employé)
                 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));

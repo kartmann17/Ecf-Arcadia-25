@@ -6,7 +6,7 @@
             <div>
                 <span class="inputLogo"><i class="fas fa-lock"></i></span>
                 <input type="text" class="form-control rounded-pill" name="email" placeholder="example@email.com" required>
-                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
             </div>
             <div class="my-2">
                 <span class="inputLogo"><i class="fas fa-key"></i></span>
