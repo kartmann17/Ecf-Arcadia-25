@@ -73,50 +73,26 @@
 <section class="container-fluid horaires py-5">
   <h2 class="text-center mb-5">Nos Horaires</h2>
   <div class="table-responsive">
-    <table class="table text-center table-custom mx-auto">
-      <tbody>
-        <tr>
-          <td class="jour">Lundi</td>
-          <td class="heure">08h30</td>
-          <td class="separateur">-</td>
-          <td class="heure">18h30</td>
-        </tr>
-        <tr>
-          <td class="jour">Mardi</td>
-          <td class="heure">08h30</td>
-          <td class="separateur">-</td>
-          <td class="heure">18h30</td>
-        </tr>
-        <tr>
-          <td class="jour">Mercredi</td>
-          <td class="heure">08h30</td>
-          <td class="separateur">-</td>
-          <td class="heure">18h30</td>
-        </tr>
-        <tr>
-          <td class="jour">Jeudi</td>
-          <td class="heure">08h30</td>
-          <td class="separateur">-</td>
-          <td class="heure">18h30</td>
-        </tr>
-        <tr>
-          <td class="jour">Vendredi</td>
-          <td class="heure">08h30</td>
-          <td class="separateur">-</td>
-          <td class="heure">18h30</td>
-        </tr>
-        <tr>
-          <td class="jour">Samedi</td>
-          <td class="heure">08h30</td>
-          <td class="separateur">-</td>
-          <td class="heure">20h00</td>
-        </tr>
-        <tr>
-          <td class="jour">Dimanche</td>
-          <td colspan="3" class="ferme">Fermé</td>
-        </tr>
-      </tbody>
-    </table>
+    <?php if (isset($horaires) && !empty($horaires)): ?>
+      <table class="table text-center table-custom mx-auto">
+        <tbody>
+          <?php foreach ($horaires as $horaire): ?>
+            <tr>
+              <td class="fw-bold"><?= htmlspecialchars($horaire['jour'], ENT_QUOTES, 'UTF-8') ?></td>
+              <?php if ($horaire['ouverture'] !== 'Fermé'): ?>
+                <td class="heure"><?= htmlspecialchars($horaire['ouverture'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td class="separateur">-</td>
+                <td class="heure"><?= htmlspecialchars($horaire['fermeture'], ENT_QUOTES, 'UTF-8') ?></td>
+              <?php else: ?>
+                <td colspan="3" class="text-danger">Fermé</td>
+              <?php endif; ?>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    <?php else: ?>
+      <p>Aucun horaire disponible pour le moment.</p>
+    <?php endif; ?>
   </div>
 </section>
 <!-- fin secion 3 horaires -->

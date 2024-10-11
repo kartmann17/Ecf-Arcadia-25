@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AvisModel;
-// use App\Models\HorairesModel;
+use App\Models\HorairesModel;
 
 class MainController extends Controller
 {
@@ -11,7 +11,10 @@ class MainController extends Controller
     {
         $AvisModel = new AvisModel();
         $Avis = $AvisModel->findAll();
-        $this->render("acceuil/index", compact("Avis"));  //Affichage des avis validé depuis le dashboard sur la page d'accueil
+
+        $HorairesModel = new HorairesModel();
+        $horaires = $HorairesModel->getAllHoraires();
+        $this->render("acceuil/index", compact("Avis", "horaires"));  //Affichage des avis validé depuis le dashboard sur la page d'accueil
     }
 
 }
