@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/Asset/css/pageConnexion.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/pageConnexion.css">';
+?>
+
 <div class="vh-100 w-100 d-flex align-items-center justify-content-center first" id="mainBgn">
     <div class="formContainer">
         <div class="vide"></div>

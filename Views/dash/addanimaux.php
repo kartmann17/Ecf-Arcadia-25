@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/Asset/css/dashindex.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
+?>
+
 <div class="vide"></div>
 
 <section class="container ">

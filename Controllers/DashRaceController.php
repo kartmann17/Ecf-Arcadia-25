@@ -13,8 +13,10 @@ class DashRaceController extends DashController
         $races = $RaceModel->findAll();
 
         if (isset($_SESSION['id_User'])) {
+            $title = "Liste Races";
             $this->render('dash/listeraces', [
-                'races' => $races
+                'races' => $races,
+                'title' => $title
             ]);
         } else {
             http_response_code(404);
@@ -104,17 +106,19 @@ class DashRaceController extends DashController
             header("Location: /dash");
             exit;
         }
-
+        $title = "Modifier Race";
         $this->render('dash/updateraces', [
-            'races' => $races
+            'races' => $races,
+            'title' => $title
         ]);
     }
 
     // affichage de la page ajout race
     public function index()
     {
+        $title = "Ajout race";
         if (isset($_SESSION['id_User'])) {
-            $this->render("dash/addrace");
+            $this->render("dash/addrace", compact('title'));
         } else {
             http_response_code(404);
         }

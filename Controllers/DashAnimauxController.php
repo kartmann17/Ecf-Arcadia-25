@@ -83,10 +83,15 @@ class DashAnimauxController extends DashController
     // affichage de la liste des animaux dans l'onglet liste
     public function liste()
     {
+        $title = "Liste Animaux";
         $AnimauxModels = new AnimauxModel();
         $animaux = $AnimauxModels->findAll();
         if (isset($_SESSION['id_User'])) {
-            $this->render('dash/listeanimaux', ['animaux' => $animaux]);
+            $this->render('dash/listeanimaux',
+            [
+                'animaux' => $animaux,
+                'title' => $title
+            ]);
         } else {
             http_response_code(404);
         }
@@ -119,17 +124,19 @@ class DashAnimauxController extends DashController
             header("Location: /DashAnimaux/liste");
             exit;
         }
-
+        $title = "Mise a jour animaux";
         $this->render('dash/updateanimaux', [
             'animaux' => $animaux,
             'univers' => $univers,
-            'races' => $races
+            'races' => $races,
+            'title' => $title
         ]);
     }
 
     // affichage de la page des animaux dans le dashboard
     public function index()
     {
+
         $AnimauxModels = new AnimauxModel();
         $animaux = $AnimauxModels->findAll();
         $universModels = new UniversModel();

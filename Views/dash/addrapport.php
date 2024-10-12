@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/Asset/css/dashindex.css">
+<?php
+echo'<link rel="stylesheet" href="/Asset/css/dashindex.css">';
+?>
+
 <div class="vide"></div>
 
 <div class="container mt-5 mb-5 rapport-container">
@@ -49,7 +52,7 @@
             <label for="quantite">Quantité donnée (en grammes)</label>
             <input type="number" class="form-control" id="quantite" name="quantite" placeholder="Quantité donnée en grammes" required>
         </div>
-        
+
 
         <div class="form-group mb-3">
             <label for="commentaire">Commentaire</label>

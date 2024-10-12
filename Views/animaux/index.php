@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/Asset/css/nosanimaux.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/nosanimaux.css">';
+?>
+
 <div class="vide"></div>
 <h1 class="text-center mb-5">Nos Animaux</h1>
 

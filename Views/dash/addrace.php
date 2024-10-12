@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/Asset/css/dashindex.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
+?>
+
 <div class="vide"></div>
 
 <section class="container">
@@ -11,7 +14,7 @@
                     </div>
                     <div class="card-body">
                         <form action="/DashRace/ajoutRace" method="POST">
-                            
+
                             <div class="mb-3">
                                 <label for="race" class="form-label">Nom de la race</label>
                                 <input type="text" class="form-control" id="race" name="race" placeholder="Entrez le nom de la race" required>

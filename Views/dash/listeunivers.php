@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/Asset/css/dashindex.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
+?>
+
 <div class="vide"></div>
 <div class="container mt-5 mb-5 univers-container">
     <h2 class="mb-4">Gestion des Univers</h2>

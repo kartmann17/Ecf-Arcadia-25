@@ -14,10 +14,12 @@ class DashRapportController extends DashController
         $RapportModel = new RapportModel();
         $rapports = $RapportModel->findAll();
         if (isset($_SESSION['id_User'])) {
+            $title = "Liste Rapports";
             $this->render(
                 'dash/listerapport',
                 [
-                    'rapports' => $rapports
+                    'rapports' => $rapports,
+                    'title' => $title
                 ]
             );
         } else {
@@ -68,7 +70,10 @@ class DashRapportController extends DashController
                 if ($sante < 0 || $sante > 10) {
                     $_SESSION['error_message'] = "La santé de l'animal doit être entre 0 et 10.";
                     // Afficher à nouveau le formulaire avec les animaux
-                    return $this->render('dash/ajoutrapport', ['animaux' => $animaux]);
+                    return $this->render('dash/ajoutrapport',
+                    [
+                        'animaux' => $animaux
+                    ]);
                 }
 
                 // Appel du modèle pour enregistrer le rapport
@@ -90,7 +95,7 @@ class DashRapportController extends DashController
                 return $this->render('dash/ajoutrapport', ['animaux' => $animaux]);
             }
         }
-        return $this->render('dash/ajoutrapport', ['animaux' => $animaux]);
+
     }
 
     //mise a jour d'un rapport

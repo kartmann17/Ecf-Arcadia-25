@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/Asset/css/nosservices.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/nosservices.css">';
+?>
+
 <div class="vide"></div>
 <div class="title">
     <h1 class="text-center mt-5"> Tous Nos Services</h1>

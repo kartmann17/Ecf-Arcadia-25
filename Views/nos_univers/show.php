@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="/Asset/css/nosunivers.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/nosunivers.css">';
+?>
 <div class="vide"></div>
 <div class="container my-5">
     <h2 class="text-center mb-4">Animaux de l'habitat : <?= htmlspecialchars($Habitat->nom, ENT_QUOTES, 'UTF-8') ?></h2>

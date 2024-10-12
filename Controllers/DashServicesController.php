@@ -40,6 +40,7 @@ class DashServicesController extends DashController
             }
         }
         if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé') {
+
             $this->render('dash/index', [
                 'section' => 'addservice'
             ]);
@@ -131,6 +132,7 @@ class DashServicesController extends DashController
     {
         if (isset($_SESSION['id_User'])) {
             // Affichage de la page des services
+
             $this->render("dash/addservice");
         } else {
             http_response_code(404);

@@ -9,6 +9,7 @@ class AnimauxController extends Controller
 {
     public function index()
     {
+        $title = "Nos Animaux";
         $AnimauxModels = new AnimauxModel();
         $animaux = $AnimauxModels->findAll();
         $universModels = new UniversModel();
@@ -18,7 +19,8 @@ class AnimauxController extends Controller
         $this->render("animaux/index", [
             'animaux' => $animaux,
             'univers' => $univers,
-            'races' => $races
+            'races' => $races,
+            'title' => $title
         ]);
     }
 

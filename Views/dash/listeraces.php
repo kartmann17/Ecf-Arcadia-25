@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/Asset/css/dashindex.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
+?>
+
 <div class="vide"></div>
 <div class="container mt-5 mb-5 races-container">
     <h2 class="mb-4">Gestion des Races</h2>

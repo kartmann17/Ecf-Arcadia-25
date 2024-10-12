@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/Asset/css/mainaccueil.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/mainaccueil.css">';
+?>
+
 <video id="videoAC" src="/Asset/Images/Videos/20079364-uhd_2560_1440_30fps.mp4" autoplay loop muted></video>
 <div class="title d-flex justify-content-center">
   <h1>Découvrez les Merveilles du Monde <br> Animal: Une Journée Magique au Zoo!</h1>
@@ -22,7 +25,7 @@
     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10522.271462987312!2d-3.4074777!3d47.8122465!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x481058961f2dd7e5%3A0x28874405b9bc370!2sLes%20Terres%20de%20Nata%C3%A9!5e1!3m2!1sfr!2sfr!4v1722681323943!5m2!1sfr!2sfr"
     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
     referrerpolicy="no-referrer-when-downgrade">
-  Maps Zoo</iframe>
+    Maps Zoo</iframe>
 </section>
 <!-- fin section 1 prés du zoo-->
 

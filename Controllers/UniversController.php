@@ -8,9 +8,13 @@ class UniversController extends Controller
 {
     public function index()
     {
+        $title = "Nos Univers";
         $UniversModel = new UniversModel();
         $univers = $UniversModel->findAll();
-        $this->render('nos_univers/index', ['univers' => $univers]);
+        $this->render('nos_univers/index', [
+            'univers' => $univers,
+            'title' => $title
+        ]);
     }
 
 

@@ -11,12 +11,14 @@ class ContactsController extends Controller
     // affichege de la page contacts
     public function index()
     {
-        $this->render('contacts/index');
+        $title = "Contacts";
+        $this->render('contacts/index', compact('title'));
     }
 
     //affichage des contacts dans le dashboard
     public function afficheMessage()
     {
+
         $ContactsModel = new ContactsModel();
         $contacts = $ContactsModel->findAll();
         $this->render("dash/listecontact", ['contacts' => $contacts]);

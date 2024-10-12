@@ -1,10 +1,12 @@
-<link rel="stylesheet" href="/Asset/css/dashindex.css">
+<?php
+echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
+?>
 <div class="vide"></div>
 
 <div class="container mt-5 mb-5 avis-container">
     <h2 class="mb-4">Liste des avis</h2>
 
-    
+
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead class="table-dark">
