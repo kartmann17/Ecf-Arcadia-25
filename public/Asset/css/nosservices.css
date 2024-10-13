@@ -43,6 +43,7 @@ body {
     border-radius: 15px;
     height: 450px;
     width: 90vw;
+    object-fit: cover;
 }
 
 .card {

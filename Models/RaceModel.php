@@ -24,11 +24,6 @@ class RaceModel extends Model
         );
     }
 
-    public function updateRace($id)
-    {
-        return $this->update($id);
-    }
-
 
     public function deleteById($id)
     {
