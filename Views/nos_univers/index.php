@@ -14,7 +14,7 @@ echo '<link rel="stylesheet" href="/Asset/css/nosunivers.css">';
         <div class="row">
             <!-- partie image -->
             <div class="col-12 mb-4 d-flex justify-content-center">
-                <img class="w-75 img-fluid" src="/Asset/Images/<?= htmlspecialchars($univer->img, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($univer->nom, ENT_QUOTES, 'UTF-8') ?>">
+                <img class="w-75 img-fluid" src="/Asset/Images/<?= htmlspecialchars($univer->img, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($univer->nom, ENT_QUOTES, 'UTF-8') ?>" loading="lazy">
             </div>
 
             <!-- partie texte -->
