@@ -10,7 +10,7 @@ class Main
     {
         session_start();
 
-        //génération d'un token CSRF si il n'existe pas 
+        //génération d'un token CSRF si il n'existe pas
         if (empty($_SESSION['csrf_token'])) {
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         }
@@ -31,9 +31,9 @@ class Main
         }
 
         //verification du jeton CSRF et assainit données POST si la requete est de type POST
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $csrfToken = $_POST['csrf_token'] ?? '';
-            $this->checkCsrfToken($csrfToken);
+            $this->chekCsrfToken($csrfToken);
 
             //Assainissement des données en POST
             $_POST = $this->sanitizeFormData($_POST);

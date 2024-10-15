@@ -7,12 +7,9 @@ use App\Models\ConnexionUserModel;
 class ConnexionUserController extends Controller
 {
     public function index()
-    {   // un token CSRF unique se génère pour chaque session User
-        if (empty($_SESSION['csrf_token'])) {
-            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-        }
+    {
         //ajout d'un token lors du chargement de la page
-        $this->render('connexion/index', ['csrf_token' => $_SESSION['csrf_token']]);
+        $this->render('connexion/index');
     }
 
 
