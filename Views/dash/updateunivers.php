@@ -14,6 +14,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                     <div class="card-body">
 
                         <form action="/DashUnivers/updateUnivers/<?= $univers->id ?>" method="POST">
+                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                             <input type="hidden" name="id" value="<?= $univers->id ?>" />
 
                             <!-- Nom -->

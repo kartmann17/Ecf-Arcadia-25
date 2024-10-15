@@ -14,6 +14,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                     </div>
                     <div class="card-body">
                         <form action="/DashRace/ajoutRace" method="POST">
+                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
                             <div class="mb-3">
                                 <label for="race" class="form-label">Nom de la race</label>

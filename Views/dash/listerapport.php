@@ -44,6 +44,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                             <div class="d-flex justify-content-between">
                                 <a href="/DashRapport/updateRapport/<?= $rapport->id ?>" class="btn btn-warning ">Modifier</a>
                                 <form action="/DashRapport/deleteRapport" method="POST" onsubmit="return confirm('êtes-vous sûr de vouloir supprimer ce rapport ?');">
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                     <input type="hidden" name="id" value="<?= $rapport->id ?>">
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                                 </form>

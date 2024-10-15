@@ -26,6 +26,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                     <td>
                         <div class="d-flex justify-content-between">
                             <form action="/DashValideAvis/validerAvis" method="POST" onsubmit="return confirm('etes vous sur de vouloir valider l\'avis ?');">
+                            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                 <input type="hidden" name="id" value="<?= $avis->id ?>">
                                 <button class="btn btn-success btn-sm">Valider</button>
                             </form>

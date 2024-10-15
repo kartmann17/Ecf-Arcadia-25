@@ -23,6 +23,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                                 <a href="/DashRace/updateRace/<?= $race->id ?>" class="btn btn-warning">Modifier</a>
 
                                 <form action="/DashRace/deleteRace" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette race ?');">
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                     <input type="hidden" name="id" value="<?= $race->id ?>">
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                                 </form>

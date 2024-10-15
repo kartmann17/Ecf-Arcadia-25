@@ -28,6 +28,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                         <td>
                             <div class="d-flex justify-content-between">
                                 <form action="/DashUser/deleteUser" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                     <input type="hidden" name="id" value="<?= $user->id ?>">
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                                 </form>

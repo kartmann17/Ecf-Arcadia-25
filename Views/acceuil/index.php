@@ -178,7 +178,7 @@ echo '<link rel="stylesheet" href="/Asset/css/mainaccueil.css">';
 
           <!-- Formulaire d'avis -->
           <form id="avisForm" action="/Avis/ajoutAvis" method="POST">
-
+          <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <!-- Etoiles -->
             <div class="rating mb-3">
               <input type="radio" name="etoiles" value="5" id="5" required>

@@ -8,6 +8,7 @@ echo'<link rel="stylesheet" href="/Asset/css/dashindex.css">';
     <h2 class="mb-4">Rapport animaux</h2>
 
     <form action="/DashRapport/ajoutRapport" method="POST">
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
         <div class="form-group mb-3">
             <label for="nom">Nom de l'animal</label>

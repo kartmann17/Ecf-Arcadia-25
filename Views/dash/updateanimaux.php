@@ -14,6 +14,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                     <div class="card-body">
 
                         <form action="/DashAnimaux/updateAnimal/<?= $animaux->id ?>" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                             <input type="hidden" name="id" value="<?= $animaux->id ?>" />
 
                             <!-- Nom de l'animal -->

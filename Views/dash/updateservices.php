@@ -15,6 +15,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
 
                         <!-- Formulaire -->
                         <form action="/DashServices/updateServices/<?= $services->id ?>" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
                             <!-- Nom -->
                             <div class="mb-3">

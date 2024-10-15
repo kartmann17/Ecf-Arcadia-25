@@ -8,6 +8,7 @@ echo '<link rel="stylesheet" href="../Asset/css/contact.css">';
 
 <form action="contacts/ajoutMessage" class="formulaire m-auto mb-5" method="post">
   <h1 class="text-center">Écrivez-nous</h1>
+  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
 
   <div class="mb-3">

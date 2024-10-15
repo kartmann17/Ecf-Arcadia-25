@@ -6,6 +6,7 @@ echo '<link rel="stylesheet" href="/Asset/css/pageConnexion.css">';
     <div class="formContainer">
         <div class="vide"></div>
         <form action="/connexionUser/connexion" method="POST">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <div>
                 <span class="inputLogo"><i class="fas fa-lock"></i></span>
                 <input type="text" class="form-control rounded-pill" name="email" placeholder="example@email.com" required>

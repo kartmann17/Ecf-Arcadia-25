@@ -30,6 +30,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                                 <a href="/DashServices/updateServices/<?= $service->id ?>" class="btn btn-warning ">Modifier</a>
 
                                 <form action="/DashServices/deleteService" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce service ?');">
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                     <input type="hidden" name="id" value="<?= $service->id ?>">
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                                 </form>
