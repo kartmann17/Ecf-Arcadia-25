@@ -35,7 +35,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                             <div class="d-flex justify-content-between">
                                 <a href="/DashAnimaux/updateAnimal/<?= $animal->id ?>" class="btn btn-warning ">Modifier</a>
                                 <form action="/DashAnimaux/deleteAnimal" method="POST" onsubmit="return confirm('êtes-vous sûr de vouloir supprimer cet animal ?');">
-                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                     <input type="hidden" name="id" value="<?= $animal->id ?>">
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                                 </form>

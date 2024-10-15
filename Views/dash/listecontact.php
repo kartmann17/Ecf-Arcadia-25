@@ -27,7 +27,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                         <td>
                             <div class="d-flex justify-content-between">
                                 <form action="/Contacts/deleteContact" method="POST" onsubmit="return confirm('êtes-vous sûr de vouloir supprimer cet avis ?');">
-                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                     <input type="hidden" name="id" value="<?= $contact->id ?>">
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                                 </form>

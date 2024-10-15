@@ -32,6 +32,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                             </form>
 
                             <form action="/DashValideAvis/deleteAvis" method="POST" onsubmit="return confirm('etes vous sur de vouloir supprimer cette avis ?');">
+                            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                 <input type="hidden" name="id" value="<?= $avis->id ?>">
                                 <button class="btn btn-danger btn-sm">Supprimer</button>
                             </form>
