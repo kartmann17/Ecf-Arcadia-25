@@ -8,6 +8,7 @@ class UniversModel extends Model
     protected $nom;
     protected $img;
     protected $description;
+    protected $commentaire;
 
     public function __construct()
     {
@@ -36,7 +37,7 @@ class UniversModel extends Model
 
     public function getDetails($id)
 {
-    $sql = "SELECT r.race, v.*, a.nom as nom_animal, a.age, a.img as img_animal, u.nom as nom_Habitat, u.img as img_Habitat
+    $sql = "SELECT r.race, v.*, a.nom as nom_animal, a.age, a.img as img_animal, u.nom as nom_Habitat, u.img as img_Habitat, u.description as description_Habitat
             FROM {$this->table} u
             LEFT JOIN Animal a ON u.id = a.id_habitat
             LEFT JOIN Veterinaire v ON a.id = v.id_animal
@@ -128,6 +129,26 @@ class UniversModel extends Model
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of commentaire
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+
+    /**
+     * Set the value of commentaire
+     *
+     * @return  self
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
 
         return $this;
     }

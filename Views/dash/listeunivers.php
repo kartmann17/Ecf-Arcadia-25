@@ -14,6 +14,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                     <th>Nom</th>
                     <th>Image</th>
                     <th>Description</th>
+                    <th>Commentaire</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -25,6 +26,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                             <img src="/Asset/Images/<?= $univer->img ?>" class="img-thumbnail" alt="image de <?= $univer->nom ?>" width="80" height="80" />
                         </td>
                         <td><?= $univer->description ?></td>
+                        <td><?= $univer->commentaire ?></td>
                         <td>
                             <div class="d-flex justify-content-between">
                                 <a href="/DashUnivers/updateUnivers/<?= $univer->id ?>" class="btn btn-warning ">Modifier</a>
