@@ -14,7 +14,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                     <th>Nom</th>
                     <th>Image</th>
                     <th>Description</th>
-                    <th>Commentaire</th>
+                    <th>Commentaire véto</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -32,9 +32,11 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                                 <a href="/DashUnivers/updateUnivers/<?= $univer->id ?>" class="btn btn-warning ">Modifier</a>
 
                                 <form action="/DashUnivers/deleteUniver" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet univers ?');">
-                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                     <input type="hidden" name="id" value="<?= $univer->id ?>">
-                                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                        <button class="btn btn-danger btn-sm">Supprimer</button>
+                                    <?php endif; ?>
                                 </form>
                             </div>
                         </td>

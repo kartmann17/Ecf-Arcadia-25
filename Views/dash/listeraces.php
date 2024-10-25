@@ -19,6 +19,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                     <tr>
                         <td><?= $race->race ?></td>
                         <td>
+                            <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'vétérinaire')): ?>
                             <div class="d-flex justify-content-between">
                                 <a href="/DashRace/updateRace/<?= $race->id ?>" class="btn btn-warning">Modifier</a>
 
@@ -28,6 +29,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                                     <button class="btn btn-danger btn-sm">Supprimer</button>
                                 </form>
                             </div>
+                            <?php endif;?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

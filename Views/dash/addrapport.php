@@ -1,5 +1,5 @@
 <?php
-echo'<link rel="stylesheet" href="/Asset/css/dashindex.css">';
+echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
 ?>
 
 <div class="vide"></div>
@@ -8,11 +8,16 @@ echo'<link rel="stylesheet" href="/Asset/css/dashindex.css">';
     <h2 class="mb-4">Rapport animaux</h2>
 
     <form action="/DashRapport/ajoutRapport" method="POST">
-    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
-        <div class="form-group mb-3">
-            <label for="nom">Nom de l'animal</label>
-            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom de l'animal" required>
+        <div class="mb-3">
+            <label for="role" class="form-label">Animal</label>
+            <select class="form-select" id="nom" name="nom" required>
+                <option value="">Sélectionner l'animal</option>
+                <?php foreach ($animaux as $animal): ?>
+                    <option value="<?= $animal->nom ?>"><?= $animal->nom ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
 
         <div class="form-group mb-3">
@@ -25,35 +30,35 @@ echo'<link rel="stylesheet" href="/Asset/css/dashindex.css">';
             <input type="text" class="form-control" id="status" name="status" placeholder="Ex : Actif, Repos, Malade..." required>
         </div>
 
+        <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'vétérinaire')): ?>
+            <div class="form-group mb-3">
+                <label for="nourriture">Nourriture recommandée</label>
+                <input type="text" class="form-control" id="nourriture" name="nourriture_reco" placeholder="Type de nourriture" >
+            </div>
 
-        <div class="form-group mb-3">
-            <label for="nourriture">Nourriture recommandée</label>
-            <input type="text" class="form-control" id="nourriture" name="nourriture_reco" placeholder="Type de nourriture" required>
-        </div>
-
-        <div class="form-group mb-3">
-            <label for="grammage">Grammage recommandé (en grammes)</label>
-            <input type="number" class="form-control" id="grammage" name="grammage_reco" placeholder="Grammage en grammes" required>
-        </div>
-
+            <div class="form-group mb-3">
+                <label for="grammage">Poid recommandé (en Kg)</label>
+                <input type="number" class="form-control" id="grammage" name="grammage_reco" placeholder="Grammage en grammes" >
+            </div>
+        <?php endif; ?>
 
         <div class="form-group mb-3">
             <label for="sante">Santé (sur 10)</label>
             <input type="number" class="form-control" id="sante" name="sante" min="0" max="10" placeholder="Niveau de santé (0-10)" required>
         </div>
 
+        <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'employé')): ?>
+            <div class="form-group mb-3">
+                <label for="repas">Repas donnés</label>
+                <input type="text" class="form-control" id="repas" name="repas_donnees" placeholder="Type de repas donné" required>
+            </div>
 
-        <div class="form-group mb-3">
-            <label for="repas">Repas donnés</label>
-            <input type="text" class="form-control" id="repas" name="repas_donnees" placeholder="Type de repas donné" required>
-        </div>
 
-
-        <div class="form-group mb-3">
-            <label for="quantite">Quantité donnée (en grammes)</label>
-            <input type="number" class="form-control" id="quantite" name="quantite" placeholder="Quantité donnée en grammes" required>
-        </div>
-
+            <div class="form-group mb-3">
+                <label for="quantite">Quantité donnée (en Kg)</label>
+                <input type="number" class="form-control" id="quantite" name="quantite" placeholder="Quantité donnée en grammes" required>
+            </div>
+        <?php endif; ?>
 
         <div class="form-group mb-3">
             <label for="commentaire">Commentaire</label>

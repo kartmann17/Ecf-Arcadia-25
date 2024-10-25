@@ -28,11 +28,19 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                                 <label for="description" class="form-label">Description</label>
                                 <textarea class="form-control" id="description" name="description" rows="3" placeholder="Ajoutez une description" required><?= ($services->description) ?></textarea>
                             </div>
+                            <!-- image actuelle -->
+                            <div class="mb-3">
+                                <label for="current_image" class="form-label">Image actuelle</label>
+                                <div class="mb-3">
+                                    <img src="/Asset/Images/<?= htmlspecialchars($services->img, ENT_QUOTES, 'UTF-8') ?>" alt="Image actuelle" class="img-fluid">
+                                </div>
+                            </div>
 
                             <!-- Image -->
                             <div class="mb-3">
-                                <label for="image" class="form-label">Image</label>
+                                <label for="image" class="form-label">Nouvelle image (optionnelle)</label>
                                 <input type="file" class="form-control" id="image" name="img" accept="image/*">
+                                <small class="form-text text-muted">Laissez ce champ vide si vous ne voulez pas changer l'image.</small>
                             </div>
 
                             <!-- Boutons d'action -->

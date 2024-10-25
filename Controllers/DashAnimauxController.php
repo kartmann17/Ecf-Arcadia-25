@@ -99,39 +99,72 @@ class DashAnimauxController extends DashController
 
     //mise a jour des animaux
     public function updateAnimal($id)
-    {
-        $AnimauxModels = new AnimauxModel();
-        $animaux = $AnimauxModels->find($id);
-        $universModels = new UniversModel();
-        $univers = $universModels->findAll();
-        $raceModels = new RaceModel();
-        $races = $raceModels->findAll();
+{
+    $animauxModel = new AnimauxModel();
+    $animaux = $animauxModel->find($id); // Récupération de l'animal existant
+    $universModel = new UniversModel();
+    $univers = $universModel->findAll();
+    $raceModel = new RaceModel();
+    $races = $raceModel->findAll();
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            // Vérification que tous les champs sont remplis
-            $AnimauxModels->hydrate($_POST);
+        // Hydrater le modèle avec les données POST
+        $animauxModel->hydrate($_POST);
 
-            // Appel du modèle pour l'insertion en base
-            if ($AnimauxModels->update($id)) {
+        // Vérification et traitement du fichier image
+        if (isset($_FILES['img']) && $_FILES['img']['error'] == UPLOAD_ERR_OK) {
+            $image = $_FILES['img']; // Utiliser le bon nom pour le champ d'upload
 
-                $_SESSION["success_message"] = "Animal modifié avec succès.";
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
+            if (in_array($image['type'], $allowedTypes)) {
+
+                $uploadDir = '/Asset/uploadImg/'; // Chemin vers le répertoire d'upload
+                $fileName = uniqid() . '-' . basename($image['name']); // Génération d'un nom de fichier unique
+                $filePath = $uploadDir . $fileName;
+                // Déplacement du fichier dans le répertoire d'upload
+                if (move_uploaded_file($image['tmp_name'], $filePath)) {
+                    // Suppression de l'ancienne image si elle existe
+                    if ($animaux->getImg()) {
+                        $oldImagePath = '/Asset/uploadImg/' . $animaux->getImg();
+                        var_dump($oldImagePath);
+                        die();
+                        if (file_exists($oldImagePath)) {
+                            unlink($oldImagePath); // Suppression de l'ancienne image
+                        }
+                    }
+
+                    // Mise à jour du chemin de l'image dans le modèle
+                    $animauxModel->setImg('/Asset/uploadImg/' . $fileName); // Stocke le chemin relatif
+                } else {
+                    $error = "Erreur lors du téléchargement de l'image.";
+                }
             } else {
-                $_SESSION["error_message"] = "Erreur lors de la modification.";
+                $error = "Type de fichier non supporté.";
             }
-
-            // Redirection après traitement
-            header("Location: /DashAnimaux/liste");
-            exit;
         }
-        $title = "Mise a jour animaux";
-        $this->render('dash/updateanimaux', [
-            'animaux' => $animaux,
-            'univers' => $univers,
-            'races' => $races,
-            'title' => $title
-        ]);
+
+        // Mise à jour en base de données
+        if ($animauxModel->update($id)) {
+            $_SESSION["success_message"] = "Animal modifié avec succès.";
+        } else {
+            $_SESSION["error_message"] = "Erreur lors de la modification.";
+        }
+
+        // Redirection après traitement
+        header("Location: /DashAnimaux/liste");
+        exit;
     }
+
+    // Affichage de la vue pour la mise à jour
+    $title = "Mise à jour animaux";
+    $this->render('dash/updateanimaux', [
+        'animaux' => $animaux,
+        'univers' => $univers,
+        'races' => $races,
+        'title' => $title
+    ]);
+}
 
     // affichage de la page des animaux dans le dashboard
     public function index()

@@ -16,13 +16,13 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                     <th>Date</th>
                     <th>Statut</th>
                     <th>Nourriture recommandée</th>
-                    <th>Grammage recommandé (g)</th>
+                    <th>Poids recommandé (Kg)</th>
                     <th>Santé (/10)</th>
                     <th>Repas donnés</th>
-                    <th>Quantité donnée (g)</th>
+                    <th>Quantité donnée (Kg)</th>
                     <th>Commentaire</th>
-                    <th>ID Utilisateur</th>
-                    <th>ID Animal</th>
+                    <th>Id user</th>
+                    <th>Nom</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -39,7 +39,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                         <td><?= $rapport->quantite ?></td>
                         <td><?= $rapport->commentaire ?></td>
                         <td><?= $rapport->id_User ?></td>
-                        <td><?= $rapport->id_animal ?></td>
+                        <td><?= $rapport->nom ?></td>
                         <td>
                             <div class="d-flex justify-content-between">
                                 <a href="/DashRapport/updateRapport/<?= $rapport->id ?>" class="btn btn-warning ">Modifier</a>

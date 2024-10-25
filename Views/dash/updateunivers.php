@@ -16,21 +16,21 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
                             <input type="hidden" name="id" value="<?= htmlspecialchars($univers->id, ENT_QUOTES, 'UTF-8') ?>" />
 
+                            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                             <!-- Nom -->
                             <div class="mb-3">
                                 <label for="nom" class="form-label">Univers</label>
                                 <input type="text" class="form-control" id="nom" name="nom" value="<?= htmlspecialchars($univers->nom, ENT_QUOTES, 'UTF-8') ?>" placeholder="Nom de l'habitat" required>
                             </div>
 
-                            <!-- Afficher l'image actuelle -->
+                            <!-- image actuelle -->
                             <div class="mb-3">
                                 <label for="current_image" class="form-label">Image actuelle</label>
                                 <div class="mb-3">
-                                    <img src="/path/to/image/<?= htmlspecialchars($univers->img, ENT_QUOTES, 'UTF-8') ?>" alt="Image actuelle" class="img-fluid">
+                                    <img src="/Asset/Images/<?= htmlspecialchars($univers->img, ENT_QUOTES, 'UTF-8') ?>" alt="Image actuelle" class="img-fluid">
                                 </div>
                             </div>
 
-                            <!-- Champ pour télécharger une nouvelle image, pas obligatoire -->
                             <div class="mb-3">
                                 <label for="image" class="form-label">Nouvelle image (optionnelle)</label>
                                 <input type="file" class="form-control" id="image" name="img" accept="image/*">
@@ -42,12 +42,15 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                                 <label for="description" class="form-label">Description</label>
                                 <textarea class="form-control" id="description" name="description" rows="3" placeholder="Ajoutez une description" required><?= htmlspecialchars($univers->description, ENT_QUOTES, 'UTF-8') ?></textarea>
                             </div>
+                            <?php endif; ?>
 
+                            <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'vétérinaire')): ?>
                             <!-- Commentaire -->
                             <div class="mb-3">
                                 <label for="commentaire" class="form-label">Commentaire</label>
-                                <textarea class="form-control" id="commentaire" name="commentaire" rows="3" placeholder="Ajoutez un commentaire" required><?= htmlspecialchars($univers->commentaire, ENT_QUOTES, 'UTF-8') ?></textarea>
+                                <textarea class="form-control" id="commentaire" name="commentaire" rows="3" placeholder="Ajoutez un commentaire"><?= htmlspecialchars($univers->commentaire, ENT_QUOTES, 'UTF-8') ?></textarea>
                             </div>
+                            <?php endif; ?>
 
                             <!-- Boutons -->
                             <div class="d-flex justify-content-between">

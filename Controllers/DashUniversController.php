@@ -18,7 +18,7 @@ class DashUniversController extends DashController
             $nom = $_POST['nom'] ?? '';
             $img = $_POST['img'] ?? '';
             $description = $_POST['description'] ?? '';
-            
+
 
 
             //Verification de tous les champ sont remplis

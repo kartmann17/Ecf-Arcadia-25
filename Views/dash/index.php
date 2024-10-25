@@ -14,11 +14,11 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/DashAnimaux" class="admin-link">Ajout d'animaux</a>
                 </div>
-            <?php endif; ?>
 
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashAnimaux/liste" class="admin-link">Liste des animaux</a>
-            </div>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashAnimaux/liste" class="admin-link">Liste des animaux</a>
+                </div>
+            <?php endif; ?>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/DashRace" class="admin-link">Ajout Race</a>
@@ -29,7 +29,7 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                 <a href="/DashRace/liste" class="admin-link">Liste Races</a>
             </div>
 
-            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin' ): ?>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/DashUser" class="admin-link">Ajout d'utilisateur</a>
                 </div>
@@ -44,8 +44,9 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/DashUnivers" class="admin-link">Ajout Univers</a>
                 </div>
+            <?php endif; ?>
 
-
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'vétérinaire' || $_SESSION['role'] ==='admin'): ?>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/DashUnivers/liste" class="admin-link">Liste des univers</a>
                 </div>
@@ -80,18 +81,12 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/DashValideAvis/liste" class="admin-link">Liste des avis</a>
                 </div>
+
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/Contacts/afficheMessage" class="admin-link">Liste contact</a>
+                </div>
+
             <?php endif; ?>
-            <!-- <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="#" class="admin-link">Ajout Rapport Univers</a>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashRapport/listeRapportU" class="admin-link">Liste rapport Univers</a>
-            </div> -->
-
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Contacts/afficheMessage" class="admin-link">Liste contact</a>
-            </div>
-
         </div>
     </div>
 

@@ -29,10 +29,19 @@ echo '<link rel="stylesheet" href="/Asset/css/dashindex.css">';
                                 <input type="number" class="form-control" id="age" name="age" value="<?= $animaux->age ?>" placeholder="Âge de l'animal" required>
                             </div>
 
+                            <!-- image actuelle -->
+                            <div class="mb-3">
+                                <label for="current_image" class="form-label">Image actuelle</label>
+                                <div class="mb-3">
+                                    <img src="/Asset/Images/<?= htmlspecialchars($animaux->img, ENT_QUOTES, 'UTF-8') ?>" alt="Image actuelle" class="img-fluid">
+                                </div>
+                            </div>
+
                             <!-- URL de l'image -->
                             <div class="mb-3">
-                                <label for="image" class="form-label">Image</label>
-                                <input type="file" class="form-control" id="image" name="img" accept="image/*" required>
+                                <label for="image" class="form-label">Nouvelle image (optionnelle)</label>
+                                <input type="file" class="form-control" id="image" name="img" accept="image/*">
+                                <small class="form-text text-muted">Laissez ce champ vide si vous ne voulez pas changer l'image.</small>
                             </div>
 
                             <!-- Race de l'animal -->
